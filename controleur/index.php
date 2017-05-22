@@ -7,7 +7,7 @@
  */
 
     if(!empty($_GET['page'])){
-        if ($_GET['page']=='accueil' || empty($_GET['page'])){
+        if ($_GET['page']=='accueil'){
             include '../vue/accueil.html';
         }elseif ($_GET['page']=='connexion'){
             include '../vue/connect.html';
@@ -16,7 +16,8 @@
         }elseif ($_GET['page']=='panier'){
             if($_COOKIE['connecte']=="unregistred")
                 include '../vue/connect.html';
-
+            else
+                include '../vue/panier.html';
         }elseif ($_GET['page']=='achat'){
 
         }elseif ($_GET['page']=='liste') {
@@ -29,4 +30,5 @@
             include '../vue/accueil.html';
         }
     }
+
 ?>
