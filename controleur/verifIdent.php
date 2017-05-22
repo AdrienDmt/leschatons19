@@ -7,14 +7,10 @@
  */
 
     if (!empty($_POST)) {
-        foreach ($_POST as $key => $value){
-            if ($key == "mail"){
                 global $login;
-                $login = $value;
-            }elseif ($key == "psw"){
+                $login = htmlentities($_POST['psw']);
                 global $psw;
-                $psw = $value;
-            }
+                $psw = htmlentities($_POST['login']);
         }
         echo "test";
         echo $login.' '.$psw;
