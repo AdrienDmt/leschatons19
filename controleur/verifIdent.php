@@ -18,6 +18,7 @@
                 $user = recupererUser($mail, $psw);
                 setcookie("connecte", $user.login,time()+(60*60));
             }else{
+                log("on est ici");
                 header('Location:inscription.html');
                 exit;
             }
