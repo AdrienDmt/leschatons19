@@ -1,0 +1,43 @@
+
+body {
+	width: 100vw;
+}
+#Banderole{
+	background-color: #D8D8D8;
+
+}
+header{
+	margin: auto;
+	padding: 0;
+	background-color: #D8D8D8;
+}
+section{
+	background-image: url("../data/chaton-01.jpg");
+	margin: 0;
+	width: 100vw;
+	height: 70vh;
+}
+footer{
+	margin: 0;
+	background-color: pink;
+}
+#Barre_recherche{
+	margin: 0;
+	padding: 0;
+}
+nav ul{
+	padding: 0
+}
+nav ul li{
+  list-style: none;
+  display: inline-block;
+  height: 70px;
+  width: 100px;
+  text-align: center;
+  line-height: 70px;
+
+}
+nav ul li:hover{
+background-color:#A9D300;
+color: white;
+}
