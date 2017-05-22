@@ -12,13 +12,14 @@
         global $psw;
         $psw = htmlentities($_POST['login']);
         echo $login.' '.$psw;
-        include 'DAO.php';
+        /*include 'DAO.php';
         if (touverUser($mail, $psw)) {
             $user = recupererUser($mail, $psw);
-            setcookie("connecte", $user.login,time()+(60*60));
+            setcookie("connecte", $user.login,time()+(24*60*60));
         }else{
             header('Location:../vue/inscription.html');
             exit;
-        }
+        }*/
+        header('Location:../vue/inscription.html');
     }
 ?>
