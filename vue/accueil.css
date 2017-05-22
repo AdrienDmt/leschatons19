@@ -46,8 +46,8 @@ nav ul{
 nav ul li{
   list-style: none;
   display: inline-block;
-  height: 70px;
-  width: 100px;
+  height: 10vh;
+  width: 10vw;
   text-align: center;
   line-height: 70px;
 
@@ -69,6 +69,8 @@ color: white;
 #Barre{
 	margin-top: 20vh;
 	width: 30vw;
+
+
 }
 section{
 	background-image: url("../data/chaton-01.jpg");
@@ -76,12 +78,20 @@ section{
 	width: 100vw;
 	height: 70vh;
 
+
 }
 p{
 	margin: 0;
 }
 footer{
-	margin: 0;
 	background-color: pink;
+	height: 15vh;
+
+}
+#recherche{
+
+	width: 20px;
+	height: 20px;
+	vertical-align: bottom;
 
 }

@@ -31,7 +31,7 @@
 	<section>
 		<div id="Barre_recherche">
 			<input type="search" id="Barre" placeholder="test..." name="name" value="">
-			<input type="button" name="name" value="">
+			<a href="#"><img src="../data/recherche.png" alt="img recherche" id="recherche"></a>
 		</div>
 	</section>
 <footer>
