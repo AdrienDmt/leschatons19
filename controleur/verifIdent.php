@@ -13,7 +13,8 @@
                 $psw = $value;
             }
         }
-        echo $login." ".$psw;
+        echo "test";
+        echo '$login $psw';
             include 'DAO.php';
             if (touverUser($mail, $psw)) {
                 $user = recupererUser($mail, $psw);
