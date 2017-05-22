@@ -6,9 +6,18 @@
     <title>Connection</title>
 </head>
 <body>
-    <label for="zone_id">Identifiant</label>
-    <input type="text" name="login" id="zone_id"/>
-    <label for="zone_mdp">Mot de passe</label>
-    <input type="text" name="psw" id="zone_mdp"/>
+    <form method="post" action="../controleur/verifIdent.php">
+
+        <label for="zone_id">Identifiant :</label>
+        <input type="text" name="login" id="zone_id"/>
+        <br>
+        <label for="zone_mdp">Mot de passe : </label>
+        <input type="password" name="psw" id="zone_mdp"/>
+        <br>
+        <button type="button" value="SeConnecter">Se connecter</button>
+        <button type="button" value="S'inscrire">S'inscrire</button>
+
+    </form>
+
 </body>
 </html>
