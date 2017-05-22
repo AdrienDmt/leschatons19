@@ -5,9 +5,7 @@
  * Date: 22/05/17
  * Time: 11:03
  */
-echo "test";
     if (!empty($_POST)) {
-        echo "<p>teeeest</p>";
         foreach ($_POST as $key => $value){
             if ($key == "mail"){
                 $login = $value;
@@ -15,6 +13,7 @@ echo "test";
                 $psw = $value;
             }
         }
+        echo $login." ".$psw;
             include 'DAO.php';
             if (touverUser($mail, $psw)) {
                 $user = recupererUser($mail, $psw);
