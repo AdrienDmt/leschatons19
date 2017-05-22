@@ -5,6 +5,7 @@
  * Date: 22/05/17
  * Time: 11:03
  */
+    setcookie("connecte", "test",time()+(24*60*60));
     var_dump($_COOKIE);
     if (!empty($_POST['login'] || !empty($_POST['psw']))) {
         global $login;
