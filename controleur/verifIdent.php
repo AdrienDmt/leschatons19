@@ -6,6 +6,7 @@
  * Time: 11:03
  */
     if (!empty($_POST)) {
+        log("test");
         foreach ($_POST as $key => $value){
             if ($key == "mail"){
                 $login = $value;
