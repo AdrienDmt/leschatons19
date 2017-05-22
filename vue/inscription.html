@@ -5,6 +5,25 @@
     <title>Inscription</title>
 </head>
 <body>
-
+<form method="post" id="formulaire" action="../controleur/verifIdent.php">
+    <fieldset>
+        <label>Nom :</label>
+        <input type="text" name="nom" id="name"/>
+        <br>
+        <label>Prenom : </label>
+        <input type="text" name="prenom" id="firstName" />
+        <br>
+        <label>Mail : </label>
+        <input type="email" name="mail" id="mail" />
+        <br>
+        <label>Mot de Passe : </label>
+        <input type="password" name="psw" id="mdp" />
+        <br>
+        <label>Verif. Mot de Passe : </label>
+        <input type="password" name="pswVerif" id="mdpVerif" />
+        <br>
+        <input type="submit" value="Envoyer"/>
+    </fieldset>
+</form>
 </body>
 </html>
