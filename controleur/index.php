@@ -16,6 +16,7 @@
         }elseif ($_GET['page']=='panier'){
             if($_COOKIE['connecte']=="unregistred")
                 include '../vue/connect.html';
+
         }elseif ($_GET['page']=='achat'){
 
         }elseif ($_GET['page']=='liste') {
