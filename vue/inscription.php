@@ -39,6 +39,6 @@
 <footer>
 	<p>Le projet web de Julien, Brenda, Alexandre et Raphael.</p>
 </footer>
-<script src="../controleur/inscVerifMdp.js"/>
+<script src="../controleur/inscVerifMdp.js"></script>
 </body>
 </html>

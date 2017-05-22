@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="initial-scale=1, width=device-width"/>
     <title>Connection</title>
-    <link rel="stylesheet" href="connect.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="connect.css" media="screen" title="no title">
     <link rel="stylesheet" href="accueil.css">
 </head>
 <body>
