@@ -1,0 +1,23 @@
+form{
+  /*background-color: #009999;*/
+  margin: auto;
+  width: 50vw;
+  height: 40vh;
+  text-align: center;
+}
+fieldset label{
+  display:inline-block;
+	width:150px;
+  margin-top: 30px;
+}
+fieldset{
+  margin-top: 20vw;
+}
+input{
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+form a{
+  text-decoration: none;
+}
