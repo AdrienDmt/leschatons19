@@ -7,12 +7,19 @@
  */
     if (!empty($_POST)) {
         foreach ($_POST as $key => $value){
-            if ($key == "login"){
+            if ($key == "mail"){
                 $login = $value;
             }elseif ($key == "psw"){
                 $psw = $value;
             }
         }
-
+            include 'DAO.php';
+            if (touverUser($mail, $psw)) {
+                $user = recupererUser($mail, $psw);
+                setcookie("connecte", $user.login,time()+(60*60));
+            }else{
+                header('Location:inscription.html');
+                exit;
+            }
     }
 ?>
