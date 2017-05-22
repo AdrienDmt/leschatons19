@@ -1,66 +1,10 @@
 <?php
 
-// Classe utilisateur
+include_once "classes.php";
 
-class Utilisateur {
-  private $nom;
-  private $prenom;
-  private $mail;
-  private $mdp;
+// DAO classe Utilisateur
 
-  // Constructeur
-  function __construct($nom='', $prenom='', $mail='', $mdp='') {
-    if ($nom!= '') {
-      $this->nom=$nom;
-      $this->prenom=$prenom;
-      $this->mail=$mail;
-      $this->mdp=$mdp;
-    }
-  }
-
-
-
-  // Getters
-
-  function getNom() {
-    return $this->nom;
-  }
-
-  function getPrenom() {
-    return $this->prenom;
-  }
-
-  function getMail() {
-    return $this->mail;
-  }
-
-  function getMdp() {
-    return $this->mdp;
-  }
-
-  // Setters
-
-  function setNom($nom) {
-    $this->nom=$nom;
-  }
-
-  function setPrenom($prenom) {
-    $this->prenom=$prenom;
-  }
-
-  function setMail($mail) {
-    $this->mail=$mail;
-  }
-
-  function setMdp($mdp) {
-    $this->mdp=$mdp;
-  }
-
-}
-
-// DAO clase utilisateur
-
-class UtilisateurDAO {
+class DAO {
   private $db;
 
   function __construct() {
@@ -72,8 +16,10 @@ class UtilisateurDAO {
     }
   }
 
-  function create($util) {
-    var_dump($util);
+
+  //fonctions CRUD classe Utilisateur
+
+  function createUtilisateur($util) {
     $nom=$util->getNom();
     $prenom=$util->getPrenom();
     $mail=$util->getMail();
@@ -82,7 +28,7 @@ class UtilisateurDAO {
     $this->db->exec($req);
   }
 
-  function read($mail) {
+  function getUtilisateur($mail) {
     $req="SELECT * FROM utilisateur WHERE mail='$mail'";
     $ligne=$this->db->query($req);
     if ($ligne == FALSE) {
@@ -96,7 +42,7 @@ class UtilisateurDAO {
 
   // Sécurité : attention aux passages de code SQL (injections possibles)
 
-  function readAll($mail) {
+  function getAllUtilisateurs($mail) {
     $req="SELECT * FROM utilisateur";
     $ligne=$this->db->query($req);
     if ($ligne == FALSE) {
@@ -104,20 +50,42 @@ class UtilisateurDAO {
       exit("Erreur lors de la lecture");
     }
     else {
-      var_dump($ligne);
       $utils=$req->fetchAll(PDO::FETCH_CLASS, "Utilisateur");
       return $utils;
     }
   }
 
-  function delete($mail) {
+  function deleteUtilisateur($mail) {
     $req="DELETE FROM utilisateur WHERE mail='$mail'";
     $this->db->exec($req);
   }
 
-  function update($nom, $prenom, $mail, $mdp) {
+  function updateUtilisateur($nom, $prenom, $mail, $mdp) {
     $req="UPDATE utilisateur SET ('$nom', '$prenom', '$mail', '$mdp') WHERE mail='$mail'";
     $this->db->exec($req);
+  }
+
+  // fonctions CRUD classe Produit
+
+  function createProduit($prod) {
+      $reference=$prod->getReference();
+      $intitule=$prod->getIntitule();
+      $prix=$prod->getPrix();
+      $photo=$prod->getPhoto();
+      $req="INSERT INTO produit VALUES('$intitule', '', $prix, $reference, '$photo')";
+      $this->db->exec($req);
+  }
+
+  function getProduits() {
+    $req="SELECT * FROM produit";
+    $ligne=$this->db->query($req);
+    return($ligne->fetchAll(PDO::FETCH_CLASS, "Produit"));
+  }
+
+  function getProduitsMinMax($prixMin, $prixMax) {
+    $req="SELECT * FROM produit WHERE (prix>=$prixMin AND prix<=$prixMax)";
+    $ligne=$this->db->query($req);
+    return($ligne->fetchAll(PDO::FETCH_CLASS, "Produit"));
   }
 }
 ?>
