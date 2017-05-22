@@ -1,32 +1,47 @@
 
 body {
 	width: 100vw;
+	margin: 0;
 }
 #Banderole{
 	background-color: #D8D8D8;
 
 }
 header{
-	margin: auto;
+	margin: 0;
 	padding: 0;
 	background-color: #D8D8D8;
+	overflow: hidden;
+
 }
-section{
-	background-image: url("../data/chaton-01.jpg");
-	margin: 0;
-	width: 100vw;
-	height: 70vh;
+header h1{
+	font-variant:small-caps;
+	text-align:center;
+  font-weight: normal;
 }
-footer{
-	margin: 0;
-	background-color: pink;
+#logo{
+	width: 60px;
+	height: 40px;
 }
-#Barre_recherche{
-	margin: 0;
-	padding: 0;
+#monCompte{
+	width: 40px;
+}
+
+nav{
+	background-color: #CED8F6;
+}
+nav h2 a:first-child{
+	text-decoration: none;
+	background-color: black
+}
+nav h2{
+
+  font-weight: normal;
 }
 nav ul{
-	padding: 0
+	padding-left: 0;
+	text-align:center;
+
 }
 nav ul li{
   list-style: none;
@@ -36,8 +51,37 @@ nav ul li{
   text-align: center;
   line-height: 70px;
 
+
+}
+nav ul li a {
+	text-decoration: none;
+
 }
 nav ul li:hover{
 background-color:#A9D300;
 color: white;
+}
+#Barre_recherche{
+	margin: auto;
+	padding: 0;
+	text-align: center;
+}
+#Barre{
+	margin-top: 20vh;
+	width: 30vw;
+}
+section{
+	background-image: url("../data/chaton-01.jpg");
+	margin: 0;
+	width: 100vw;
+	height: 70vh;
+
+}
+p{
+	margin: 0;
+}
+footer{
+	margin: 0;
+	background-color: pink;
+
 }
