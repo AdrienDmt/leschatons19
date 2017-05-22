@@ -7,18 +7,25 @@
  */
 
     if(!empty($_GET['page'])){
-        if ($_GET['page']=='acceuil' || empty($_GET['page'])){
+        if ($_GET['page']=='accueil' || empty($_GET['page'])){
             include '../vue/accueil.html';
         }elseif ($_GET['page']=='connexion'){
             include '../vue/connect.html';
         }elseif ($_GET['page']=='inscription'){
             include '../vue/inscription.html';
         }elseif ($_GET['page']=='panier'){
-
+            if($_COOKIE['connecte']=="unregistred")
+                include '../vue/connect.html';
         }elseif ($_GET['page']=='achat'){
 
         }elseif ($_GET['page']=='liste') {
+            if(empty($_GET['categorie']))
+                include 'index.php?page=error';
 
+        }elseif ($_GET['page']=='error'){
+
+        }else{
+            include '../vue/accueil.html';
         }
     }
 ?>
