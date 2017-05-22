@@ -7,12 +7,10 @@
  */
 
     if (!empty($_POST)) {
-                global $login;
-                $login = htmlentities($_POST['psw']);
-                global $psw;
-                $psw = htmlentities($_POST['login']);
-        }
-        echo "test";
+        global $login;
+        $login = htmlentities($_POST['psw']);
+        global $psw;
+        $psw = htmlentities($_POST['login']);
         echo $login.' '.$psw;
             include 'DAO.php';
             if (touverUser($mail, $psw)) {
