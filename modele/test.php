@@ -10,7 +10,7 @@ var_dump($util);
 
 $dao=new UtilisateurDAO();
 $dao->create($util);
-$util2=$dao->read('c');
+$util2=$dao->read("c");
 var_dump($util2);
 
 

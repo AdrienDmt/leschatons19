@@ -9,11 +9,13 @@ class Utilisateur {
   private $mdp;
 
   // Constructeur
-  function __construct($nom, $prenom, $mail, $mdp) {
-    $this->nom=$nom;
-    $this->prenom=$prenom;
-    $this->mail=$mail;
-    $this->mdp=$mdp;
+  function __construct($nom='', $prenom='', $mail='', $mdp='') {
+    if ($nom!= '') {
+      $this->nom=$nom;
+      $this->prenom=$prenom;
+      $this->mail=$mail;
+      $this->mdp=$mdp;
+    }
   }
 
 
@@ -86,13 +88,12 @@ class UtilisateurDAO {
     if ($ligne == FALSE) {
       var_dump($this->db->errorInfo());
       exit("Erreur lors de la lecture");
-    }
-    else {
-      var_dump($ligne);
+    } else {
       $util=$ligne->fetchAll(PDO::FETCH_CLASS, "Utilisateur");
       return $util;
     }
   }
+
   // Sécurité : attention aux passages de code SQL (injections possibles)
 
   function readAll($mail) {
@@ -104,7 +105,7 @@ class UtilisateurDAO {
     }
     else {
       var_dump($ligne);
-      $utils=$ligne->fetchAll(PDO::FETCH_CLASS, "Utilisateur");
+      $utils=$req->fetchAll(PDO::FETCH_CLASS, "Utilisateur");
       return $utils;
     }
   }
@@ -118,7 +119,5 @@ class UtilisateurDAO {
     $req="UPDATE utilisateur SET ('$nom', '$prenom', '$mail', '$mdp') WHERE mail='$mail'";
     $this->db->exec($req);
   }
-
 }
-
 ?>
