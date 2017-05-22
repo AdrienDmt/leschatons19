@@ -9,10 +9,10 @@
     <form method="post" id="formulaire" action="../controleur/verifIdent.php">
         <fieldset>
             <label for="zone_id">Identifiant :</label>
-            <input type="text" name="login" id="zone_id"/>
+            <input type="text" name="login" id="zone_id" form="formulaire"/>
             <br>
             <label for="zone_mdp">Mot de passe : </label>
-            <input type="password" name="psw" id="zone_mdp"/>
+            <input type="password" name="psw" id="zone_mdp" form="formulaire"/>
             <br>
             <input type="button" value="Se Connecter" form="formulaire"/>
         </fieldset>
