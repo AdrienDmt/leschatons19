@@ -14,7 +14,7 @@
             }
         }
         echo "test";
-        echo '$login $psw';
+        echo $login.' '.$psw;
             include 'DAO.php';
             if (touverUser($mail, $psw)) {
                 $user = recupererUser($mail, $psw);
