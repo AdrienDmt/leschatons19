@@ -6,3 +6,8 @@ Projet d'application web pour un site transactionnel de vente en ligne (projet t
 
 Le projet est sous forme de MVC.
 
+## Documentation
+
+Voir le dossier Google Drive partagé pour trouver les infos d'aide pour SQLite.
+
+
