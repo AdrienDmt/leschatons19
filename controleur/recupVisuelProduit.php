@@ -6,9 +6,14 @@
  * Time: 09:36
  * Description : Générer les images de produits qui seront affichées sur les pages web.
  *
- *version1 : Generation de simples images avec lorem
+ *version1 : Recupere les images dans le dossier ( a renseigner au moment de l'appel). Utiliser scanImage.
  */
 
+/**
+ * @param $groupDir : dossier où se trouve les autres dossiers (categories?) contenant les images.
+ * @return mixed
+ *
+ */
     function recupererImages($groupDir){
         if($dh = opendir($groupDir)){
             while(($file = readdir($dh))!= false){
@@ -22,6 +27,10 @@
         return $jpg[0];
     }
 
+/**
+ * @param $dataDir : Dossier contenant toutes les photos.
+ * @return array : Tableau contenant tout les chemins relatifs vers les images.
+ */
     function scanImage($dataDir){
         if(is_dir($dataDir)){
             if($dh = opendir($dataDir)){
