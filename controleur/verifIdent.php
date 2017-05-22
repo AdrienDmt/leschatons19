@@ -6,11 +6,11 @@
  * Time: 11:03
  */
     var_dump($_POST);
-    if (!empty($_POST)) {
+    if (!empty($_POST['login'] || !empty($_POST['psw']))) {
         global $login;
-        $login = htmlentities($_POST['psw']);
+        $login = htmlentities($_POST['login']);
         global $psw;
-        $psw = htmlentities($_POST['login']);
+        $psw = htmlentities($_POST['psw']);
         echo $login.' '.$psw;
         /*include 'DAO.php';
         if (touverUser($mail, $psw)) {
