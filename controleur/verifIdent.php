@@ -5,7 +5,7 @@
  * Date: 22/05/17
  * Time: 11:03
  */
-    var_dump($_POST);
+    var_dump($_COOKIE);
     if (!empty($_POST['login'] || !empty($_POST['psw']))) {
         global $login;
         $login = htmlentities($_POST['login']);
