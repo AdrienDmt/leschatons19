@@ -17,9 +17,11 @@
             $user = recupererUser($mail, $psw);
             setcookie("connecte", $user.login,time()+(24*60*60));
         }else{
-            header('Location:../vue/inscription.html');
+            include '../vue/inscription.html';
             exit;
         }*/
-        header('Location:../vue/inscription.html');
+        include '../vue/inscription.html';
+    }else{
+        include '../vue/connect.html';
     }
 ?>
