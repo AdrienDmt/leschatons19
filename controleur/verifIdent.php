@@ -19,7 +19,7 @@
                 $user = recupererUser($mail, $psw);
                 setcookie("connecte", $user.login,time()+(60*60));
             }else{
-                header('Location:inscription.html');
+                header('Location:../vue/inscription.html');
                 exit;
             }
     }
