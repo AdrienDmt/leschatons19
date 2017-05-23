@@ -2,6 +2,17 @@
  * Created by julien on 23/05/17.
  */
 
+function init(){
+    console.log("test");
+    var categ = $_GET('categorie');
+    var data = encodeURIComponent(categ);
+    try{
+        ajax_get_request(placementDiv, '../controleur/recupVisuelProduit.php?categorie='+data, false);
+    }catch(err){
+        alert("erreur : "+err);
+    }
+}
+
 //========================https://www.creativejuiz.fr/blog/javascript/recuperer-parametres-get-url-javascript==================//
 function $_GET(param) {
     var vars = {};
@@ -20,15 +31,7 @@ function $_GET(param) {
 //=========================================================================================================================//
 
 
-function init(){
-    var categ = $_GET('categorie');
-    var data = encodeURIComponent(categ);
-    try{
-        ajax_get_request(placementDiv, '../controleur/recupVisuelProduit.php?categorie='+data, false);
-    }catch(err){
-        alert("erreur : "+err);
-    }
-}
+
 
 function ajax_get_request(callback, url, async)
 {

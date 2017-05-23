@@ -18,13 +18,19 @@ echo "\n === TESTS CLASSES ET DAO === \n\n";
 // -------------------
 
 // création, lecture, mise à jour et suppression d'un produit
-$prod = new Produit('1lqsdflhj', "chaton", 100, "chaton-01.jpg");
+$prod = new Produit("chaton", "animal poilu", 100, "reference bidon", "chaton-01.jpg");
+try {
+    $prod = new Produit("chaton", "animal poilu", 100, "reference bidon", "chaton-01.jpg", "argument en trop");
+}
+catch (Exception $e) {
+    echo "Erreur : ".$e->getMessage();
+}
+
 $prod2 = new Produit();
 assert($prod->getProduit()==$prod);
-assert($prod->getRef()=='1lqsdflhj');
+assert($prod->getRef()=="reference bidon");
 unset($prod, $prod2);
 echo "Produit OK\n";
-
 
 // création, lecture, mise à jour et suppression d'un utilisateur
 $util=new Utilisateur("casta", "raf", "r.c@free.fr", "mdptoutpourri");
@@ -35,7 +41,6 @@ assert($util->getPrenom()=="Pierre");
 unset($util, $util2);
 echo "Utilisateur OK\n";
 
-
 // création, lecture, mise à jour et suppression d'une categorie
 $cat1 = new Categorie("Mignons");
 $cat2 = new Categorie('Jolis');
@@ -45,7 +50,6 @@ $cat2->nom = "Miaou";
 assert($cat2->nom=="Miaou");
 unset($cat1, $cat2, $cat3);
 echo "Categorie OK\n";
-
 
 // création, lecture, mise à jour et suppression d'une ligne de panier
 $ligne1 = new LignePanier("r.c@frfdsddf", 'redgsg', 'sdfluhsd', 2, TRUE);
@@ -80,13 +84,17 @@ echo "\n --- Création DAO ---\n";
 $dao=new DAO();
 echo "DAO OK\n";
 
-// Attention : un utilisateur peut être recréé (écrasé) si aucun test n'est fait dans la création d'utilisateur!
+
 echo "\n --- Utilisateur ---\n";
 $user = new Utilisateur("viala", "julien", "vialaj@gmail.com", "plouf");
 $dao->createUtilisateur($user);
-var_dump($dao->getAllUtilisateurs()[1]);
-assert($dao->getAllUtilisateurs()[1]==$user);
-
+assert($dao->getAllUtilisateurs()[0]==$user);
+$dao->createUtilisateur($user);
+// Attention : un utilisateur peut être recréé (écrasé) si aucun test n'est fait dans la création d'utilisateur!
+$utilisateurs = $dao->getAllUtilisateurs();
+foreach ($utilisateurs as $key => $util) {
+    $dao->deleteUtilisateur($util->mail);
+}
 echo "Utilisateur DAO OK\n";
 
 
