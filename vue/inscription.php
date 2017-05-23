@@ -28,10 +28,10 @@
         <input type="email" name="mail" id="mail" />
         <br>
         <label>Mot de Passe : </label>
-        <input type="password" name="psw" id="mdp" value=""/>
+        <input type="password" name="psw" id="mdp"/>
         <br>
         <label>Verif. Mot de Passe : </label>
-        <input type="password" name="pswVerif" id="mdpVerif" value=""/>
+        <input type="password" name="pswVerif" id="mdpVerif"/>
         <br>
         <input type="submit" value="Envoyer"/>
     </fieldset>
