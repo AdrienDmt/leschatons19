@@ -15,7 +15,7 @@
 		</div>
 		<nav id="menu">
 			<h2>Categories</h2>
-			<a href="../controleur/index.php?page=connection"><img src="../data/utilisateur.png" alt="Image compte" id="monCompte" />Mon compte</a>
+			<a href="../controleur/index.php?page=connexion"><img src="../data/utilisateur.png" alt="Image compte" id="monCompte" />Mon compte</a>
 			<a href="#"><img src="" alt="Image panier" /></a>
 			<ul>
 				<li><a href="#">Mignons</a></li>
@@ -30,7 +30,7 @@
 
 	<section>
 		<div id="Barre_recherche">
-			<input type="search" id="Barre" placeholder="test..." name="name" value="">
+			<input type="search" id="Barre" placeholder="Nom, references..." name="name" value="">
 			<a href="#"><img src="../data/recherche.png" alt="img recherche" id="recherche"></a>
 		</div>
 	</section>

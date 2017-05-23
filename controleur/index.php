@@ -8,26 +8,27 @@
 
     if(!empty($_GET['page'])){
         if ($_GET['page']=='accueil'){
-            include '../vue/accueil.html';
+            include '../vue/accueil.php';
         }elseif ($_GET['page']=='connexion'){
-            include '../vue/connect.html';
+            include '../vue/connect.php';
         }elseif ($_GET['page']=='inscription'){
-            include '../vue/inscription.html';
+            include '../vue/inscription.php';
         }elseif ($_GET['page']=='panier'){
             if($_COOKIE['connecte']=="unregistred")
-                include '../vue/connect.html';
+                include '../vue/connect.php';
             else
-                include '../vue/panier.html';
+                include '../vue/panier.php';
         }elseif ($_GET['page']=='achat'){
 
         }elseif ($_GET['page']=='liste') {
-            if(empty($_GET['categorie']))
-                include 'index.php?page=error';
-
+            //if(empty($_GET['categorie']))
+            //    include 'index.php?page=error';
+            //else
+                include '../vue/listeProduit.php';
         }elseif ($_GET['page']=='error'){
 
         }else{
-            include '../vue/accueil.html';
+            include '../vue/accueil.php';
         }
     }
 
