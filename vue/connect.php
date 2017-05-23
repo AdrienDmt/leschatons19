@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="initial-scale=1, width=device-width"/>
-    <title>Connection</title>
+    <title>Connexion</title>
     <link rel="stylesheet" href="../vue/connect.css" media="screen" title="no title">
     <link rel="stylesheet" href="../vue/accueil.css">
 </head>
@@ -18,7 +18,7 @@
     <form method="post" id="formulaire" action="../controleur/verifIdent.php">
 
         <fieldset>
-          <div class="hr"><span>Connection</span></div>
+          <div class="hr"><span>Connexion</span></div>
             <label for="zone_id">Identifiant :</label>
             <input type="text" name="login" id="zone_id"/>
             <br>
