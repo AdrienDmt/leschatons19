@@ -46,7 +46,11 @@ class DAO {
     // Sécurité : attention aux passages de code SQL (injections possibles)
 
     // Ajouter le test si on demande $mail et $mdp (cas d'une identification utilisateur)
-    $req="SELECT * FROM utilisateur WHERE mail='$mail'";
+    if ($mdp == '') {
+      $req="SELECT * FROM utilisateur WHERE mail='$mail'";
+    } else {
+      $req="SELECT * FROM utilisateur WHERE mail='$mail' AND mdp='$mdp'";
+    }
     $ligne=$this->db->query($req);
     if ($ligne == FALSE) {
       var_dump($this->db->errorInfo());
@@ -61,7 +65,6 @@ class DAO {
     // Renvoie un tableau contenant tous les utilisateurs
     $req="SELECT * FROM utilisateur";
     $ligne=$this->db->query($req);
-    var_dump($ligne);
     if ($ligne == FALSE) {
       var_dump($this->db->errorInfo());
       exit("Erreur lors de la lecture");
@@ -94,12 +97,13 @@ class DAO {
   function createProduit($prod) {
       // Ajoute un produit à la base, à condition que sa ref n'existe pas encore
       // Ne marche pas!!!
-      $reference=$prod->getReference();
+      $ref=$prod->getRef();
+      $complement=$prod->getComplement();
       $intitule=$prod->getIntitule();
       $prix=$prod->getPrix();
       $photo=$prod->getPhoto();
       // Vérifier validité de la ref, du prix (positif...)
-      $req="INSERT INTO produit VALUES('$intitule', '', $prix, $reference, '$photo')";
+      $req="INSERT INTO produit VALUES('$intitule', '$complement', $prix, $ref, '$photo')";
       $this->db->exec($req);
   }
 
@@ -115,6 +119,48 @@ class DAO {
     $req="SELECT * FROM produit WHERE (prix>=$prixMin AND prix<=$prixMax)";
     $ligne=$this->db->query($req);
     return($ligne->fetchAll(PDO::FETCH_CLASS, "Produit"));
+  }
+
+  function getProduitsCategorie($categorie) {
+    // Renvoie un tableau contenant les produits de la catégorie passée en paramètre
+    $req="SELECT * FROM produit WHERE categorie='$categorie'";
+    $ligne=$this->db->query($req);
+    return($ligne->fetchAll(PDO::FETCH_CLASS, "Produit"));
+  }
+
+  function deleteProduit($ref) {
+    // Supprime de la table produit le produit dont la référence est passée en paramètre
+    $req="DELETE FROM produit WHERE ref='$ref'";
+    $this->db->exec($req);
+    }
+
+    function updateProduit($intitule, $complement='', $prix, $ref, $photo) {
+      $req="UPDATE produit SET ($intitule, '$complement', '$prix', '$ref', '$photo') WHERE ref='$ref'";
+      $this->db->exec($req);
+    }
+  // ----------------------
+  // fonctions CRUD classe Categorie
+  // ----------------------
+
+  function getCategorie($nom) {
+    $req="SELECT * FROM categorie WHERE nom='$nom'";
+    $ligne=$this->db->query-($req);
+    return($ligne->fetchAll(PDO::FETCH_CLASS, "Categorie"));
+  }
+
+  function createCategorie($nom) {
+    $req="INSERT INTO categorie VALUES('$nom')";
+    $this->db->exec($req);
+  }
+
+  function deleteCategorie($nom) {
+    $req="DELETE FROM categorie WHERE nom='$nom'";
+    $this->db->exec($req);
+  }
+
+  function updateCategorie($nom) {
+    $req="UPDATE categorie SET ('$nom')";
+    $this->db->exec($req);
   }
 }
 ?>

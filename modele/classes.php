@@ -11,10 +11,11 @@ Auteurs : AG, RC.
 // Classe Utilisateur
 // ----------------------
 class Utilisateur {
-  private $nom;
-  private $prenom;
-  private $mail;
-  private $mdp;
+    
+  public $nom;
+  public $prenom;
+  public $mail;
+  public $mdp;
 
   function __construct($nom='', $prenom='', $mail='', $mdp='') {
     if ($nom!= '') {
@@ -60,7 +61,6 @@ class Utilisateur {
   }
 
 }
-// fin classe Utilisateur
 
 
 
@@ -70,25 +70,28 @@ class Utilisateur {
 
 class Produit {
 
-  private $reference;
-  private $intitule;
-  private $prix;
-  private $photo;
-  //  private $categories=array();
+  public $intitule;
+  public $complement;
+  public $prix;
+  public $ref;
+  public $photo;
 
-  function __construct($reference='', $intitule='', $prix=-1, $photo='') {
-    if ($reference != '') {
-      $this->reference=$reference;
+  function __construct($intitule='', $complement='', $prix=-1, $ref=-1, $photo='') {
       $this->intitule=$intitule;
+      $this->complement=$complement;
       $this->prix=$prix;
+      $this->ref=$ref;
       $this->photo=$photo;
-    }
   }
 
   // Getters
 
-  function getReference() {
-    return $this->reference;
+  function getRef() {
+    return $this->ref;
+  }
+
+  function getComplement() {
+    return $this->complement;
   }
 
   function getIntitule() {
@@ -108,7 +111,6 @@ class Produit {
   }
 
 }
-// Fin classe Produit
 
 
 // ----------------------
