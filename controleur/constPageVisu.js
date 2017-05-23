@@ -46,21 +46,25 @@ function ajax_get_request(callback, url, async)
 
 function placementDiv(result){
     var art = document.getElementsByTagName('article');
-    var lien = document.createElement("a");
-    lien.setAttribute("href","#");
-    lien.setAttribute("class","Chat");
-    var div = document.createElement("div");
-    var figure = document.createElement("figure");
-    var img = document.createElement("img");
-    img.setAttribute("src", result['photo']);
-    var figcapt = document.createElement("figcaption");
-    figcapt.innerHTML(result['intitule']);
-    var descript = document.createElement("p");
-    descript.innerHTML("")
-    figure.appendChild(img);
-    div.appendChild(figure);
-    div.appendChild(figcapt);
+    for($i=0;$i<8;$i++){
+        var lien = document.createElement("a");
+        lien.setAttribute("href","#");
+        lien.setAttribute("class","Chat");
+        var div = document.createElement("div");
+        var figure = document.createElement("figure");
+        var img = document.createElement("img");
+        img.setAttribute("src", result[0]['photo']);
+        var figcapt = document.createElement("figcaption");
+        figcapt.innerHTML(result[0]['intitule']);
+        var descript = document.createElement("p");
+        descript.innerHTML(result[0]['prix']);
+        figure.appendChild(img);
+        div.appendChild(figure);
+        div.appendChild(figcapt);
+        div.appendChild(descript);
+        lien.appendChild(div);
+        art.appendChild(lien);
+    }
 
-    art.appendChild()
 }
 
