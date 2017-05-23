@@ -23,7 +23,12 @@
         include '../modele/DAO.php';
         $util=new Utilisateur($nom, $prenom,$mail, $psw);
         $dao=new DAO();
-        $dao->createUtilisateur($util);
+        try{
+            $dao->createUtilisateur($util);
+        }catch(Exception $e){
+            echo "DEBUG : ".$e->getMessage();
+        }
+
         echo"<script language=\"javascript\">";
         echo"alert('Inscription complete ! Vous pouvez vous connecter ! ')";
         echo"</script>";
