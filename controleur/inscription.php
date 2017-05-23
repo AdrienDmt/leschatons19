@@ -13,11 +13,12 @@
         $psw = $_POST['psw'];
         $pswVerif = $_POST['pswVerif'];
         if(strcmp($psw,$pswVerif)!=0){
+            /*
             echo"<script language=\"javascript\">";
             echo"alert('Les mots de passes ne sont pas identiques')";
-            echo"</script>";
-            //include '../controleur/index.php?page=inscription';
-            exit;
+            echo"</script>";*/
+            include '../controleur/index.php?page=inscription';
+
         }
         include '../modele/DAO.php';
         $util=new Utilisateur($nom, $prenom,$mail, $psw);
