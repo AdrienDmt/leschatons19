@@ -26,8 +26,6 @@
         echo"<script language=\"javascript\">";
         echo"alert('Inscription complete ! Vous pouvez vous connecter ! ')";
         echo"</script>";
-
-
     }else{
         include '../controleur/index.php?page=inscription';
     }
