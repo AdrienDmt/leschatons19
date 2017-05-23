@@ -56,7 +56,8 @@ class DAO {
     if($existant == FALSE) {
       $req="INSERT INTO utilisateur VALUES('$nom', '$prenom', '$mail', '$mdp')";
       $resExec=$this->db->exec($req);
-      if ($resExec == FALSE)
+      var_dump($resExec);
+      if ($resExec === FALSE)
       throw new Exception("ERREUR : Impossible de créer l'utilisateur\n");
     } else
     throw new Exception("ERREUR : l'adresse mail ".$util->mail." existe déjà\n");
@@ -123,6 +124,12 @@ class DAO {
 
   function getProduitRef($ref) {
     // Renvoie le produit de référence $REF
+
+    // Ajouter test : si pas de ref passée, renvoyer une erreur
+    // ou alors renvoyer tous
+    // ou alors envoyer false
+    // ...
+
     $req="SELECT * FROM produit WHERE ref='$ref'";
     $ligne=$this->db->query($req);
     if ($ligne == FALSE) return FALSE;
@@ -202,6 +209,13 @@ class DAO {
   // fonctions CRUD classe Categorie
   // ----------------------
 
+
+  /*
+    Ajouter les tests :
+    -vérifier qu'on a bien les arguments passés en paramètre
+
+    Attention aux valeurs de retour et aux comportements d'erreur
+  */
   function getCategorie($nom) {
     $req="SELECT * FROM categorie WHERE nom='$nom'";
     $ligne=$this->db->query($req);

@@ -13,24 +13,31 @@ include_once "DAO.php";
 
 echo "\n === TESTS CLASSES ET DAO === \n\n";
 
+
+
 // -------------------
 // Test des classes
 // -------------------
+
 
 // création, lecture, mise à jour et suppression d'un produit
 $prod = new Produit("chaton", "animal poilu", 100, "reference bidon", "chaton-01.jpg");
 try {
     $prod = new Produit("chaton", "animal poilu", 100, "reference bidon", "chaton-01.jpg", "argument en trop");
+    /*
+        Étonnament, cet appel fonctionne, alors qu'il ne devrait pas,
+        c'est inattendu!!
+    */
 }
 catch (Exception $e) {
     echo "Erreur : ".$e->getMessage();
 }
-
 $prod2 = new Produit();
 assert($prod->getProduit()==$prod);
 assert($prod->getRef()=="reference bidon");
 unset($prod, $prod2);
 echo "Produit OK\n";
+
 
 // création, lecture, mise à jour et suppression d'un utilisateur
 $util=new Utilisateur("casta", "raf", "r.c@free.fr", "mdptoutpourri");
@@ -41,6 +48,7 @@ assert($util->getPrenom()=="Pierre");
 unset($util, $util2);
 echo "Utilisateur OK\n";
 
+
 // création, lecture, mise à jour et suppression d'une categorie
 $cat1 = new Categorie("Mignons");
 $cat2 = new Categorie('Jolis');
@@ -50,6 +58,7 @@ $cat2->nom = "Miaou";
 assert($cat2->nom=="Miaou");
 unset($cat1, $cat2, $cat3);
 echo "Categorie OK\n";
+
 
 // création, lecture, mise à jour et suppression d'une ligne de panier
 $ligne1 = new LignePanier("r.c@frfdsddf", 'redgsg', 'sdfluhsd', 2, TRUE);
@@ -63,6 +72,7 @@ $ligne2->valide=TRUE;
 unset($ligne1, $ligne2, $ligne3);
 echo "Ligne de Panier OK\n";
 
+
 // création, lecture, mise à jour et suppression d'une association appartient à
 $app1 = new AppartientA();
 $app2 = new AppartientA("plouf", "plic");
@@ -75,12 +85,16 @@ unset($app1, $app2, $app3);
 echo "AppartientA OK\n";
 
 
+
+
 // ----------------------------
 // Test des Méthodes de la DAO
 // ----------------------------
 
+
+// ----------------------------
 // création de la DAO
-echo "\n --- Création DAO ---\n";
+// ----------------------------
 try {
     $dao=new DAO();
 } catch (Exception $e) {
@@ -88,30 +102,33 @@ try {
 }   
 echo "DAO OK\n";
 
+
+// ----------------------------
 // utilisateur DAO
+// ----------------------------
 echo "\n --- Utilisateur ---\n";
 $user = new Utilisateur("viala", "julien", "vialaj@gmail.com", "plouf");
 try {
     $dao->createUtilisateur($user);
 } catch (Exception $e) {
-    echo "DEBUG : ".$e->getMessage();
+    echo "1 DEBUG : ".$e->getMessage();
 }
 assert($dao->getAllUtilisateurs()[0]==$user);
 try {
     $dao->createUtilisateur($user);
 } catch (Exception $e) {
-    echo "OK : ".$e->getMessage();
+    echo "2 OK : ".$e->getMessage();
 }
 $utilisateurs = $dao->getAllUtilisateurs();
 try {
     $dao->updateUtilisateur("hoareau", "brenda", "chatons", "idem");
 } catch (Exception $e) {
-    echo "OK : ".$e->getMessage();
+    echo "3 OK : ".$e->getMessage();
 }
 try {
     $dao->updateUtilisateur("hoareau", "brenda", "vialaj@gmail.com", "idem");
 } catch (Exception $e) {
-    echo "DEBUG : ".$e->getMessage();
+    echo "4 DEBUG : ".$e->getMessage();
 }
 assert($dao->getAllUtilisateurs()[0]->prenom == "brenda");
 foreach ($utilisateurs as $key => $util) {
@@ -120,7 +137,10 @@ foreach ($utilisateurs as $key => $util) {
 assert($dao->getAllUtilisateurs()== []);
 echo "Utilisateur DAO OK\n";
 
+
+// ----------------------------
 // produit DAO
+// ----------------------------
 echo "\n --- Create Produit ---\n";
 $prod1 = new Produit("chaton1", "animal tout doux", 10, "ch4T", "chaton.jpg");
 $prod2 = new Produit("chaton2", "animal poilu", 100, "reference bidon", "chaton-01.jpg", "argument en trop");
@@ -128,37 +148,67 @@ try {
     $dao->createProduit($prod1);
     $dao->createProduit($prod1);
 } catch (Exception $e) {
-    echo "DEBUG1 : ".$e->getMessage();
+    echo "1 DEBUG : ".$e->getMessage();
 }
 try {
     $dao->createProduit(new Produit());
 } catch (Exception $e) {
-    echo "OK2 : ".$e->getMessage();
+    echo "2 OK : ".$e->getMessage();
 }
 try {
     $dao->createProduit($prod2);
 } catch (Exception $e) {
-    echo "DEBUG : ".$e->getMessage();
+    echo "3 DEBUG : ".$e->getMessage();
 }
 try {
     $dao->createProduit(new Produit(123, 'poqsdf', -20));
 } catch (Exception $e) {
-    echo "OK4 : ".$e->getMessage();
+    echo "4 OK : ".$e->getMessage();
 }
-try { // ce test ne devrait pas passer, mais aucune erreur n'est relevée!!
+try {
+    // ce test ne devrait pas passer, mais aucune erreur n'est relevée!!
     $dao->createProduit($prod1);
 } catch (Exception $e) {
-    echo "OK5 : ".$e->getMessage();
+    echo "5 OK : ".$e->getMessage();
 }
 echo "Create Produit OK\n";
 
+
+// ----------------------------
+// produits tous
+// ----------------------------
+echo "\n --- Get Produits ---\n";
+try {
+    $prods = $dao->getProduits();
+} catch (Exception $e) {
+    echo "1 DEBUG : ".$e->getMessage();
+}
+echo "Nombre de produits : ".count($prods)."\n";
+try {
+    // Meme problème ici : on peut passer des paramètres, ça ne pose apparemment pas de problème ...
+    $dao->getProduits();
+} catch (Exception $e) {
+    echo "2 OK : ".$e->getMessage();
+}
+echo "Get Produits OK\n";
+
+
+// ----------------------------
 // produit par reference
+// ----------------------------
 echo "\n --- Get Produit Ref ---\n";
+
+/*
+    Ici deux erreurs : PHP Warning et PHP Notice...
+    Elles ne sont pas attrapées et n'interrompent pas l'exécution du script
+*/
+echo "Debut 6\n";
 try {
     $dao->getProduitRef();
 } catch (Exception $e) {
     echo "6 OK : ".$e->getMessage();
 }
+echo "Fin 6\n";
 try {
     $dao->getProduitRef("blabla");
 } catch (Exception $e) {
@@ -167,19 +217,44 @@ try {
 echo "Get Produit Ref OK\n";
 
 
-
+// ----------------------------
 // categorie DAO
+// ----------------------------
 echo "\n --- Categorie ---\n";
 try {
     $dao->createCategorie("Mignons");
 } catch (Exception $e) {
-    echo "9 DEBUG : ".$e->getMessage();
+    echo "1 DEBUG : ".$e->getMessage();
+}
+try {
+    $dao->createCategorie(123);
+} catch (Exception $e) {
+    echo "2 DEBUG : ".$e->getMessage();
+}
+echo "Debut 3 DEBUG : \n";
+try {
+    $dao->createCategorie();
+} catch (Exception $e) {
+    echo "3 OK : ".$e->getMessage();
+}
+echo "Fin 3 DEBUG : \n";
+try {
+    $dao->deleteCategorie();
+} catch (Exception $e) {
+    echo "4 OK : ".$e->getMessage();
+}
+echo "Fin 4 DEBUG : \n";
+try {
+    $dao->deleteCategorie("Mignons");
+} catch (Exception $e) {
+    echo "5 DEBUG : ".$e->getMessage();
 }
 echo "Categorie DAO OK\n";
 
 
-
+// ----------------------------
 // produit par categorie
+// ----------------------------
 echo "\n --- Get Produit Catégorie ---\n";
 try {
     $mignons = $dao->getProduitsCategorie("Mignons");
@@ -195,14 +270,15 @@ echo "Get Produit Cat OK\n";
 
 
 
-
+// ----------------------------
 // ligne panier DAO
-echo "\n --- Ligne Panier ---\n";
+// ----------------------------
+// echo "\n --- Ligne Panier ---\n";
 
-echo "Ligne Panier DAO Non Testé\n";
+// echo "Ligne Panier DAO Non Testé\n";
 
 
 
 echo "\n === FIN TESTS === \n\n";
 
- ?>
+?>
