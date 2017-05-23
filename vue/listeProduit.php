@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="../vue/accueil.css" media="screen" title="no title" >
   <link rel="stylesheet" href="../vue/listeProduit.css">
 </head>
+<script src="../controleur/constPageVisu.js"
 <body onload="init()">
   <header>
     <div id="Banderole">
@@ -118,6 +119,5 @@
   <footer>
     <p>Le projet web de Julien, Brenda, Alexandre et Raphael.</p>
   </footer>
-    <script src="../controleur/constPageVisu.js"
 </body>
 </html>
