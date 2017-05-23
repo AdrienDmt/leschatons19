@@ -15,10 +15,8 @@
         if(strcmp($psw,$pswVerif)!=0){
             echo"<script language=\"javascript\">";
             echo"alert('Les mots de passes ne sont pas identiques');";
-            echo "var psw = document.getElementById('mdp');";
-            echo "var pswVerif = document.getElementById('mdpVerif');";
-            echo"psw.value = \"\";";
-            echo"pswVerif.value = \"\";";
+            echo "document.getElementById('mdp').value=\"\";";
+            echo "document.getElementById('mdpVerif').value=\"\";";
             echo"psw.style.border=\"2px solid #FF0000\";";
             echo"pswVerif.style.border=\"2px solid #FF0000\";";
             echo"</script>";
