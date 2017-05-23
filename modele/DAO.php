@@ -93,14 +93,14 @@ class DAO {
     // Modifie un utilisateur existant avec les nouvelles valeurs
     // Vérifier que l'utilisateur existe au préalable!!
     // Ne marche pas!!!
-    $existant=getUtilisateur($mail);
+    $existant=$this->getUtilisateur($mail);
     if ($existant == FALSE)
-    throw new Exception("ERREUR : L'utilisateur d'adresse mail ".$mail." n'existe pas");
+        throw new Exception("ERREUR : L'utilisateur d'adresse mail ".$mail." n'existe pas\n");
     else {
-      $req="UPDATE utilisateur SET ('$nom', '$prenom', '$mail', '$mdp') WHERE mail='$mail'";
+      $req="UPDATE utilisateur SET nom='$nom', prenom='$prenom', mail='$mail', mdp='$mdp' WHERE mail='$mail'";
       $resExec=$this->db->exec($req);
-      if ($resExec == FALSE) {
-        throw new Exception("ERREUR : impossible de mettre à jour les informations de l'utilisateur d'adresse mail ".$mail);
+      if ($resExec == 0) {
+        throw new Exception("ERREUR : impossible de mettre à jour les informations de l'utilisateur d'adresse mail ".$mail."\n");
       }
       // regarder ce que rend exec (si erreur, le signaler)
     }
@@ -211,7 +211,7 @@ class DAO {
 
   function getCategorie($nom) {
     $req="SELECT * FROM categorie WHERE nom='$nom'";
-    $ligne=$this->db->query-($req);
+    $ligne=$this->db->query($req);
     return($ligne->fetchAll(PDO::FETCH_CLASS, "Categorie"));
   }
 
