@@ -1,14 +1,21 @@
 <?php
+/*
 
+Fichier PHP d'implémentation des classes.
+
+Auteurs : AG, RC.
+
+*/
+
+// ----------------------
 // Classe Utilisateur
-
+// ----------------------
 class Utilisateur {
   private $nom;
   private $prenom;
   private $mail;
   private $mdp;
 
-  // Constructeur
   function __construct($nom='', $prenom='', $mail='', $mdp='') {
     if ($nom!= '') {
       $this->nom=$nom;
@@ -18,10 +25,7 @@ class Utilisateur {
     }
   }
 
-
-
   // Getters
-
   function getNom() {
     return $this->nom;
   }
@@ -39,7 +43,6 @@ class Utilisateur {
   }
 
   // Setters
-
   function setNom($nom) {
     $this->nom=$nom;
   }
@@ -56,9 +59,14 @@ class Utilisateur {
     $this->mdp=$mdp;
   }
 
-} // fin classe Utilisateur
+}
+// fin classe Utilisateur
 
+
+
+// ----------------------
 // Classe Produit
+// ----------------------
 
 class Produit {
 
@@ -101,4 +109,6 @@ class Produit {
 
 }
 // Fin classe Produit
+
+
 ?>
