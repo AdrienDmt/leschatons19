@@ -27,6 +27,8 @@
         echo"<script language=\"javascript\">";
         echo"alert('Inscription complete ! Vous pouvez vous connecter ! ')";
         echo"</script>";
+        include '../controleur/index.php?';
+
     }else{
         $_GET['page'] = 'inscription';
         include '../controleur/index.php?';
