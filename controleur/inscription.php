@@ -15,9 +15,8 @@
         if(strcmp($psw,$pswVerif)!=0){
             echo"<script language=\"javascript\">";
             echo"alert('Les mots de passes ne sont pas identiques')";
-            echo "sleep(3)";
             echo"</script>";
-            include '../controleur/index.php?page=inscription';
+            //include '../controleur/index.php?page=inscription';
             exit;
         }
         include '../modele/DAO.php';
@@ -26,10 +25,7 @@
         $dao->createUtilisateur($util);
         echo"<script language=\"javascript\">";
         echo"alert('Inscription complete ! Vous pouvez vous connecter ! ')";
-        echo "sleep(3)";
         echo"</script>";
-
-
     }else{
         include '../controleur/index.php?page=inscription';
     }
