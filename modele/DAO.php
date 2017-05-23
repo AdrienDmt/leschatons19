@@ -19,7 +19,7 @@ class DAO {
   function __construct() {
     try {
         echo "\n Construceteur \n";
-      $this->db=new PDO('sqlite:test.db'); /* test.db est le nom de la base, peut être modifié */
+      $this->db=new PDO('sqlite:../modele/test.db'); /* test.db est le nom de la base, peut être modifié */
       /* var_dump($this->db); */
     } catch (PDOException $e) {
       exit("\nERREUR : ".$e->getMessage());
@@ -81,10 +81,11 @@ class DAO {
 
   function updateUtilisateur($nom, $prenom, $mail, $mdp) {
     // Modifie un utilisateur existant avec les nouvelles valeurs
-    // Vérifier que l'utilisateur existe !!
+    // Vérifier que l'utilisateur existe au préalable!!
     // Ne marche pas!!!
     $req="UPDATE utilisateur SET ('$nom', '$prenom', '$mail', '$mdp') WHERE mail='$mail'";
     $this->db->exec($req);
+    // regarder ce que rend exec (si erreur, le signaler)
   }
 
   // ----------------------
