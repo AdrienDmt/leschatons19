@@ -16,7 +16,7 @@
             echo"<script language=\"javascript\">";
             echo"alert('Les mots de passes ne sont pas identiques')";
             echo"</script>";
-            include '../controleur/index.php?page=inscription';
+            //include '../controleur/index.php?page=inscription';
             exit;
         }
         include '../modele/DAO.php';
