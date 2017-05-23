@@ -3,6 +3,7 @@
  */
 
 function init(){
+    console.log("test");
     var categ = $_GET('categorie');
     var data = encodeURIComponent(categ);
     try{
