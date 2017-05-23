@@ -21,7 +21,7 @@ echo "\n === TESTS CLASSES ET DAO === \n\n";
 $prod = new Produit('1lqsdflhj', "chaton", 100, "chaton-01.jpg");
 $prod2 = new Produit();
 assert($prod->getProduit()==$prod);
-assert($prod->getReference()=='1lqsdflhj');
+assert($prod->getRef()=='1lqsdflhj');
 unset($prod, $prod2);
 echo "Produit OK\n";
 

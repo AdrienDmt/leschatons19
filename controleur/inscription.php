@@ -17,7 +17,7 @@
             echo"alert('Les mots de passes ne sont pas identiques');";
             echo"</script>";
             $_GET['page'] = 'inscription';
-            include '../controleur/index.php?';
+            include '../controleur/index.php';
             exit;
         }
         include '../modele/DAO.php';
@@ -27,10 +27,12 @@
         echo"<script language=\"javascript\">";
         echo"alert('Inscription complete ! Vous pouvez vous connecter ! ')";
         echo"</script>";
-        include '../controleur/index.php?';
-
+        include '../controleur/index.php';
     }else{
+        echo"<script language=\"javascript\">";
+        echo"alert('Remplissez tout les champs svp')";
+        echo"</script>";
         $_GET['page'] = 'inscription';
-        include '../controleur/index.php?';
+        include '../controleur/index.php';
     }
 ?>

@@ -11,6 +11,7 @@ Auteurs : AG, RC.
 // Classe Utilisateur
 // ----------------------
 class Utilisateur {
+    
   public $nom;
   public $prenom;
   public $mail;
@@ -60,7 +61,6 @@ class Utilisateur {
   }
 
 }
-// fin classe Utilisateur
 
 
 
@@ -75,7 +75,6 @@ class Produit {
   public $prix;
   public $ref;
   public $photo;
-  //  private $categories=array();
 
   function __construct($intitule='', $complement='', $prix=-1, $ref=-1, $photo='') {
       $this->intitule=$intitule;
@@ -112,7 +111,6 @@ class Produit {
   }
 
 }
-// Fin classe Produit
 
 
 // ----------------------
