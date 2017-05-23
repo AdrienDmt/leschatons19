@@ -33,6 +33,7 @@
         echo"alert('Inscription complete ! Vous pouvez vous connecter ! ')";
         echo"</script>";
         $data[] = $dao->getAllUtilisateurs();
+        var_dump(sizeof($data));
         for($i=0;$i<sizeof($data);$i++){
             var_dump($data[$i]);
         }
