@@ -29,6 +29,9 @@
         echo"</script>";
         include '../controleur/index.php';
     }else{
+        echo"<script language=\"javascript\">";
+        echo"alert('Remplissez tout les champs svp')";
+        echo"</script>";
         $_GET['page'] = 'inscription';
         include '../controleur/index.php';
     }
