@@ -70,25 +70,25 @@ class Utilisateur {
 
 class Produit {
 
-  private $reference;
   private $intitule;
+  private $complement;
   private $prix;
+  private $ref;
   private $photo;
   //  private $categories=array();
 
-  function __construct($reference='', $intitule='', $prix=-1, $photo='') {
-    if ($reference != '') {
-      $this->reference=$reference;
+  function __construct($intitule='', $complement='', $prix=-1, $ref=-1, $photo='') {
       $this->intitule=$intitule;
+      $this->complement=$complement;
       $this->prix=$prix;
+      $this->ref=$ref;
       $this->photo=$photo;
-    }
   }
 
   // Getters
 
-  function getReference() {
-    return $this->reference;
+  function getRef() {
+    return $this->ref;
   }
 
   function getIntitule() {
