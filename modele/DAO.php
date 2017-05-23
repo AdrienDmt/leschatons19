@@ -18,10 +18,11 @@ class DAO {
 
   function __construct() {
     try {
+        echo "\n Construceteur \n";
       $this->db=new PDO('sqlite:test.db'); /* test.db est le nom de la base, peut être modifié */
       /* var_dump($this->db); */
     } catch (PDOException $e) {
-      exit("ERREUR : ".$e->getMessage());
+      exit("\nERREUR : ".$e->getMessage());
     }
   }
 
@@ -41,9 +42,11 @@ class DAO {
     // Ajouter les vérifications d'erreur et d'intégrité
   }
 
-  function getUtilisateur($mail) {
+  function getUtilisateur($mail, $mdp='') {
     // Renvoie un tableau contenant 1 utilisateur (si il existe)
     // Sécurité : attention aux passages de code SQL (injections possibles)
+
+    // Ajouter le test si on demande $mail et $mdp (cas d'une identification utilisateur)
     $req="SELECT * FROM utilisateur WHERE mail='$mail'";
     $ligne=$this->db->query($req);
     if ($ligne == FALSE) {
@@ -55,16 +58,17 @@ class DAO {
     }
   }
 
-  function getAllUtilisateurs($mail) {
+  function getAllUtilisateurs() {
     // Renvoie un tableau contenant tous les utilisateurs
     $req="SELECT * FROM utilisateur";
     $ligne=$this->db->query($req);
+    var_dump($ligne);
     if ($ligne == FALSE) {
       var_dump($this->db->errorInfo());
       exit("Erreur lors de la lecture");
     }
     else {
-      $utils=$req->fetchAll(PDO::FETCH_CLASS, "Utilisateur");
+      $utils=$ligne->fetchAll(PDO::FETCH_CLASS, "Utilisateur");
       return $utils;
     }
   }
@@ -78,6 +82,7 @@ class DAO {
   function updateUtilisateur($nom, $prenom, $mail, $mdp) {
     // Modifie un utilisateur existant avec les nouvelles valeurs
     // Vérifier que l'utilisateur existe !!
+    // Ne marche pas!!!
     $req="UPDATE utilisateur SET ('$nom', '$prenom', '$mail', '$mdp') WHERE mail='$mail'";
     $this->db->exec($req);
   }
@@ -88,6 +93,7 @@ class DAO {
 
   function createProduit($prod) {
       // Ajoute un produit à la base, à condition que sa ref n'existe pas encore
+      // Ne marche pas!!!
       $reference=$prod->getReference();
       $intitule=$prod->getIntitule();
       $prix=$prod->getPrix();

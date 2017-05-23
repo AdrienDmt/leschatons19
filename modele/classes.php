@@ -76,7 +76,7 @@ class Produit {
   private $photo;
   //  private $categories=array();
 
-  function __construct($reference='', $intitule='', $prix='', $photo='') {
+  function __construct($reference='', $intitule='', $prix=-1, $photo='') {
     if ($reference != '') {
       $this->reference=$reference;
       $this->intitule=$intitule;
@@ -109,6 +109,66 @@ class Produit {
 
 }
 // Fin classe Produit
+
+
+// ----------------------
+// Classe Categorie
+// ----------------------
+
+class Categorie
+{
+
+    public $nom;
+
+    function __construct($nom='')
+    {
+        $this->nom = $nom;
+    }
+
+}
+
+
+// ----------------------
+// Classe Ligne Panier
+// ----------------------
+
+class LignePanier
+{
+    public $mail;
+    public $ref;
+    public $date;
+    public $quantite;
+    public $valide;
+
+    function __construct($mail='', $ref='', $date='', $quantite=1, $valide=FALSE)
+    {
+        // constructeur peut être appelé vide, mais attention à la cohérence!!
+        $this->mail = $mail;
+        $this->ref = $ref;
+        $this->date = $date;
+        $this->quantite = $quantite;
+        $this->valide = $valide;
+    }
+
+}
+
+// ----------------------
+// Classe Appartient à
+// ----------------------
+
+class AppartientA
+{
+    public $nom;
+    public $ref;
+
+    function __construct($nom='', $ref='')
+    {
+        // constructeur peut être appelé vide, mais attention à la cohérence!!
+        $this->nom = $nom;
+        $this->ref = $ref;
+    }
+
+}
 
 
 ?>
