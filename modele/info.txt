@@ -53,3 +53,9 @@ function updateUtilisateur($nom, $prenom, $mail, $mdp)
 function createProduit($prod)
 function getProduits()
 function getProduitsMinMax($prixMin, $prixMax)
+function getProduitsCategorie($categorie)
+function getProduitsUtilisateur($mail)
+
+// Categorie
+
+function getCategorie($nom)
