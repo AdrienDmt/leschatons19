@@ -36,8 +36,14 @@ class DAO {
     $mail=$util->getMail();
     $mdp=$util->getMdp();
     // Vérifier que cet utilisateur n'existe pas déja !!
-    $req="INSERT INTO utilisateur VALUES('$nom', '$prenom', '$mail', '$mdp')";
-    $this->db->exec($req);
+    $existant=getUtilisateur($mail);
+    if($existant == FALSE)
+      exit("ERREUR : l'adresse mail ".$util->mail." existe déjà");
+    else
+      $req="INSERT INTO utilisateur VALUES('$nom', '$prenom', '$mail', '$mdp')";
+    $resExec=$this->db->exec($req);
+    if ($resExec == FALSE)
+      exit("ERREUR : Impossible de créer l'utilisateur");
     // Ajouter les vérifications d'erreur et d'intégrité
   }
 
@@ -54,7 +60,8 @@ class DAO {
     $ligne=$this->db->query($req);
     if ($ligne == FALSE) {
       var_dump($this->db->errorInfo());
-      exit("Erreur lors de la lecture");
+      echo("Erreur lors de la lecture");
+      return FALSE;
     } else {
       $util=$ligne->fetchAll(PDO::FETCH_CLASS, "Utilisateur");
       return $util;
@@ -78,16 +85,26 @@ class DAO {
   function deleteUtilisateur($mail) {
     // Supprime un utilisateur dont l'adresse mail est passée en paramètre
     $req="DELETE FROM utilisateur WHERE mail='$mail'";
-    $this->db->exec($req);
+    $resExec=$this->db->exec($req);
+    if($resExec == 0)
+      echo("L'utilisateur d'adresse mail ".$mail." n'existe pas");
   }
 
   function updateUtilisateur($nom, $prenom, $mail, $mdp) {
     // Modifie un utilisateur existant avec les nouvelles valeurs
     // Vérifier que l'utilisateur existe au préalable!!
     // Ne marche pas!!!
-    $req="UPDATE utilisateur SET ('$nom', '$prenom', '$mail', '$mdp') WHERE mail='$mail'";
-    $this->db->exec($req);
+    $existant=getUtilisateur($mail)
+    if ($existant == FALSE)
+      exit("ERREUR : L'utilisateur d'adresse mail ".$mail." n'existe pas");
+    else {
+      $req="UPDATE utilisateur SET ('$nom', '$prenom', '$mail', '$mdp') WHERE mail='$mail'";
+      $resExec=$this->db->exec($req);
+      if ($resExec == FALSE) {
+        exit("ERREUR : impossible de mettre à jour les informations de l'utilisateur d'adresse mail ".$mail);
+      }
     // regarder ce que rend exec (si erreur, le signaler)
+    }
   }
 
   // ----------------------
@@ -124,6 +141,13 @@ class DAO {
   function getProduitsCategorie($categorie) {
     // Renvoie un tableau contenant les produits de la catégorie passée en paramètre
     $req="SELECT * FROM produit WHERE categorie='$categorie'";
+    $ligne=$this->db->query($req);
+    return($ligne->fetchAll(PDO::FETCH_CLASS, "Produit"));
+  }
+
+  function getProduitsUtilisateur($mail) {
+    // Renvoie un tableau contenant les produits de l'utilisateur (donc son panier) dont le mail est passé en paramètre
+    $req="SELECT intitule, complement, prix, ref, photo FROM utilisateur NATURAL JOIN ligne_panier NATURAL JOIN produit WHERE mail='$mail'");
     $ligne=$this->db->query($req);
     return($ligne->fetchAll(PDO::FETCH_CLASS, "Produit"));
   }
