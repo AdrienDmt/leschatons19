@@ -57,10 +57,12 @@ class DAO {
       $req="INSERT INTO utilisateur VALUES('$nom', '$prenom', '$mail', '$mdp')";
       $resExec=$this->db->exec($req);
       var_dump($resExec);
-      if ($resExec === FALSE)
-      throw new Exception("ERREUR : Impossible de créer l'utilisateur\n");
-    } else
-    throw new Exception("ERREUR : l'adresse mail ".$util->mail." existe déjà\n");
+      if ($resExec === FALSE) {
+        throw new Exception("ERREUR : Impossible de créer l'utilisateur\n");
+      }
+    } else {
+      throw new Exception("ERREUR : l'adresse mail ".$util->mail." existe déjà\n");
+    }
   }
 
   function getAllUtilisateurs() {
