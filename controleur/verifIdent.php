@@ -12,9 +12,10 @@
         global $psw;
         $psw = htmlentities($_POST['psw']);
         echo $mail.' '.$psw;
-        include 'DAO.php';
-        if (touverUser($mail, $psw)) {
-            $user = recupererUser($mail, $psw);
+        include '../modele/DAO.php';
+        $dao=new DAO();
+        if ($dao->getUtilisateur($mail, $psw)) {
+            $user = $dao->getUtilisateur($mail);
             setcookie("connecte", $user.$mail,time()+(24*60*60));
         }else{
             $_GET['page'] = "inscription";
