@@ -6,22 +6,25 @@
  * Time: 11:03
  */
 
-    if (!empty($_POST['login'] || !empty($_POST['psw']))) {
-        global $login;
-        $login = htmlentities($_POST['login']);
+    if (!empty($_POST['mail'] || !empty($_POST['psw']))) {
+        global $mail;
+        $login = htmlentities($_POST['mail']);
         global $psw;
         $psw = htmlentities($_POST['psw']);
-        echo $login.' '.$psw;
-        /*include 'DAO.php';
+        echo $mail.' '.$psw;
+        include 'DAO.php';
         if (touverUser($mail, $psw)) {
             $user = recupererUser($mail, $psw);
-            setcookie("connecte", $user.login,time()+(24*60*60));
+            setcookie("connecte", $user.$mail,time()+(24*60*60));
         }else{
-            include '../vue/inscription.html';
+            $_GET['page'] = "inscription";
+            include '../controleur/index.php';
             exit;
-        }*/
-        include '../vue/inscription.html';
+        }
+        $_GET['page'] = "inscription";
+        include '../controleur/index.php';
     }else{
-        include '../vue/connect.html';
+        $_GET['page'] = "connexion";
+        include '../controleur/index.php';
     }
 ?>
