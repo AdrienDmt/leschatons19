@@ -21,7 +21,7 @@ class DAO {
       $this->db=new PDO('sqlite:../modele/data/base.db'); /* test.db est le nom de la base, peut être modifié */
       /* var_dump($this->db); */
     } catch (PDOException $e) {
-      exit("\nERREUR : ".$e->getMessage());
+        throw new Exception("\nERREUR : ".$e->getMessage());
     }
   }
 
@@ -61,9 +61,9 @@ class DAO {
       $req="INSERT INTO utilisateur VALUES('$nom', '$prenom', '$mail', '$mdp')";
       $resExec=$this->db->exec($req);
       if ($resExec == FALSE)
-      exit("ERREUR : Impossible de créer l'utilisateur\n");
+      throw new Exception("ERREUR : Impossible de créer l'utilisateur\n");
     } else
-    exit("ERREUR : l'adresse mail ".$util->mail." existe déjà\n");
+    throw new Exception("ERREUR : l'adresse mail ".$util->mail." existe déjà\n");
     // Ajouter les vérifications d'erreur et d'intégrité
   }
 
@@ -73,7 +73,7 @@ class DAO {
     $ligne=$this->db->query($req);
     if ($ligne == FALSE) {
       var_dump($this->db->errorInfo());
-      exit("Erreur lors de la lecture");
+      throw new Exception("Erreur dans getAllUtilisateurs");
     }
     else {
       $utils=$ligne->fetchAll(PDO::FETCH_CLASS, "Utilisateur");
@@ -95,12 +95,12 @@ class DAO {
     // Ne marche pas!!!
     $existant=getUtilisateur($mail);
     if ($existant == FALSE)
-    exit("ERREUR : L'utilisateur d'adresse mail ".$mail." n'existe pas");
+    throw new Exception("ERREUR : L'utilisateur d'adresse mail ".$mail." n'existe pas");
     else {
       $req="UPDATE utilisateur SET ('$nom', '$prenom', '$mail', '$mdp') WHERE mail='$mail'";
       $resExec=$this->db->exec($req);
       if ($resExec == FALSE) {
-        exit("ERREUR : impossible de mettre à jour les informations de l'utilisateur d'adresse mail ".$mail);
+        throw new Exception("ERREUR : impossible de mettre à jour les informations de l'utilisateur d'adresse mail ".$mail);
       }
       // regarder ce que rend exec (si erreur, le signaler)
     }
@@ -118,6 +118,7 @@ class DAO {
     $intitule=$prod->getIntitule();
     $prix=$prod->getPrix();
     $photo=$prod->getPhoto();
+    $existant=$this->
     // Vérifier validité de la ref, du prix (positif...)
     $req="INSERT INTO produit VALUES('$intitule', '$complement', $prix, $ref, '$photo')";
     $this->db->exec($req);
@@ -125,7 +126,13 @@ class DAO {
 
   function getProduitRef($ref) {
     // Renvoie le produit de référence $REF
-
+    $req="SELECT * FROM produit WHERE ref=$ref";
+    $ligne=$this->db->query($req);
+    if ($ligne == FALSE) return FALSE;
+    else {
+      $prod=$ligne->fetchAll(PDO::FETCH_CLASS, "Produit");
+      return $prod;
+    }
   }
 
   function getProduits() {
