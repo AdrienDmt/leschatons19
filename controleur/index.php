@@ -21,9 +21,10 @@
         }elseif ($_GET['page']=='achat'){
 
         }elseif ($_GET['page']=='liste') {
-            if(empty($_GET['categorie']))
-                include 'index.php?page=error';
-
+            //if(empty($_GET['categorie']))
+            //    include 'index.php?page=error';
+            //else
+                include '../vue/listeProduit.php';
         }elseif ($_GET['page']=='error'){
 
         }else{
