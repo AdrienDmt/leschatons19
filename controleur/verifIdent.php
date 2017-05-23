@@ -11,13 +11,16 @@
         $login = htmlentities($_POST['login']);
         global $psw;
         $psw = htmlentities($_POST['psw']);
-        echo $mail.' '.$psw;
+        //echo $login.' '.$psw;
         include '../modele/DAO.php';
         $dao=new DAO();
         if ($dao->getUtilisateur($mail, $psw)) {
             $user = $dao->getUtilisateur($mail);
             setcookie("connecte", $user.$mail,time()+(24*60*60));
         }else{
+            echo"<script language=\"javascript\">";
+            echo"alert('Vous n'êtes pas inscrit ! Remediez à cela ! ')";
+            echo"</script>";
             $_GET['page'] = "inscription";
             include '../controleur/index.php';
             exit;
