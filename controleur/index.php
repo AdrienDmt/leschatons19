@@ -29,6 +29,9 @@
             //    include 'index.php?page=error';
             //else
                 include '../vue/listeProduit.php';
+        }elseif ($_GET['page']=='deconnexion') {
+            unset($_COOKIE['connecte']);
+            include '../vue/accueil.php';
         }elseif ($_GET['page']=='error'){
 
         }else{
