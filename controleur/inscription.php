@@ -18,6 +18,7 @@
             echo"</script>";
             $_GET['page'] = 'inscription';
             include '../controleur/index.php';
+            exit;
         }
         include '../modele/DAO.php';
         $util=new Utilisateur($nom, $prenom,$mail, $psw);
