@@ -65,7 +65,6 @@ class DAO {
     // Renvoie un tableau contenant tous les utilisateurs
     $req="SELECT * FROM utilisateur";
     $ligne=$this->db->query($req);
-    var_dump($ligne);
     if ($ligne == FALSE) {
       var_dump($this->db->errorInfo());
       exit("Erreur lors de la lecture");

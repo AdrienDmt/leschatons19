@@ -82,7 +82,14 @@ echo "DAO OK\n";
 
 // Attention : un utilisateur peut être recréé (écrasé) si aucun test n'est fait dans la création d'utilisateur!
 echo "\n --- Utilisateur ---\n";
-$dao->createUtilisateur(new Utilisateur("viala", "julien", "vialaj@gmail.com", "plouf"));
+$user = new Utilisateur("viala", "julien", "vialaj@gmail.com", "plouf");
+$dao->createUtilisateur($user);
+var_dump($dao->getAllUtilisateurs()[1]);
+assert($dao->getAllUtilisateurs()[1]==$user);
+
+echo "Utilisateur DAO OK\n";
+
+
 //var_dump($dao->getAllUtilisateurs());
 /*
 var_dump($dao->getUtilisateur("vialaj@gmail.com"));
@@ -93,6 +100,8 @@ var_dump($dao->getAllUtilisateurs());
 $dao->deleteUtilisateur("vialaj@gmail.com");
 var_dump($dao->getAllUtilisateurs());
 */
+
+
 
 
 echo "\n --- Produit ---\n";
