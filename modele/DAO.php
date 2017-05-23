@@ -18,8 +18,7 @@ class DAO {
 
   function __construct() {
     try {
-        echo "\n Construceteur \n";
-      $this->db=new PDO('sqlite:../modele/test.db'); /* test.db est le nom de la base, peut être modifié */
+      $this->db=new PDO('sqlite:../modele/data/base.db'); /* test.db est le nom de la base, peut être modifié */
       /* var_dump($this->db); */
     } catch (PDOException $e) {
       exit("\nERREUR : ".$e->getMessage());
