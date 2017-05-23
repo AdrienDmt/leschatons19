@@ -5,8 +5,8 @@
  * Date: 22/05/17
  * Time: 18:54
  */
-    if(!empty($_POST['nom']) || !empty($_POST['prenom'])|| !empty($_POST['mail'])
-        || !empty($_POST['psw']) || !empty($_POST['pswVerif'])){
+    if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['mail'])
+        && !empty($_POST['psw']) && !empty($_POST['pswVerif'])){
         $nom = $_POST['nom'];
         $prenom = $_POST['prenom'];
         $mail = $_POST['mail'];
@@ -14,9 +14,10 @@
         $pswVerif = $_POST['pswVerif'];
         if(strcmp($psw,$pswVerif)!=0){
             echo"<script language=\"javascript\">";
-            echo"alert('Les mots de passes ne sont pas identiques')";
+            echo"alert('Les mots de passes ne sont pas identiques');";
             echo"</script>";
-            include '../controleur/index.php?page=inscription';
+            $_GET['page'] = 'inscription';
+            include '../controleur/index.php';
             exit;
         }
         include '../modele/DAO.php';
@@ -27,6 +28,7 @@
         echo"alert('Inscription complete ! Vous pouvez vous connecter ! ')";
         echo"</script>";
     }else{
-        include '../controleur/index.php?page=inscription';
+        $_GET['page'] = 'inscription';
+        include '../controleur/index.php?';
     }
 ?>
