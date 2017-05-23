@@ -1,6 +1,11 @@
+/* -----------------------Create by Hoareau Brenda Marinasy----------------------- */
+
 body{
   background-color:#BDBDBD;
   margin: 0;
+}
+header{
+  height: 20vh !important;
 }
 form{
   margin: auto;

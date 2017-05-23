@@ -1,3 +1,4 @@
+/* -----------------------Create by Hoareau Brenda Marinasy----------------------- */
 
 body {
 	width: 100vw;
@@ -11,7 +12,7 @@ header{
 	margin: 0;
 	background-color: #D8D8D8;
 	overflow: hidden;
-	height: 30vh;
+	height: 37vh;
 
 }
 header h1{
@@ -23,7 +24,7 @@ header h1{
 	width: 60px;
 	height: 40px;
 }
-#monCompte{
+#monCompte, #panier{
 	width: 40px;
 }
 

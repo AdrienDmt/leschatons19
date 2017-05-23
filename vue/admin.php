@@ -1,3 +1,4 @@
+<!-- ***************************Create By Hoareau Brenda Marinasy***************************-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,7 @@
     </div>
     <nav id="menu">
       <h2>Admin</h2>
-      <a href="#"><img src="" alt="Deconnexion" /></a>
+      <a href="#"><img src="../data/menu_logout.png" alt="Image deconnect" id="monCompte" />Deconnexion</a>
       <ul>
         <li><a href="#">Utilisateurs</a></li>
         <li><a href="#">Produits</a></li>

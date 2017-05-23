@@ -1,3 +1,5 @@
+<!-- ***************************Create By Hoareau Brenda Marinasy***************************-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +17,7 @@
     <nav id="menu">
       <h2>Categories</h2>
       <a href="../controleur/index.php?page=connexion"><img src="../data/utilisateur.png" alt="Image compte" id="monCompte" />Mon compte</a>
-      <a href="#"><img src="" alt="Image panier" /></a>
+      <a href="#"><img src="../data/panier.png" alt="Image panier" id="panier"/>Mon panier</a>
       <ul>
         <li><a href="#">Mignons</a></li>
         <li><a href="#">Jolis</a></li>
@@ -102,7 +104,8 @@
         </div>
       </a>
       <br>
-      <input type="button" name="name" value="Suivant">
+      <a href="#" id="precedent"><img src="../data/fleche1.png" alt="test"></a>
+      <a href="#" id="suivant"><img src="../data/fleche2.png" alt="test"></a>
     </article>
     <aside class="panneau">
       <h3>Panneau de configuration</h3>
