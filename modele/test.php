@@ -81,7 +81,11 @@ echo "AppartientA OK\n";
 
 // création de la DAO
 echo "\n --- Création DAO ---\n";
-$dao=new DAO();
+try {
+    $dao=new DAO();
+} catch (Exception $e) {
+    echo "DEBUG : ".$e->getMessage();
+}   
 echo "DAO OK\n";
 
 // utilisateur DAO
@@ -116,6 +120,86 @@ foreach ($utilisateurs as $key => $util) {
 assert($dao->getAllUtilisateurs()== []);
 echo "Utilisateur DAO OK\n";
 
+// produit DAO
+echo "\n --- Create Produit ---\n";
+$prod1 = new Produit("chaton1", "animal tout doux", 10, "ch4T", "chaton.jpg");
+$prod2 = new Produit("chaton2", "animal poilu", 100, "reference bidon", "chaton-01.jpg", "argument en trop");
+try {
+    $dao->createProduit($prod1);
+    $dao->createProduit($prod1);
+} catch (Exception $e) {
+    echo "DEBUG1 : ".$e->getMessage();
+}
+try {
+    $dao->createProduit(new Produit());
+} catch (Exception $e) {
+    echo "OK2 : ".$e->getMessage();
+}
+try {
+    $dao->createProduit($prod2);
+} catch (Exception $e) {
+    echo "DEBUG : ".$e->getMessage();
+}
+try {
+    $dao->createProduit(new Produit(123, 'poqsdf', -20));
+} catch (Exception $e) {
+    echo "OK4 : ".$e->getMessage();
+}
+try { // ce test ne devrait pas passer, mais aucune erreur n'est relevée!!
+    $dao->createProduit($prod1);
+} catch (Exception $e) {
+    echo "OK5 : ".$e->getMessage();
+}
+echo "Create Produit OK\n";
+
+// produit par reference
+echo "\n --- Get Produit Ref ---\n";
+try {
+    $dao->getProduitRef();
+} catch (Exception $e) {
+    echo "6 OK : ".$e->getMessage();
+}
+try {
+    $dao->getProduitRef("blabla");
+} catch (Exception $e) {
+    echo "7 OK : ".$e->getMessage();
+}
+echo "Get Produit Ref OK\n";
+
+
+
+// categorie DAO
+echo "\n --- Categorie ---\n";
+try {
+    $dao->createCategorie("Mignons");
+} catch (Exception $e) {
+    echo "9 DEBUG : ".$e->getMessage();
+}
+echo "Categorie DAO OK\n";
+
+
+
+// produit par categorie
+echo "\n --- Get Produit Catégorie ---\n";
+try {
+    $mignons = $dao->getProduitsCategorie("Mignons");
+} catch (Exception $e) {
+    echo "8 DEBUG : ".$e->getMessage();
+}
+assert($mignons == []);
+echo "Get Produit Cat OK\n";
+
+
+
+
+
+
+
+
+// ligne panier DAO
+echo "\n --- Ligne Panier ---\n";
+
+echo "Ligne Panier DAO Non Testé\n";
 
 
 

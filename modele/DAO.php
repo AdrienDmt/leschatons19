@@ -1,4 +1,5 @@
 <?php
+
 /*
 
 Fichier PHP de gestion des objets du modèle.
@@ -18,8 +19,7 @@ class DAO {
 
   function __construct() {
     try {
-      $this->db=new PDO('sqlite:../modele/data/base.db'); /* test.db est le nom de la base, peut être modifié */
-      /* var_dump($this->db); */
+      $this->db=new PDO('sqlite:../modele/data/base.db');
     } catch (PDOException $e) {
       throw new Exception("\nERREUR : ".$e->getMessage());
     }
@@ -32,8 +32,6 @@ class DAO {
   function getUtilisateur($mail, $mdp='') {
     // Renvoie un tableau contenant 1 utilisateur (si il existe)
     // Sécurité : attention aux passages de code SQL (injections possibles)
-
-    // Ajouter le test si on demande $mail et $mdp (cas d'une identification utilisateur)
     if ($mdp == '') {
       $req="SELECT * FROM utilisateur WHERE mail='$mail'";
     } else {
@@ -41,7 +39,6 @@ class DAO {
     }
     $ligne=$this->db->query($req);
     if ($ligne == FALSE) {
-      //var_dump($this->db->errorInfo());
       return FALSE;
     } else {
       $util=$ligne->fetchAll(PDO::FETCH_CLASS, "Utilisateur");
@@ -55,7 +52,6 @@ class DAO {
     $prenom=$util->getPrenom();
     $mail=$util->mail;
     $mdp=$util->getMdp();
-    // Vérifier que cet utilisateur n'existe pas déja !!
     $existant=$this->getUtilisateur($mail);
     if($existant == FALSE) {
       $req="INSERT INTO utilisateur VALUES('$nom', '$prenom', '$mail', '$mdp')";
@@ -64,7 +60,6 @@ class DAO {
       throw new Exception("ERREUR : Impossible de créer l'utilisateur\n");
     } else
     throw new Exception("ERREUR : l'adresse mail ".$util->mail." existe déjà\n");
-    // Ajouter les vérifications d'erreur et d'intégrité
   }
 
   function getAllUtilisateurs() {
@@ -91,8 +86,6 @@ class DAO {
 
   function updateUtilisateur($nom, $prenom, $mail, $mdp) {
     // Modifie un utilisateur existant avec les nouvelles valeurs
-    // Vérifier que l'utilisateur existe au préalable!!
-    // Ne marche pas!!!
     $existant=$this->getUtilisateur($mail);
     if ($existant == FALSE)
         throw new Exception("ERREUR : L'utilisateur d'adresse mail ".$mail." n'existe pas\n");
@@ -102,7 +95,6 @@ class DAO {
       if ($resExec == 0) {
         throw new Exception("ERREUR : impossible de mettre à jour les informations de l'utilisateur d'adresse mail ".$mail."\n");
       }
-      // regarder ce que rend exec (si erreur, le signaler)
     }
   }
 
@@ -112,14 +104,13 @@ class DAO {
 
   function createProduit($prod) {
     // Ajoute un produit à la base, à condition que sa ref n'existe pas encore
-    // Ne marche pas!!!
     $ref=$prod->getRef();
     $complement=$prod->getComplement();
     $intitule=$prod->getIntitule();
     $prix=$prod->getPrix();
     $photo=$prod->getPhoto();
     $existant=$this->getProduitRef($ref);
-    if ($existant == FALSE) {
+    if ($existant == FALSE) { // Ce test ne marche pas !!!
       if ($prix < 0)
         throw new Exception("ERREUR : le prix est invalide (négatif)\n");
       else {
@@ -132,7 +123,7 @@ class DAO {
 
   function getProduitRef($ref) {
     // Renvoie le produit de référence $REF
-    $req="SELECT * FROM produit WHERE ref=$ref";
+    $req="SELECT * FROM produit WHERE ref='$ref'";
     $ligne=$this->db->query($req);
     if ($ligne == FALSE) return FALSE;
     else {
@@ -165,8 +156,10 @@ class DAO {
     // Renvoie un tableau contenant les produits de la catégorie passée en paramètre
     $req="SELECT * FROM produit WHERE categorie='$categorie'";
     $ligne=$this->db->query($req);
+    // Attention : si une catégorie n'est associée à aucun produit, ce n'est pas parce qu'elle est fausse!
     if ($ligne==FALSE)
-      throw new Exception("Erreur dans getProduitsCategorie()\n");
+      //throw new Exception("Erreur dans getProduitsCategorie()\n");
+      return FALSE;
     else
       return($ligne->fetchAll(PDO::FETCH_CLASS, "Produit"));
   }
@@ -212,17 +205,18 @@ class DAO {
   function getCategorie($nom) {
     $req="SELECT * FROM categorie WHERE nom='$nom'";
     $ligne=$this->db->query($req);
-    if ($ligne == FALSE) {
+    if ($ligne == FALSE) {
       throw new Exception("Catégorie ".$nom." inexistante\n");
       return FALSE;
     }
     else
-      return($ligne->fetchAll(PDO::FETCH_CLASS, "Categorie"));
+      return ($ligne->fetchAll(PDO::FETCH_CLASS, "Categorie"));
   }
 
   function createCategorie($nom) {
-    $cat=getCategorie($nom);
-    if ($cat == FALSE) {
+    $cat=$this->getCategorie($nom);
+    if ($cat == FALSE)
+    {
       $req="INSERT INTO categorie VALUES('$nom')";
       $this->db->exec($req);
     } else
@@ -238,7 +232,8 @@ class DAO {
       $resExec=$this->db->exec($req);
       if ($resExec == 0)
         echo("Aucun produit de la catégorie ".$nom."\n");
-  }
+  		}
+	}
 
   function updateCategorie($nom) {
     $cat=$this->getCategorie($nom);
@@ -283,4 +278,5 @@ class DAO {
   }
 
 }
+
 ?>
