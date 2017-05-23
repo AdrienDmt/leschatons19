@@ -18,26 +18,25 @@ echo "\n === TESTS CLASSES ET DAO === \n\n";
 // -------------------
 
 // création, lecture, mise à jour et suppression d'un produit
-//echo "\n --- Classe Produit ---\n";
 $prod = new Produit('1lqsdflhj', "chaton", 100, "chaton-01.jpg");
+$prod2 = new Produit();
 assert($prod->getProduit()==$prod);
 assert($prod->getReference()=='1lqsdflhj');
-unset($prod);
+unset($prod, $prod2);
 echo "Produit OK\n";
 
 
 // création, lecture, mise à jour et suppression d'un utilisateur
-//echo "\n --- Classe Utilisateur ---\n";
 $util=new Utilisateur("casta", "raf", "r.c@free.fr", "mdptoutpourri");
+$util2 = new Utilisateur();
 assert($util->getMail()=="r.c@free.fr");
 $util->setPrenom("Pierre");
 assert($util->getPrenom()=="Pierre");
-unset($util);
+unset($util, $util2);
 echo "Utilisateur OK\n";
 
 
 // création, lecture, mise à jour et suppression d'une categorie
-//echo "\n --- Classe Catégorie ---\n";
 $cat1 = new Categorie("Mignons");
 $cat2 = new Categorie('Jolis');
 $cat3 = new Categorie();
@@ -49,26 +48,27 @@ echo "Categorie OK\n";
 
 
 // création, lecture, mise à jour et suppression d'une ligne de panier
-
-
+$ligne1 = new LignePanier("r.c@frfdsddf", 'redgsg', 'sdfluhsd', 2, TRUE);
+$ligne2 = new LignePanier();
+$ligne3 = new LignePanier("r.c@free.fr", "bla", "aujourd'hui");
+assert($ligne1->mail == "r.c@frfdsddf");
+assert($ligne3->ref=="bla");
+assert($ligne2->date=='');
+$ligne2->mail="r.c@free.fr";
+$ligne2->valide=TRUE;
+unset($ligne1, $ligne2, $ligne3);
+echo "Ligne de Panier OK\n";
 
 // création, lecture, mise à jour et suppression d'une association appartient à
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$app1 = new AppartientA();
+$app2 = new AppartientA("plouf", "plic");
+$app3 = new AppartientA("cocou");
+assert($app2->ref == "plic");
+assert($app3->nom == "cocou");
+$app1->nom = 'nome';
+$app3->ref = "reference";
+unset($app1, $app2, $app3);
+echo "AppartientA OK\n";
 
 
 // ----------------------------
