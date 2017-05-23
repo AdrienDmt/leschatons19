@@ -26,7 +26,7 @@
         try{
             $dao->createUtilisateur($util);
         }catch(Exception $e){
-            echo "DEBUG : ".$e->getMessage();
+            echo "DEBUG inscription.php: ".$e->getMessage();
         }
 
         echo"<script language=\"javascript\">";
