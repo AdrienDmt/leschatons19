@@ -8,7 +8,6 @@
 </head>
 
 <body onload="init()">
-<script src="../controleur/constPageVisu.js"/>
   <header>
     <div id="Banderole">
       <h1><a href="../controleur/index.php?page=accueil"><img src="../data/logo-chat.png" alt="logo" id="logo"/></a> Bienvenue sur le site des chatons</h1>
@@ -120,5 +119,6 @@
   <footer>
     <p>Le projet web de Julien, Brenda, Alexandre et Raphael.</p>
   </footer>
+  <script src="../controleur/constPageVisu.js"></script>
 </body>
 </html>
