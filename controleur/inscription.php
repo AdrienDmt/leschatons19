@@ -32,6 +32,7 @@
         echo"<script language=\"javascript\">";
         echo"alert('Inscription complete ! Vous pouvez vous connecter ! ')";
         echo"</script>";
+        $_GET['page']='accueil';
         include '../controleur/index.php';
     }else{
         echo"<script language=\"javascript\">";
