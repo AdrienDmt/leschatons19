@@ -33,7 +33,10 @@
         echo"alert('Inscription complete ! Vous pouvez vous connecter ! ')";
         echo"</script>";
         $data[] = $dao->getAllUtilisateurs();
-        var_dump($data[0]);
+        for($i=0;$i<sizeof($data);$i++){
+            var_dump($data[$i]);
+        }
+
         $_GET['page']='accueil';
         include '../controleur/index.php';
     }else{
