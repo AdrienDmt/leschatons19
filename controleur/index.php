@@ -8,7 +8,7 @@
 
     if(!empty($_GET['page'])){
         if ($_GET['page']=='accueil'){
-            include '../vue/accueil.html';
+            include '../vue/accueil.php';
         }elseif ($_GET['page']=='connexion'){
             include '../vue/connect.php';
         }elseif ($_GET['page']=='inscription'){
