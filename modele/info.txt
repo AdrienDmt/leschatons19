@@ -1,7 +1,7 @@
 
-// ===========================
-// Méthodes des Classes et DAO
-// ===========================
+// ======================================================
+// Manuel pour le Modèle, les Méthodes des Classes et la DAO
+// ======================================================
 
 
 /*
@@ -9,6 +9,21 @@ Doc pour les programmeurs
 Auteur : RC.
 */
 
+// --------------------
+// Installation
+// --------------------
+/*
+Les fichiers php du modèle permettent de gérer la base de données et les classes d'objets.
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Pour installer la base suivre ces instructions :
+- lancer (sqlite3 base.db) dans data/
+- taper (.read create_base.sql)
+- quitter sqlite (.exit)
+- donner les droits d'écriture pour les autres (chmod o+w . base.db) au dossier data et au fichier base.db
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*/
 
 // --------------------
 // Classes
@@ -38,3 +53,16 @@ function updateUtilisateur($nom, $prenom, $mail, $mdp)
 function createProduit($prod)
 function getProduits()
 function getProduitsMinMax($prixMin, $prixMax)
+function getProduitsCategorie($categorie)
+function getProduitsUtilisateur($mail)
+
+// Categorie
+
+function getCategorie($nom)
+
+
+// Ligne Panier
+
+
+
+// Appartient à
