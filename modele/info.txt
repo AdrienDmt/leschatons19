@@ -61,6 +61,16 @@ function updateProduit($intitule, $complement='', $prix, $ref, $photo)
 // Categorie
 
 function getCategorie($nom)
+<<<<<<< HEAD
 function createCategorie($nom)
 function deleteCategorie($nom)
 function updateCategorie($nom)
+=======
+
+
+// Ligne Panier
+
+
+
+// Appartient à
+>>>>>>> 82b8d6584e08db77d4a66ae0de9fdf930a48028a
