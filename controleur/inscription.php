@@ -21,12 +21,12 @@
             exit;
         }
         include '../modele/DAO.php';
-        $util=new Utilisateur($nom, $prenom,$mail, $psw);
         $dao=new DAO();
+        $util=new Utilisateur($nom, $prenom,$mail, $psw);
         try{
             $dao->createUtilisateur($util);
         }catch(Exception $e){
-            echo "DEBUG : ".$e->getMessage();
+            echo "DEBUG test inscription.php: ".$e->getMessage();
         }
 
         echo"<script language=\"javascript\">";
