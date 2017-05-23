@@ -16,7 +16,8 @@
             echo"<script language=\"javascript\">";
             echo"alert('Les mots de passes ne sont pas identiques');";
             echo"</script>";
-            include './index.php?page=accueil';
+            $_GET['page'] = 'inscription';
+            include '../controleur/index.php';
         }
         include '../modele/DAO.php';
         $util=new Utilisateur($nom, $prenom,$mail, $psw);
@@ -26,6 +27,7 @@
         echo"alert('Inscription complete ! Vous pouvez vous connecter ! ')";
         echo"</script>";
     }else{
-        include '../controleur/index.php?page=inscription';
+        $_GET['page'] = 'inscription';
+        include '../controleur/index.php?';
     }
 ?>
