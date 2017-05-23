@@ -57,7 +57,7 @@ class DAO {
       $req="INSERT INTO utilisateur VALUES('$nom', '$prenom', '$mail', '$mdp')";
       $resExec=$this->db->exec($req);
       var_dump($resExec);
-      if ($resExec === FALSE) {
+      if ($resExec !== FALSE) {
         throw new Exception("ERREUR : Impossible de créer l'utilisateur\n");
       }
     } else {
