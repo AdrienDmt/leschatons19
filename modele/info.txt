@@ -1,0 +1,40 @@
+
+// ===========================
+// Méthodes des Classes et DAO
+// ===========================
+
+
+/*
+Doc pour les programmeurs
+Auteur : RC.
+*/
+
+
+// --------------------
+// Classes
+// --------------------
+
+Utilisateur($nom='', $prenom='', $mail='', $mdp='')
+Produit($reference='', $intitule='', $prix=-1, $photo='')
+Categorie($nom='')
+LignePanier($mail='', $ref='', $date='', $quantite=1, $valide=FALSE)
+AppartientA($nom='', $ref='')
+
+
+// --------------------
+// DAO
+// --------------------
+
+// Utilisateur
+
+function createUtilisateur($util)
+function getUtilisateur($mail, $mdp='')
+function getAllUtilisateurs()
+function deleteUtilisateur($mail)
+function updateUtilisateur($nom, $prenom, $mail, $mdp)
+
+// Produit
+
+function createProduit($prod)
+function getProduits()
+function getProduitsMinMax($prixMin, $prixMax)

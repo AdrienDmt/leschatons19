@@ -21,7 +21,7 @@ class DAO {
       $this->db=new PDO('sqlite:test.db'); /* test.db est le nom de la base, peut être modifié */
       /* var_dump($this->db); */
     } catch (PDOException $e) {
-      exit("ERREUR : ".$e->getMessage());
+      exit("\nERREUR : ".$e->getMessage());
     }
   }
 
