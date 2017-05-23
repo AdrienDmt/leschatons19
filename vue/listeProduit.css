@@ -34,11 +34,21 @@ article{
   padding: 0;
   width: 75vw;
   float: right;
+  text-align: center;
 
 }
 a{
   text-decoration: none;
   color: black;
+}
+#precedent img {
+    width: 30px;
+    height: 30px;
+
+}
+#suivant img {
+    width: 30px;
+    height: 30px;
 }
 section{
   background: none;
@@ -58,5 +68,5 @@ aside{
 }
 footer{
   position: relative;
-  margin-top: 10vh;
+  margin-top: 20vh;
 }
