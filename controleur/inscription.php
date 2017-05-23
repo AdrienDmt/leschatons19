@@ -32,6 +32,7 @@
         echo"<script language=\"javascript\">";
         echo"alert('Inscription complete ! Vous pouvez vous connecter ! ')";
         echo"</script>";
+        var_dump($dao->getAllUtilisateurs());
         $_GET['page']='accueil';
         include '../controleur/index.php';
     }else{
