@@ -6,7 +6,7 @@
  * Time: 11:03
  */
 
-    if (!empty($_POST['login'] && !empty($_POST['psw']))) {
+    if (!empty($_POST['login']) && !empty($_POST['psw'])) {
         global $mail;
         $login = htmlentities($_POST['login']);
         global $psw;
