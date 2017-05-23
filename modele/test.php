@@ -84,37 +84,43 @@ echo "\n --- Création DAO ---\n";
 $dao=new DAO();
 echo "DAO OK\n";
 
-
+// utilisateur DAO
 echo "\n --- Utilisateur ---\n";
 $user = new Utilisateur("viala", "julien", "vialaj@gmail.com", "plouf");
-$dao->createUtilisateur($user);
+try {
+    $dao->createUtilisateur($user);
+} catch (Exception $e) {
+    echo "DEBUG : ".$e->getMessage();
+}
 assert($dao->getAllUtilisateurs()[0]==$user);
-$dao->createUtilisateur($user);
-// Attention : un utilisateur peut être recréé (écrasé) si aucun test n'est fait dans la création d'utilisateur!
+try {
+    $dao->createUtilisateur($user);
+} catch (Exception $e) {
+    echo "DEBUG : ".$e->getMessage();
+}
 $utilisateurs = $dao->getAllUtilisateurs();
+try {
+    $dao->updateUtilisateur("hoareau", "brenda", "chatons", "idem");
+} catch (Exception $e) {
+    echo "DEBUG : ".$e->getMessage();
+}
+try {
+    $dao->updateUtilisateur("hoareau", "brenda", "vialaj@gmail.com", "idem");
+} catch (Exception $e) {
+    echo "DEBUG : ".$e->getMessage();
+}
+try {
+    assert($dao->getAllUtilisateurs()[0]->prenom == "brenda");
+} catch (Exception $e) {
+    echo "DEBUG : ".$e->getMessage();
+}
 foreach ($utilisateurs as $key => $util) {
     $dao->deleteUtilisateur($util->mail);
 }
+var_dump($dao->getAllUtilisateurs()== []);
 echo "Utilisateur DAO OK\n";
 
 
-//var_dump($dao->getAllUtilisateurs());
-/*
-var_dump($dao->getUtilisateur("vialaj@gmail.com"));
-$dao->updateUtilisateur("hoareau", "brenda", "chatons", "idem");
-var_dump($dao->getAllUtilisateurs());
-$dao->updateUtilisateur("hoareau", "brenda", "vialaj@gmail.com", "idem");
-var_dump($dao->getAllUtilisateurs());
-$dao->deleteUtilisateur("vialaj@gmail.com");
-var_dump($dao->getAllUtilisateurs());
-*/
-
-
-
-
-echo "\n --- Produit ---\n";
-$dao->createProduit(new Produit('blabla', "chaton mignon", 110, 'chatons.jpg'));
-//var_dump($dao->getProduits());
 
 
 echo "\n === FIN TESTS === \n\n";
