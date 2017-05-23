@@ -15,8 +15,10 @@
         if(strcmp($psw,$pswVerif)!=0){
             echo"<script language=\"javascript\">";
             echo"alert('Les mots de passes ne sont pas identiques');";
-            echo"document.getElementById('mdpVerif').style.border=\"2px solid #FF0000\";";
             echo"</script>";
+            $_GET['page'] = 'inscription';
+            include '../controleur/index.php?';
+            exit;
         }
         include '../modele/DAO.php';
         $util=new Utilisateur($nom, $prenom,$mail, $psw);
@@ -25,6 +27,8 @@
         echo"<script language=\"javascript\">";
         echo"alert('Inscription complete ! Vous pouvez vous connecter ! ')";
         echo"</script>";
+        include '../controleur/index.php?';
+
     }else{
         $_GET['page'] = 'inscription';
         include '../controleur/index.php?';
