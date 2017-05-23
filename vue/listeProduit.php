@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="../vue/accueil.css" media="screen" title="no title" >
   <link rel="stylesheet" href="../vue/listeProduit.css">
 </head>
-<body onload="init()">
+<body onload="init();">
   <header>
     <div id="Banderole">
       <h1><a href="../controleur/index.php?page=accueil"><img src="../data/logo-chat.png" alt="logo" id="logo"/></a> Bienvenue sur le site des chatons</h1>
