@@ -45,6 +45,22 @@ function ajax_get_request(callback, url, async)
 }
 
 function placementDiv(result){
-    console.log(result);
+    var art = document.getElementsByTagName('article');
+    var lien = document.createElement("a");
+    lien.setAttribute("href","#");
+    lien.setAttribute("class","Chat");
+    var div = document.createElement("div");
+    var figure = document.createElement("figure");
+    var img = document.createElement("img");
+    img.setAttribute("src", result['photo']);
+    var figcapt = document.createElement("figcaption");
+    figcapt.innerHTML(result['intitule']);
+    var descript = document.createElement("p");
+    descript.innerHTML("")
+    figure.appendChild(img);
+    div.appendChild(figure);
+    div.appendChild(figcapt);
+
+    art.appendChild()
 }
 
