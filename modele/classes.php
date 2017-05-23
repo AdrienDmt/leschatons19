@@ -60,7 +60,6 @@ class Utilisateur {
   }
 
 }
-// fin classe Utilisateur
 
 
 
@@ -75,7 +74,6 @@ class Produit {
   private $prix;
   private $ref;
   private $photo;
-  //  private $categories=array();
 
   function __construct($intitule='', $complement='', $prix=-1, $ref=-1, $photo='') {
       $this->intitule=$intitule;
@@ -108,7 +106,6 @@ class Produit {
   }
 
 }
-// Fin classe Produit
 
 
 // ----------------------
