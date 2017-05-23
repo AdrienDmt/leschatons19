@@ -46,7 +46,11 @@ class DAO {
     // Sécurité : attention aux passages de code SQL (injections possibles)
 
     // Ajouter le test si on demande $mail et $mdp (cas d'une identification utilisateur)
-    $req="SELECT * FROM utilisateur WHERE mail='$mail'";
+    if ($mdp == '') {
+      $req="SELECT * FROM utilisateur WHERE mail='$mail'";
+    } else {
+      $req="SELECT * FROM utilisateur WHERE mail='$mail' AND mdp='$mdp'";
+    }
     $ligne=$this->db->query($req);
     if ($ligne == FALSE) {
       var_dump($this->db->errorInfo());
@@ -116,5 +120,33 @@ class DAO {
     $ligne=$this->db->query($req);
     return($ligne->fetchAll(PDO::FETCH_CLASS, "Produit"));
   }
+
+  function getProduitsCategorie($categorie) {
+    // Renvoie un tableau contenant les produits de la catégorie passée en paramètre
+    $req="SELECT * FROM produit WHERE categorie='$categorie'";
+    $ligne=$this->db->query($req);
+    return($ligne->fetchAll(PDO::FETCH_CLASS, "Produit"));
+  }
+
+  function deleteProduit($ref) {
+    // Supprime de la table produit le produit dont la référence est passée en paramètre
+    $req="DELETE FROM produit WHERE ref='$ref'";
+    $this->db->exec($req);
+    }
+
+    function updateProduit($intitule, $complement='', $prix, $ref, $photo) {
+      $req="UPDATE produit SET ($intitule, '$complement', '$prix', '$ref', '$photo') WHERE ref='$ref'";
+      $this->db->exec($req);
+    }
+  // ----------------------
+  // fonctions CRUD classe Categorie
+  // ----------------------
+
+  function getCategorie($nom) {
+    $req="SELECT * FROM categorie WHERE nom='$nom'";
+    $ligne=$this->db->query-($req);
+    return($ligne->fetchAll(PDO::FETCH_CLASS, "Categorie"));
+  }
+
 }
 ?>
