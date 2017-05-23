@@ -54,4 +54,9 @@
         }
         return $data[0];
     }
+
+    if(!empty($_GET['categorie']))
+    {
+        return recupererProduits($_GET['categorie']);
+    }
 ?>

@@ -21,12 +21,12 @@ function $_GET(param) {
 
 
 function init(){
-
-    var art = document.getElementById('art')
     var categ = $_GET('categorie');
-
-    for(var i =0; i<8;i++){
-
+    var data = encodeURIComponent(categ);
+    try{
+        ajax_get_request(placementDiv, '../controleur/recupVisuelProduit.php?categorie='+data, false);
+    }catch(err){
+        alert("erreur : "+err);
     }
 }
 
@@ -37,5 +37,11 @@ function ajax_get_request(callback, url, async)
         if ((xhr.readyState==4) && (xhr.status==200))
             callback(xhr.response);
     };
-    xhr
+    xhr.open("GET",url,async);
+    xhr.send();
 }
+
+function placementDiv(result){
+    console.log(result);
+}
+
