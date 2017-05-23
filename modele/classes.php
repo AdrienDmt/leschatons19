@@ -76,7 +76,7 @@ class Produit {
   private $photo;
   //  private $categories=array();
 
-  function __construct($reference='', $intitule='', $prix='', $photo='') {
+  function __construct($reference='', $intitule='', $prix=-1, $photo='') {
     if ($reference != '') {
       $this->reference=$reference;
       $this->intitule=$intitule;
