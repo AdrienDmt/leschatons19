@@ -17,7 +17,7 @@
             echo"alert('Les mots de passes ne sont pas identiques');";
             echo"</script>";
             $_GET['page'] = 'inscription';
-            include '../controleur/index.php?';
+            include '../controleur/index.php';
             exit;
         }
         include '../modele/DAO.php';
@@ -30,6 +30,6 @@
         include '../controleur/index.php';
     }else{
         $_GET['page'] = 'inscription';
-        include '../controleur/index.php?';
+        include '../controleur/index.?';
     }
 ?>
