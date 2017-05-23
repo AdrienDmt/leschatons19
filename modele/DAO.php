@@ -98,12 +98,13 @@ class DAO {
   function createProduit($prod) {
       // Ajoute un produit à la base, à condition que sa ref n'existe pas encore
       // Ne marche pas!!!
-      $reference=$prod->getReference();
+      $ref=$prod->getRef();
+      $complement=$prod->getComplement();
       $intitule=$prod->getIntitule();
       $prix=$prod->getPrix();
       $photo=$prod->getPhoto();
       // Vérifier validité de la ref, du prix (positif...)
-      $req="INSERT INTO produit VALUES('$intitule', '', $prix, $reference, '$photo')";
+      $req="INSERT INTO produit VALUES('$intitule', '$complement', $prix, $ref, '$photo')";
       $this->db->exec($req);
   }
 
@@ -148,5 +149,19 @@ class DAO {
     return($ligne->fetchAll(PDO::FETCH_CLASS, "Categorie"));
   }
 
+  function createCategorie($nom) {
+    $req="INSERT INTO categorie VALUES('$nom')";
+    $this->db->exec($req);
+  }
+
+  function deleteCategorie($nom) {
+    $req="DELETE FROM categorie WHERE nom='$nom'";
+    $this->db->exec($req);
+  }
+
+  function updateCategorie($nom) {
+    $req="UPDATE categorie SET ('$nom')";
+    $this->db->exec($req);
+  }
 }
 ?>

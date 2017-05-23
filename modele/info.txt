@@ -55,7 +55,12 @@ function getProduits()
 function getProduitsMinMax($prixMin, $prixMax)
 function getProduitsCategorie($categorie)
 function getProduitsUtilisateur($mail)
+function deleteProduit($ref)
+function updateProduit($intitule, $complement='', $prix, $ref, $photo)
 
 // Categorie
 
 function getCategorie($nom)
+function createCategorie($nom)
+function deleteCategorie($nom)
+function updateCategorie($nom)
