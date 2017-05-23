@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Inscription</title>
-    <link rel="stylesheet" href="accueil.css">
-    <link rel="stylesheet" href="connect.css">
-    <link rel="stylesheet" href="inscription.css">
+    <link rel="stylesheet" href="../vue/accueil.css">
+    <link rel="stylesheet" href="../vue/connect.css">
+    <link rel="stylesheet" href="../vue/inscription.css">
 
 </head>
 <body>

@@ -5,20 +5,24 @@
  * Date: 22/05/17
  * Time: 18:54
  */
-    if(!empty($_POST['nom']) || !empty($_POST['prenom'])|| !empty($_POST['mail'])
-        || !empty($_POST['psw']) || !empty($_POST['pswVerif'])){
+    if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['mail'])
+        && !empty($_POST['psw']) && !empty($_POST['pswVerif'])){
         $nom = $_POST['nom'];
         $prenom = $_POST['prenom'];
         $mail = $_POST['mail'];
         $psw = $_POST['psw'];
         $pswVerif = $_POST['pswVerif'];
         if(strcmp($psw,$pswVerif)!=0){
-            /*
             echo"<script language=\"javascript\">";
-            echo"alert('Les mots de passes ne sont pas identiques')";
-            echo"</script>";*/
-            include '../controleur/index.php?page=inscription';
-
+            echo"alert('Les mots de passes ne sont pas identiques');";
+            echo "var psw = document.getElementById('mdp');";
+            echo "var pswVerif = document.getElementById('mdpVerif');";
+            echo"psw.value = \"\";";
+            echo"pswVerif.value = \"\";";
+            echo"psw.style.border=\"2px solid #FF0000\";";
+            echo"pswVerif.style.border=\"2px solid #FF0000\";";
+            echo"</script>";
+            exit;
         }
         include '../modele/DAO.php';
         $util=new Utilisateur($nom, $prenom,$mail, $psw);
@@ -28,6 +32,7 @@
         echo"alert('Inscription complete ! Vous pouvez vous connecter ! ')";
         echo"</script>";
     }else{
-        include '../controleur/index.php?page=inscription';
+        $_GET['page'] = 'inscription';
+        include '../controleur/index.php?';
     }
 ?>
