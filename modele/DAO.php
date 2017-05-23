@@ -29,24 +29,6 @@ class DAO {
   // Fonctions CRUD classe Utilisateur
   // ----------------------
 
-  function createUtilisateur($util) {
-    // Crée un utilisatuer à partir de l'objet utilisateur passé en paramètre
-    $nom=$util->getNom();
-    $prenom=$util->getPrenom();
-    $mail=$util->getMail();
-    $mdp=$util->getMdp();
-    // Vérifier que cet utilisateur n'existe pas déja !!
-    $existant=getUtilisateur($mail);
-    if($existant == FALSE)
-      exit("ERREUR : l'adresse mail ".$util->mail." existe déjà");
-    else
-      $req="INSERT INTO utilisateur VALUES('$nom', '$prenom', '$mail', '$mdp')";
-    $resExec=$this->db->exec($req);
-    if ($resExec == FALSE)
-      exit("ERREUR : Impossible de créer l'utilisateur");
-    // Ajouter les vérifications d'erreur et d'intégrité
-  }
-
   function getUtilisateur($mail, $mdp='') {
     // Renvoie un tableau contenant 1 utilisateur (si il existe)
     // Sécurité : attention aux passages de code SQL (injections possibles)
@@ -59,13 +41,30 @@ class DAO {
     }
     $ligne=$this->db->query($req);
     if ($ligne == FALSE) {
-      var_dump($this->db->errorInfo());
-      echo("Erreur lors de la lecture");
+      //var_dump($this->db->errorInfo());
       return FALSE;
     } else {
       $util=$ligne->fetchAll(PDO::FETCH_CLASS, "Utilisateur");
       return $util;
     }
+  }
+
+  function createUtilisateur($util) {
+    // Crée un utilisatuer à partir de l'objet utilisateur passé en paramètre
+    $nom=$util->getNom();
+    $prenom=$util->getPrenom();
+    $mail=$util->mail;
+    $mdp=$util->getMdp();
+    // Vérifier que cet utilisateur n'existe pas déja !!
+    $existant=$this->getUtilisateur($mail);
+    if($existant == FALSE) {
+      $req="INSERT INTO utilisateur VALUES('$nom', '$prenom', '$mail', '$mdp')";
+      $resExec=$this->db->exec($req);
+      if ($resExec == FALSE)
+      exit("ERREUR : Impossible de créer l'utilisateur\n");
+    } else
+    exit("ERREUR : l'adresse mail ".$util->mail." existe déjà\n");
+    // Ajouter les vérifications d'erreur et d'intégrité
   }
 
   function getAllUtilisateurs() {
@@ -87,23 +86,23 @@ class DAO {
     $req="DELETE FROM utilisateur WHERE mail='$mail'";
     $resExec=$this->db->exec($req);
     if($resExec == 0)
-      echo("L'utilisateur d'adresse mail ".$mail." n'existe pas");
+    echo("L'utilisateur d'adresse mail ".$mail." n'existe pas");
   }
 
   function updateUtilisateur($nom, $prenom, $mail, $mdp) {
     // Modifie un utilisateur existant avec les nouvelles valeurs
     // Vérifier que l'utilisateur existe au préalable!!
     // Ne marche pas!!!
-    $existant=getUtilisateur($mail)
+    $existant=getUtilisateur($mail);
     if ($existant == FALSE)
-      exit("ERREUR : L'utilisateur d'adresse mail ".$mail." n'existe pas");
+    exit("ERREUR : L'utilisateur d'adresse mail ".$mail." n'existe pas");
     else {
       $req="UPDATE utilisateur SET ('$nom', '$prenom', '$mail', '$mdp') WHERE mail='$mail'";
       $resExec=$this->db->exec($req);
       if ($resExec == FALSE) {
         exit("ERREUR : impossible de mettre à jour les informations de l'utilisateur d'adresse mail ".$mail);
       }
-    // regarder ce que rend exec (si erreur, le signaler)
+      // regarder ce que rend exec (si erreur, le signaler)
     }
   }
 
@@ -112,16 +111,21 @@ class DAO {
   // ----------------------
 
   function createProduit($prod) {
-      // Ajoute un produit à la base, à condition que sa ref n'existe pas encore
-      // Ne marche pas!!!
-      $ref=$prod->getRef();
-      $complement=$prod->getComplement();
-      $intitule=$prod->getIntitule();
-      $prix=$prod->getPrix();
-      $photo=$prod->getPhoto();
-      // Vérifier validité de la ref, du prix (positif...)
-      $req="INSERT INTO produit VALUES('$intitule', '$complement', $prix, $ref, '$photo')";
-      $this->db->exec($req);
+    // Ajoute un produit à la base, à condition que sa ref n'existe pas encore
+    // Ne marche pas!!!
+    $ref=$prod->getRef();
+    $complement=$prod->getComplement();
+    $intitule=$prod->getIntitule();
+    $prix=$prod->getPrix();
+    $photo=$prod->getPhoto();
+    // Vérifier validité de la ref, du prix (positif...)
+    $req="INSERT INTO produit VALUES('$intitule', '$complement', $prix, $ref, '$photo')";
+    $this->db->exec($req);
+  }
+
+  function getProduitRef($ref) {
+    // Renvoie le produit de référence $REF
+
   }
 
   function getProduits() {
@@ -147,7 +151,7 @@ class DAO {
 
   function getProduitsUtilisateur($mail) {
     // Renvoie un tableau contenant les produits de l'utilisateur (donc son panier) dont le mail est passé en paramètre
-    $req="SELECT intitule, complement, prix, ref, photo FROM utilisateur NATURAL JOIN ligne_panier NATURAL JOIN produit WHERE mail='$mail'");
+    $req="SELECT intitule, complement, prix, ref, photo FROM utilisateur NATURAL JOIN ligne_panier NATURAL JOIN produit WHERE mail='$mail'";
     $ligne=$this->db->query($req);
     return($ligne->fetchAll(PDO::FETCH_CLASS, "Produit"));
   }
@@ -156,12 +160,12 @@ class DAO {
     // Supprime de la table produit le produit dont la référence est passée en paramètre
     $req="DELETE FROM produit WHERE ref='$ref'";
     $this->db->exec($req);
-    }
+  }
 
-    function updateProduit($intitule, $complement='', $prix, $ref, $photo) {
-      $req="UPDATE produit SET ($intitule, '$complement', '$prix', '$ref', '$photo') WHERE ref='$ref'";
-      $this->db->exec($req);
-    }
+  function updateProduit($intitule, $complement='', $prix, $ref, $photo) {
+    $req="UPDATE produit SET ($intitule, '$complement', '$prix', '$ref', '$photo') WHERE ref='$ref'";
+    $this->db->exec($req);
+  }
   // ----------------------
   // fonctions CRUD classe Categorie
   // ----------------------
