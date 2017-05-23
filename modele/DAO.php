@@ -29,24 +29,6 @@ class DAO {
   // Fonctions CRUD classe Utilisateur
   // ----------------------
 
-  function createUtilisateur($util) {
-    // Crée un utilisatuer à partir de l'objet utilisateur passé en paramètre
-    $nom=$util->getNom();
-    $prenom=$util->getPrenom();
-    $mail=$util->getMail();
-    $mdp=$util->getMdp();
-    // Vérifier que cet utilisateur n'existe pas déja !!
-    $existant=getUtilisateur($mail);
-    if($existant == FALSE)
-      exit("ERREUR : l'adresse mail ".$util->mail." existe déjà");
-    else
-      $req="INSERT INTO utilisateur VALUES('$nom', '$prenom', '$mail', '$mdp')";
-    $resExec=$this->db->exec($req);
-    if ($resExec == FALSE)
-      exit("ERREUR : Impossible de créer l'utilisateur");
-    // Ajouter les vérifications d'erreur et d'intégrité
-  }
-
   function getUtilisateur($mail, $mdp='') {
     // Renvoie un tableau contenant 1 utilisateur (si il existe)
     // Sécurité : attention aux passages de code SQL (injections possibles)
@@ -59,13 +41,30 @@ class DAO {
     }
     $ligne=$this->db->query($req);
     if ($ligne == FALSE) {
-      var_dump($this->db->errorInfo());
-      echo("Erreur lors de la lecture");
+      //var_dump($this->db->errorInfo());
       return FALSE;
     } else {
       $util=$ligne->fetchAll(PDO::FETCH_CLASS, "Utilisateur");
       return $util;
     }
+  }
+
+  function createUtilisateur($util) {
+    // Crée un utilisatuer à partir de l'objet utilisateur passé en paramètre
+    $nom=$util->getNom();
+    $prenom=$util->getPrenom();
+    $mail=$util->getMail();
+    $mdp=$util->getMdp();
+    // Vérifier que cet utilisateur n'existe pas déja !!
+    $existant=getUtilisateur($mail);
+    if($existant == FALSE) {
+      $req="INSERT INTO utilisateur VALUES('$nom', '$prenom', '$mail', '$mdp')";
+      $resExec=$this->db->exec($req);
+      if ($resExec == FALSE)
+        exit("ERREUR : Impossible de créer l'utilisateur");
+      } else
+        exit("ERREUR : l'adresse mail ".$util->mail." existe déjà");
+    // Ajouter les vérifications d'erreur et d'intégrité
   }
 
   function getAllUtilisateurs() {
@@ -94,7 +93,7 @@ class DAO {
     // Modifie un utilisateur existant avec les nouvelles valeurs
     // Vérifier que l'utilisateur existe au préalable!!
     // Ne marche pas!!!
-    $existant=getUtilisateur($mail)
+    $existant=getUtilisateur($mail);
     if ($existant == FALSE)
       exit("ERREUR : L'utilisateur d'adresse mail ".$mail." n'existe pas");
     else {
@@ -124,6 +123,10 @@ class DAO {
       $this->db->exec($req);
   }
 
+  function getProduitRef($ref) {
+    // Renvoie le produit de référence $REF
+  }
+
   function getProduits() {
     // Renvoie un tableau contenant tous les produits de la base
     $req="SELECT * FROM produit";
@@ -147,7 +150,7 @@ class DAO {
 
   function getProduitsUtilisateur($mail) {
     // Renvoie un tableau contenant les produits de l'utilisateur (donc son panier) dont le mail est passé en paramètre
-    $req="SELECT intitule, complement, prix, ref, photo FROM utilisateur NATURAL JOIN ligne_panier NATURAL JOIN produit WHERE mail='$mail'");
+    $req="SELECT intitule, complement, prix, ref, photo FROM utilisateur NATURAL JOIN ligne_panier NATURAL JOIN produit WHERE mail='$mail'";
     $ligne=$this->db->query($req);
     return($ligne->fetchAll(PDO::FETCH_CLASS, "Produit"));
   }
