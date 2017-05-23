@@ -18,7 +18,7 @@
         }elseif ($_GET['page']=='inscription'){
             include '../vue/inscription.php';
         }elseif ($_GET['page']=='panier'){
-            if($_COOKIE['connecte']=="unregistred")
+            if(isset($_COOKIE['connecte']) && $_COOKIE['connecte']!="unregistred")
                 include '../vue/connect.php';
             else
                 include '../vue/commande.php';
