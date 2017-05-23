@@ -212,22 +212,45 @@ class DAO {
   function getCategorie($nom) {
     $req="SELECT * FROM categorie WHERE nom='$nom'";
     $ligne=$this->db->query($req);
-    return($ligne->fetchAll(PDO::FETCH_CLASS, "Categorie"));
+    if ($ligne == FALSE) {
+      throw new Exception("Catégorie ".$nom." inexistante\n");
+      return FALSE;
+    }
+    else
+      return($ligne->fetchAll(PDO::FETCH_CLASS, "Categorie"));
   }
 
   function createCategorie($nom) {
-    $req="INSERT INTO categorie VALUES('$nom')";
-    $this->db->exec($req);
+    $cat=getCategorie($nom);
+    if ($cat == FALSE) {
+      $req="INSERT INTO categorie VALUES('$nom')";
+      $this->db->exec($req);
+    } else
+      throw new Exception("ERREUR : la catégorie ".$nom." existe déjà\n");
   }
 
   function deleteCategorie($nom) {
-    $req="DELETE FROM categorie WHERE nom='$nom'";
-    $this->db->exec($req);
+    $cat=$this->getCategorie($nom);
+    if ($cat == FALSE)
+      throw new Exception("ERREUR : catégorie ".$nom." inexistante\n");
+    else {
+      $req="DELETE FROM categorie WHERE nom='$nom'";
+      $resExec=$this->db->exec($req);
+      if ($resExec == 0)
+        echo("Aucun produit de la catégorie ".$nom."\n");
   }
 
   function updateCategorie($nom) {
-    $req="UPDATE categorie SET ('$nom')";
-    $this->db->exec($req);
+    $cat=$this->getCategorie($nom);
+    if ($cat == FALSE)
+      throw new Exception("ERREUR : catégorie ".$nom." inexistante\n");
+    else {
+      $req="UPDATE categorie SET nom='$nom' WHERE nom='$nom'";
+      $resExec=$this->db->exec($req);
+      if ($resExec == 0)
+        echo("Aucun produit de la catégorie ".$nom."\n");
+    }
   }
+
 }
 ?>
