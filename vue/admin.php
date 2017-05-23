@@ -16,11 +16,8 @@
       <h2>Admin</h2>
       <a href="#"><img src="" alt="Deconnexion" /></a>
       <ul>
-        <li><a href="#">Ajouter utilisateurs</a></li>
-        <li><a href="#">Modifier utilisateurs</a></li>
-        <li><a href="#">Ajouter produits</a></li>
-        <li><a href="#">Modifier produits</a></li>
-        <li><a href="#">...</a></li>
+        <li><a href="#">Utilisateurs</a></li>
+        <li><a href="#">Produits</a></li>
       </ul>
     </nav>
   </header>
