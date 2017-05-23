@@ -21,7 +21,7 @@ class DAO {
       $this->db=new PDO('sqlite:../modele/data/base.db'); /* test.db est le nom de la base, peut être modifié */
       /* var_dump($this->db); */
     } catch (PDOException $e) {
-        throw new Exception("\nERREUR : ".$e->getMessage());
+      throw new Exception("\nERREUR : ".$e->getMessage());
     }
   }
 
@@ -118,10 +118,16 @@ class DAO {
     $intitule=$prod->getIntitule();
     $prix=$prod->getPrix();
     $photo=$prod->getPhoto();
-    $existant=$this->
-    // Vérifier validité de la ref, du prix (positif...)
-    $req="INSERT INTO produit VALUES('$intitule', '$complement', $prix, $ref, '$photo')";
-    $this->db->exec($req);
+    $existant=$this->getProduitRef($ref);
+    if ($existant == FALSE) {
+      if ($prix < 0)
+        throw new Exception("ERREUR : le prix est invalide (négatif)\n");
+      else {
+        $req="INSERT INTO produit VALUES('$intitule', '$complement', $prix, $ref, '$photo')";
+        $this->db->exec($req);
+      }
+    } else
+      throw new Exception("ERREUR : le produit de référence ".$ref." existe déjà\n");
   }
 
   function getProduitRef($ref) {
@@ -139,39 +145,65 @@ class DAO {
     // Renvoie un tableau contenant tous les produits de la base
     $req="SELECT * FROM produit";
     $ligne=$this->db->query($req);
-    return $ligne->fetchAll(PDO::FETCH_CLASS, "Produit");
+    if ($ligne==FALSE)
+      throw new Exception("Erreur dans getProduits()\n");
+    else
+      return $ligne->fetchAll(PDO::FETCH_CLASS, "Produit");
   }
 
   function getProduitsMinMax($prixMin, $prixMax) {
     // Renvoie un tableau contenant tous les produits dont le prix est compris entre les bornes passées en paramètre
     $req="SELECT * FROM produit WHERE (prix>=$prixMin AND prix<=$prixMax)";
     $ligne=$this->db->query($req);
-    return($ligne->fetchAll(PDO::FETCH_CLASS, "Produit"));
+    if ($ligne==FALSE)
+      throw new Exception("Erreur dans getProduitsMinMax()\n");
+    else
+      return($ligne->fetchAll(PDO::FETCH_CLASS, "Produit"));
   }
 
   function getProduitsCategorie($categorie) {
     // Renvoie un tableau contenant les produits de la catégorie passée en paramètre
     $req="SELECT * FROM produit WHERE categorie='$categorie'";
     $ligne=$this->db->query($req);
-    return($ligne->fetchAll(PDO::FETCH_CLASS, "Produit"));
+    if ($ligne==FALSE)
+      throw new Exception("Erreur dans getProduitsCategorie()\n");
+    else
+      return($ligne->fetchAll(PDO::FETCH_CLASS, "Produit"));
   }
 
   function getProduitsUtilisateur($mail) {
     // Renvoie un tableau contenant les produits de l'utilisateur (donc son panier) dont le mail est passé en paramètre
-    $req="SELECT intitule, complement, prix, ref, photo FROM utilisateur NATURAL JOIN ligne_panier NATURAL JOIN produit WHERE mail='$mail'";
-    $ligne=$this->db->query($req);
-    return($ligne->fetchAll(PDO::FETCH_CLASS, "Produit"));
+    $util=$this->getUtilisateur($mail);
+    if ($util == FALSE)
+      throw new Exception("ERREUR : l'utilisateur d'adresse mail ".$mail." n'existe pas\n");
+    else {
+      $req="SELECT intitule, complement, prix, ref, photo FROM utilisateur NATURAL JOIN ligne_panier NATURAL JOIN produit WHERE mail='$mail'";
+      $ligne=$this->db->query($req);
+      if ($ligne==FALSE)
+        throw new Exception("Erreur dans getProduitsUtilisateur()\n");
+      else
+        return($ligne->fetchAll(PDO::FETCH_CLASS, "Produit"));
+    }
   }
 
   function deleteProduit($ref) {
     // Supprime de la table produit le produit dont la référence est passée en paramètre
     $req="DELETE FROM produit WHERE ref='$ref'";
-    $this->db->exec($req);
-  }
+    $resExec=$this->db->exec($req);
+    if ($resExec==0)
+      throw new Exception("ERREUR : Produit de référence ".$ref." inexistant\n");
+    }
 
   function updateProduit($intitule, $complement='', $prix, $ref, $photo) {
-    $req="UPDATE produit SET ($intitule, '$complement', '$prix', '$ref', '$photo') WHERE ref='$ref'";
-    $this->db->exec($req);
+    $prod=getProduitRef($ref);
+    if ($prod == FALSE)
+      throw new Exception("ERREUR : Produit de référence ".$ref." inexistant\n");
+    else {
+      $req="UPDATE produit SET ($intitule, '$complement', '$prix', '$ref', '$photo') WHERE ref='$ref'";
+      $resExec=$this->db->exec($req);
+      if ($resExec == 0)
+        throw new Exception("ERREUR : Produit de référence ".$ref." inexistant\n");
+    }
   }
   // ----------------------
   // fonctions CRUD classe Categorie
