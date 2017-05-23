@@ -25,7 +25,7 @@
             include '../controleur/index.php';
             exit;
         }
-        $_GET['page'] = "inscription";
+        $_GET['page'] = "accueil";
         include '../controleur/index.php';
     }else{
         $_GET['page'] = "connexion";
