@@ -96,28 +96,24 @@ assert($dao->getAllUtilisateurs()[0]==$user);
 try {
     $dao->createUtilisateur($user);
 } catch (Exception $e) {
-    echo "DEBUG : ".$e->getMessage();
+    echo "OK : ".$e->getMessage();
 }
 $utilisateurs = $dao->getAllUtilisateurs();
 try {
     $dao->updateUtilisateur("hoareau", "brenda", "chatons", "idem");
 } catch (Exception $e) {
-    echo "DEBUG : ".$e->getMessage();
+    echo "OK : ".$e->getMessage();
 }
 try {
     $dao->updateUtilisateur("hoareau", "brenda", "vialaj@gmail.com", "idem");
 } catch (Exception $e) {
     echo "DEBUG : ".$e->getMessage();
 }
-try {
-    assert($dao->getAllUtilisateurs()[0]->prenom == "brenda");
-} catch (Exception $e) {
-    echo "DEBUG : ".$e->getMessage();
-}
+assert($dao->getAllUtilisateurs()[0]->prenom == "brenda");
 foreach ($utilisateurs as $key => $util) {
     $dao->deleteUtilisateur($util->mail);
 }
-var_dump($dao->getAllUtilisateurs()== []);
+assert($dao->getAllUtilisateurs()== []);
 echo "Utilisateur DAO OK\n";
 
 
