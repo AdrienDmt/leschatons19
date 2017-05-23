@@ -26,7 +26,7 @@
   </header>
   <section>
     <article>
-      <a href="#">
+      <a href="#" class="lienChat">
         <div class="Chat1">
           <figure>
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
@@ -35,7 +35,7 @@
           <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
         </div>
       </a>
-      <a href="#">
+      <a href="#" class="lienChat">
         <div class="Chat2">
           <figure>
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
@@ -44,7 +44,7 @@
           <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
         </div>
       </a>
-      <a href="#">
+      <a href="#" class="lienChat">
         <div class="Chat3">
           <figure>
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
@@ -53,7 +53,7 @@
           <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
         </div>
       </a>
-      <a href="#">
+      <a href="#" class="lienChat">
         <div class="Chat4">
           <figure>
 
@@ -64,7 +64,7 @@
 
         </div>
       </a>
-      <a href="#">
+      <a href="#" class="lienChat">
         <div class="Chat5">
           <figure>
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
@@ -73,7 +73,7 @@
           <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
         </div>
       </a>
-      <a href="#">
+      <a href="#" class="lienChat">
         <div class="Chat6">
           <figure>
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
@@ -82,7 +82,7 @@
           <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
         </div>
       </a>
-      <a href="#">
+      <a href="#" class="lienChat">
         <div class="Chat7">
           <figure>
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
@@ -91,7 +91,7 @@
           <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
         </div>
       </a>
-      <a href="#">
+      <a href="#" class="lienChat">
         <div class="Chat8">
           <figure>
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
@@ -105,6 +105,9 @@
     </article>
     <aside class="panneau">
       <h3>Panneau de configuration</h3>
+      <input type="button" name="name" value="bouton1">
+      <input type="button" name="name" value="bouton2">
+      <input type="button" name="name" value="bouton3">
     </aside>
 
   </section>
