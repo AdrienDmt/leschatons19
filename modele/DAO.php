@@ -252,5 +252,35 @@ class DAO {
     }
   }
 
+  // ----------------------
+  // fonctions CRUD classe LignePanier
+  // ----------------------
+
+  function getLignePanier($date, $mail, $ref) {
+    $req="SELECT * FROM ligne_PANIER WHERE date='$date' AND mail='$mail' AND ref='$ref'";
+    $ligne=$this->db->query($req);
+    if ($ligne == FALSE) {
+      echo('Ligne de panier inexistante\n');
+      return FALSE;
+    } else
+        return $ligne->fetchAll(PDO::FETCH_CLASS, "LignePanier");
+  }
+
+  function createLignePanier($lignePanier) {
+    $ligne=$this->getLignePanier($lignePanier->date, $lignePanier->mail, $lignePanier->ref);
+    if ($ligne == FALSE) {
+      $util=$this->getUtilisateur($lignePanier->mail);
+      $prod=$this->getProduitRef($lignePanier->ref);
+      if ($util == FALSE || $prod == FALSE)
+        throw new Exception("ERREUR : produit ou utilisateur inexistant\n");
+      else {
+        $req="INSERT INTO ligne_panier VALUES ('$lignePanier->date', $lignePanier->quantite, $lignePanier->valide, '$lignePanier->mail', $lignePanier->ref)";
+        $this->db->exec($req);
+      }
+    }
+    else
+      throw new Exception("ERREUR : La ligne de panier existe déjà\n");
+  }
+
 }
 ?>
