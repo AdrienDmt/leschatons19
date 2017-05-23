@@ -1,0 +1,11 @@
+figure img {
+  width: 150px;
+  height: 150px;
+}
+figure{
+  margin: 0;
+
+}
+div{
+    display: inline-block;
+}
