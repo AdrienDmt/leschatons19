@@ -212,17 +212,18 @@ class DAO {
   function getCategorie($nom) {
     $req="SELECT * FROM categorie WHERE nom='$nom'";
     $ligne=$this->db->query($req);
-    if ($ligne == FALSE) {
+    if ($ligne == FALSE) {
       throw new Exception("Catégorie ".$nom." inexistante\n");
       return FALSE;
     }
     else
-      return($ligne->fetchAll(PDO::FETCH_CLASS, "Categorie"));
+      return ($ligne->fetchAll(PDO::FETCH_CLASS, "Categorie"));
   }
 
   function createCategorie($nom) {
     $cat=getCategorie($nom);
-    if ($cat == FALSE) {
+    if ($cat == FALSE)
+    {
       $req="INSERT INTO categorie VALUES('$nom')";
       $this->db->exec($req);
     } else
@@ -238,7 +239,8 @@ class DAO {
       $resExec=$this->db->exec($req);
       if ($resExec == 0)
         echo("Aucun produit de la catégorie ".$nom."\n");
-  }
+  		}
+	}
 
   function updateCategorie($nom) {
     $cat=$this->getCategorie($nom);
@@ -283,4 +285,5 @@ class DAO {
   }
 
 }
+
 ?>
