@@ -30,6 +30,6 @@
         include '../controleur/index.php';
     }else{
         $_GET['page'] = 'inscription';
-        include '../controleur/index.php';
+        include '../controleur/index.php?';
     }
 ?>

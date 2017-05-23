@@ -42,4 +42,16 @@
         }
         return $data;
     }
+
+    function recupererProduits($categorie){
+        include '../modele/DAO.php';
+        $dao = new DAO();
+        if($categorie == 'tous')
+            $data[] = $dao->getProduits();
+        else{
+            $cate = $dao->getCategorie($categorie);
+            $data[] = $dao->getProduitsCategorie($cate);
+        }
+        return $data[0];
+    }
 ?>
