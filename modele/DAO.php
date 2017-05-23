@@ -156,8 +156,10 @@ class DAO {
     // Renvoie un tableau contenant les produits de la catégorie passée en paramètre
     $req="SELECT * FROM produit WHERE categorie='$categorie'";
     $ligne=$this->db->query($req);
+    // Attention : si une catégorie n'est associée à aucun produit, ce n'est pas parce qu'elle est fausse!
     if ($ligne==FALSE)
-      throw new Exception("Erreur dans getProduitsCategorie()\n");
+      //throw new Exception("Erreur dans getProduitsCategorie()\n");
+      return FALSE;
     else
       return($ligne->fetchAll(PDO::FETCH_CLASS, "Produit"));
   }
@@ -212,7 +214,7 @@ class DAO {
   }
 
   function createCategorie($nom) {
-    $cat=getCategorie($nom);
+    $cat=$this->getCategorie($nom);
     if ($cat == FALSE)
     {
       $req="INSERT INTO categorie VALUES('$nom')";

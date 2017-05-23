@@ -121,7 +121,7 @@ assert($dao->getAllUtilisateurs()== []);
 echo "Utilisateur DAO OK\n";
 
 // produit DAO
-echo "\n --- Produit ---\n";
+echo "\n --- Create Produit ---\n";
 $prod1 = new Produit("chaton1", "animal tout doux", 10, "ch4T", "chaton.jpg");
 $prod2 = new Produit("chaton2", "animal poilu", 100, "reference bidon", "chaton-01.jpg", "argument en trop");
 try {
@@ -150,23 +150,50 @@ try { // ce test ne devrait pas passer, mais aucune erreur n'est relevée!!
 } catch (Exception $e) {
     echo "OK5 : ".$e->getMessage();
 }
+echo "Create Produit OK\n";
+
+// produit par reference
+echo "\n --- Get Produit Ref ---\n";
 try {
     $dao->getProduitRef();
 } catch (Exception $e) {
-    echo "OK6 : ".$e->getMessage();
+    echo "6 OK : ".$e->getMessage();
 }
 try {
     $dao->getProduitRef("blabla");
 } catch (Exception $e) {
-    echo "OK7 : ".$e->getMessage();
+    echo "7 OK : ".$e->getMessage();
 }
-echo "Produit DAO Partiellement Testé\n";
+echo "Get Produit Ref OK\n";
+
 
 
 // categorie DAO
 echo "\n --- Categorie ---\n";
+try {
+    $dao->createCategorie("Mignons");
+} catch (Exception $e) {
+    echo "9 DEBUG : ".$e->getMessage();
+}
+echo "Categorie DAO OK\n";
 
-echo "Categorie DAO Non Testé\n";
+
+
+// produit par categorie
+echo "\n --- Get Produit Catégorie ---\n";
+try {
+    $mignons = $dao->getProduitsCategorie("Mignons");
+} catch (Exception $e) {
+    echo "8 DEBUG : ".$e->getMessage();
+}
+assert($mignons == []);
+echo "Get Produit Cat OK\n";
+
+
+
+
+
+
 
 
 // ligne panier DAO
