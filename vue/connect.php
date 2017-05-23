@@ -27,7 +27,7 @@
             <br>
             <input type="submit" value="Se Connecter"/>
             <br>
-            <a href="../controleur/index.php?page=accueil">Vous n'avez pas de compte ?</a>
+            <a href="../controleur/index.php?page=inscription">Vous n'avez pas de compte ?</a>
         </fieldset>
     </form>
     <br>
