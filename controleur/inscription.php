@@ -22,7 +22,6 @@
             echo"psw.style.border=\"2px solid #FF0000\";";
             echo"pswVerif.style.border=\"2px solid #FF0000\";";
             echo"</script>";
-            exit;
         }
         include '../modele/DAO.php';
         $util=new Utilisateur($nom, $prenom,$mail, $psw);
