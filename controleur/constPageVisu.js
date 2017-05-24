@@ -79,7 +79,7 @@ function placementDiv(result){
 function maj_produits(button) {
     var sect = document.getElementById('emplacementProd');
     var art = document.getElementsByTagName('article')
-    sect.removeChild(art);
+    sect.removeChild(art[0]);
     var categ = button.innerText;
     var data = encodeURIComponent(categ);
     try{
