@@ -14,18 +14,6 @@
  * @return mixed
  *
  */
-    function recupererImages($groupDir){
-        if($dh = opendir($groupDir)){
-            while(($file = readdir($dh))!= false){
-                if($file[0]!='.'){
-                    if(pathinfo($file, PATHINFO_EXTENSION)=="jpg"){
-                        $jpg[] = pathinfo($file,PATHINFO_FILENAME);
-                    }
-                }
-            }
-        }
-        return $jpg[0];
-    }
 
 /**
  * @param $dataDir : Dossier contenant toutes les photos.
@@ -54,7 +42,7 @@
             $data[] = $dao->getProduitsCategorie($categorie);
 
         }
-        return $data[0];
+        return $data;
     }
 
     if(!empty($_GET['categorie']))
