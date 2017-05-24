@@ -39,8 +39,7 @@ $dao = new DAO();
         global $dao;
         if($categorie == 'tous'){
             $data[] = $dao->getProduits();
-        }
-        else{
+        }else{
             $data[] = $dao->getProduitsCategorie($categorie);
         }
         return $data[0];
