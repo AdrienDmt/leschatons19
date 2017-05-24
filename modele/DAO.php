@@ -302,4 +302,5 @@ class DAO {
       echo("Aucune ligne de panier correspondant à la date correspondant à la date, mail et référence\n");
   }
 
+}
 ?>
