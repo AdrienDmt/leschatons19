@@ -33,7 +33,7 @@ function $_GET(param) {
 
 
 
-function ajax_get_request(callback, url, async, data)
+function ajax_get_request(callback, url, async)
 {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function(){
