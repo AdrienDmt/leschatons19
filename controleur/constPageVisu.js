@@ -39,7 +39,7 @@ function ajax_get_request(callback, url, async)
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function(){
         if ((xhr.readyState==4) && (xhr.status==200))
-            callback(xhr.response);
+            callback(xhr.responseText);
     };
     xhr.open("GET",url,async);
     xhr.send();
