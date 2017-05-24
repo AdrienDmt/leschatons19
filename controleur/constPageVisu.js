@@ -54,7 +54,7 @@ function placementDiv(result){
         var div = document.createElement("div");
         var figure = document.createElement("figure");
         var img = document.createElement("img");
-        img.setAttribute("src", result[$i].photo);
+        img.setAttribute("src", "../data/"+result[$i].photo);
         var figcapt = document.createElement("figcaption");
         //figcapt.innerHTML(result.intitule);
         var descript = document.createElement("p");
