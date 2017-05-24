@@ -51,7 +51,7 @@
         </tr>
       </table>
       <p>Total xxxx</p>
-      <input type="button" name="" value="Commander">
+      <input type="button" name="" value="Commander" id="commande">
     </section>
     <footer>
     	<p>Le projet web de Julien, Brenda, Alexandre et Raphael.</p>
