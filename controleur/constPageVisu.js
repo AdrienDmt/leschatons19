@@ -81,9 +81,9 @@ function maj_produits(button) {
     var art = document.getElementsByTagName('article')
     sect.removeChild(art[0]);
     var categ = button.innerText;
-    var data = encodeURIComponent(categ);
+    var datas = encodeURIComponent(categ);
     try{
-        ajax_get_request(placementDiv, '../controleur/recupVisuelProduit.php?categorie='+data, true);
+        ajax_get_request(placementDiv, '../controleur/recupVisuelProduit.php?categorie='+datas, true);
     }catch(err){
         alert("erreur : "+err);
     }
