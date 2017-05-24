@@ -8,6 +8,7 @@
  *
  *version1 : Recupere les images dans le dossier ( a renseigner au moment de l'appel). Utiliser scanImage.
  */
+include '../modele/DAO.php';
 $dao = new DAO();
 
 /**
@@ -35,7 +36,7 @@ $dao = new DAO();
 
     function recupererProduits($categorie){
         //Permet de recuperer un tableau contenant les produits d'une catégorie donnée
-        include '../modele/DAO.php';
+
         global $dao;
         if($categorie == 'tous'){
             $data[] = $dao->getProduits();
