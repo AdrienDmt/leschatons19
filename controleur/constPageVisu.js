@@ -72,7 +72,8 @@ function placementDiv(result){
         lien.appendChild(div);
         art.appendChild(lien);
     }
-    sect.appendChild(art);
+    var aside = document.getElementsByTagName('aside');
+    sect.insertBefore(art,aside);
 }
 
 function maj_produits(button) {
