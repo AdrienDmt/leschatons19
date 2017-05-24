@@ -16,7 +16,7 @@
       <nav id="menu">
         <a href="../controleur/index.php?page=connexion"><img src="../data/utilisateur.png" alt="Image compte" id="monCompte" />Mon compte</a>
         <a href="../controleur/index.php?page=panier"><img src="../data/panier.png" alt="Image panier" id="panier"/>Mon panier</a>
-        <a href="../controleur/index.php?page=deconnexion"><img src="../data/menu_logout.png" alt="Image deconnect" id="monCompte" />Deconnexion</a>
+        <a href="../controleur/index.php?page=deconnexion"><img src="../data/menu_logout.png" alt="Image deconnect" id="deconnect" />Deconnexion</a>
         <ul>
             <li><a href="../controleur/index.php?page=accueil">Accueil</a></li>
             <li><a href="../controleur/index.php?page=liste&categorie=mignon">Mignons</a></li>
@@ -51,7 +51,7 @@
         </tr>
       </table>
       <p>Total xxxx</p>
-      <input type="button" name="" value="Commander" id="commande">
+      <input type="button" name="commande" value="Commander" id="commande">
     </section>
     <footer>
     	<p>Le projet web de Julien, Brenda, Alexandre et Raphael.</p>
