@@ -7,6 +7,8 @@ Auteur : RC
 
 */
 
+
+
 function init() {
 
     var mail = getCookie("connecte");
@@ -17,16 +19,41 @@ function init() {
 
 
 function afficheProduitsPanier(json) {
+
+    var somme = 0; // prix total des produits
+
     var table = document.getElementsByTagName('table')[0];
-    console.log(table);
     for (var i = 0; i < json.length; i++) {
         var ligne = document.createElement("tr");
-        console.log(ligne);
-        console.log(json[i]);
-        for (var j = 0; j < json[i].length; j++) {
-            console.log(json[i][j]);
-        }
+
+        var intitule = document.createElement("td");
+        var intituleText = document.createTextNode(json[i].intitule);
+        intitule.appendChild(intituleText);
+        ligne.appendChild(intitule);
+
+        var ref = document.createElement("td");
+        var refText = document.createTextNode(json[i].ref);
+        ref.appendChild(refText);
+        ligne.appendChild(ref);
+
+        var prix = document.createElement("td");
+        var prixText = document.createTextNode(json[i].prix);
+        prix.appendChild(prixText);
+        ligne.appendChild(prix);
+
+        var qte = document.createElement("td");
+        var qteText = document.createTextNode(1); // à remplacer par la bonne quantité
+        qte.appendChild(qteText);
+        ligne.appendChild(qte);
+
+        somme += json[i].prix * 1; // à remplacer
+
+        table.appendChild(ligne);
     }
+
+    // ajout de la valeur totale du panier en bas du tableau
+    var total = document.getElementById("total");
+    total.innerHTML = somme;
 }
 
 

@@ -31,7 +31,7 @@
       <table>
         <!-- <caption>Votre panier </caption> -->
         <tr>
-          <th></th>
+          <!-- <th></th> -->
           <th>Nom</th>
           <th>Ref</th>
           <th>Prix</th>
@@ -52,7 +52,7 @@
           <td>5</td>
         </tr> -->
       </table>
-      <h3>Total somme en €</h3>
+      <h3>Total <span id="total"></span>€</h3>
       <input type="button" name="commande" value="Commander" id="commande">
     </section>
     <footer>
