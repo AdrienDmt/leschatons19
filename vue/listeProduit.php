@@ -19,16 +19,16 @@
       <a href="../controleur/index.php?page=panier"><img src="../data/panier.png" alt="Image panier" id="panier"/>Mon panier</a>
       <ul>
           <li><a value="Accueil" href="../controleur/index.php?page=accueil">Accueil</a></li>
-          <li onclick="maj_produits(this)"><a href>Mignons</a></li>
-          <li onclick="maj_produits(this)"><a href="">Jolis</a></li>
-          <li onclick="maj_produits(this)"><a href="">Beaux</a></li>
-          <li onclick="maj_produits(this)"><a href="">Craquants</a></li>
-          <li onclick="maj_produits(this)"><a href="">Tous</a></li>
+          <li value="Mignons" onclick="maj_produits(this)"><a href>Mignons</a></li>
+          <li value="Jolis" onclick="maj_produits(this)"><a href="">Jolis</a></li>
+          <li value="Beaux" onclick="maj_produits(this)"><a href="">Beaux</a></li>
+          <li value="Craquants" onclick="maj_produits(this)"><a href="">Craquants</a></li>
+          <li value="Tous" onclick="maj_produits(this)"><a href="">Tous</a></li>
       </ul>
     </nav>
   </header>
-  <section>
-    <article id="emplacementProd"><!--
+  <section id="emplacementProd"><!--
+    <article >
       <a href="#" class="lienChat">
         <div class="Chat1">
           <figure>
@@ -105,8 +105,8 @@
       </a>
       <br>
       <a href="#" id="precedent"><img src="../data/fleche1.png" alt="test"></a>
-      <a href="#" id="suivant"><img src="../data/fleche2.png" alt="test"></a>-->
-    </article>
+      <a href="#" id="suivant"><img src="../data/fleche2.png" alt="test"></a>
+    </article>-->
     <aside class="panneau">
       <h3>Triez votre chaton</h3>
       <input type="button" name="name" value="Prix">

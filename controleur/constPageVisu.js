@@ -49,7 +49,8 @@ function ajax_get_request(callback, url, async)
 function placementDiv(result){
     //console.log("retour result : " + result);
 
-    var art = document.getElementById('emplacementProd');
+    var sect= document.getElementById('emplacementProd')
+    var art = document.createElement("article");
     for($i=0;$i<result.length;$i++){
         var lien = document.createElement("a");
         lien.setAttribute("href","../controleur/index?page=descriptionProd&ref="+result[$i].ref);
@@ -71,15 +72,15 @@ function placementDiv(result){
         lien.appendChild(div);
         art.appendChild(lien);
     }
+    var aside = document.getElementsByTagName('aside');
+    sect.insertBefore(art,aside[0]);
 }
 
 function maj_produits(button) {
-    var art = document.getElementById('emplacementProd');
-    var liens = document.getElementsByClassName('Chat');
-    for (var i=0; i<liens.length;i++){
-        art.removeChild(liens[i]);
-    }
-    var categ = button.innerHTML;
+    var sect = document.getElementById('emplacementProd');
+    var art = document.getElementsByTagName('article')
+    sect.removeChild(art[0]);
+    var categ = button.innerText;
     var data = encodeURIComponent(categ);
     try{
         ajax_get_request(placementDiv, '../controleur/recupVisuelProduit.php?categorie='+data, true);
