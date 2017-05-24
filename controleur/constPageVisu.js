@@ -48,7 +48,7 @@ function ajax_get_request(callback, url, async)
 function placementDiv(result){
     console.log("retour result : " + result);
     var art = document.getElementsByTagName('article');
-    for($i=0;$i<8;$i++){
+    for($i=0;$i<result.length;$i++){
         var lien = document.createElement("a");
         lien.setAttribute("href","../controleur/index?page=descriptionProd&ref=".result[$i]['ref']);
         lien.setAttribute("class","Chat");
