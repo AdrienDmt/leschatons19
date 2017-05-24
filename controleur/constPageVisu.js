@@ -49,8 +49,9 @@ function ajax_get_request(callback, url, async)
 function placementDiv(result){
     //console.log("retour result : " + result);
 
-    var art = document.getElementById('emplacementProd');
+    var sect= document.getElementById('emplacementProd');
     for($i=0;$i<result.length;$i++){
+        var art = document.createElement("article");
         var lien = document.createElement("a");
         lien.setAttribute("href","../controleur/index?page=descriptionProd&ref="+result[$i].ref);
         lien.setAttribute("class","Chat");
@@ -70,15 +71,14 @@ function placementDiv(result){
         div.appendChild(p);
         lien.appendChild(div);
         art.appendChild(lien);
+        sect.appendChild(art);
     }
 }
 
 function maj_produits(button) {
-    var art = document.getElementById('emplacementProd');
-    var liens = document.getElementsByClassName('Chat');
-    for (var i=0; i<liens.length;i++){
-        art.removeChild(liens[i]);
-    }
+    var sect = document.getElementById('emplacementProd');
+    var art = document.getElementsByTagName('article')
+    sect.removeChild(art);
     var categ = button.innerText;
     var data = encodeURIComponent(categ);
     try{

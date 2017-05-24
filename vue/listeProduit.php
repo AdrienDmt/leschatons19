@@ -27,8 +27,8 @@
       </ul>
     </nav>
   </header>
-  <section>
-    <article id="emplacementProd"><!--
+  <section id="emplacementProd"><!--
+    <article >
       <a href="#" class="lienChat">
         <div class="Chat1">
           <figure>
@@ -105,8 +105,8 @@
       </a>
       <br>
       <a href="#" id="precedent"><img src="../data/fleche1.png" alt="test"></a>
-      <a href="#" id="suivant"><img src="../data/fleche2.png" alt="test"></a>-->
-    </article>
+      <a href="#" id="suivant"><img src="../data/fleche2.png" alt="test"></a>
+    </article>-->
     <aside class="panneau">
       <h3>Triez votre chaton</h3>
       <input type="button" name="name" value="Prix">
