@@ -295,6 +295,11 @@ class DAO {
       throw new Exception("ERREUR : La ligne de panier existe déjà\n");
   }
 
-}
+  function deleteLignePanier($date, $mail, $ref) {
+    $req="DELETE FROM ligne_panier WHERE date='$date' AND mail='$mail' AND ref='$ref'";
+    $resExec=$this->db->exec($req);
+    if ($resExec == 0)
+      echo("Aucune ligne de panier correspondant à la date correspondant à la date, mail et référence\n");
+  }
 
 ?>
