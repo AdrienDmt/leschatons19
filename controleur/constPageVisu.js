@@ -71,8 +71,8 @@ function placementDiv(result){
         div.appendChild(p);
         lien.appendChild(div);
         art.appendChild(lien);
-        sect.appendChild(art);
     }
+    sect.appendChild(art);
 }
 
 function maj_produits(button) {
