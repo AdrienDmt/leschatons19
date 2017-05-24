@@ -37,10 +37,10 @@ nom STRING PRIMARY KEY /* Clé Primaire */
 
 CREATE TABLE ligne_panier (
 date DATE, /* Format de date à valider */
-quantite INTEGER,
-validite BOOLEAN,
 mail STRING REFERENCES utilisateur(mail),
 ref STRING REFERENCES produit(ref),
+quantite INTEGER,
+validite BOOLEAN,
 PRIMARY KEY (date, mail, ref)
 );
 
