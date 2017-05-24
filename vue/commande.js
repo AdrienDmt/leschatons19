@@ -16,14 +16,18 @@ function init() {
 }
 
 
-// function afficheProduitsPanier(json) {
-//     var table = document.getElementsByTagName('table')[0];
-//     console.log(table);
-//     for (var i = 0; i < json.length; i++) {
-//         document.create
-//         console.log(json[i]);
-//     }
-// }
+function afficheProduitsPanier(json) {
+    var table = document.getElementsByTagName('table')[0];
+    console.log(table);
+    for (var i = 0; i < json.length; i++) {
+        var ligne = document.createElement("tr");
+        console.log(ligne);
+        console.log(json[i]);
+        for (var j = 0; j < json[i].length; j++) {
+            console.log(json[i][j]);
+        }
+    }
+}
 
 
 
