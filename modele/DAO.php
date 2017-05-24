@@ -163,7 +163,7 @@ class DAO {
 
   function getProduitsCategorie($categorie) {
     // Renvoie un tableau contenant les produits de la catégorie passée en paramètre
-    $req="SELECT * FROM produit NATURAL JOIN appartient_a WHERE nom=$categorie";
+    $req="SELECT * FROM produit NATURAL JOIN appartient_a WHERE nom='$categorie->nom'";
     $ligne=$this->db->query($req);
     // Attention : si une catégorie n'est associée à aucun produit, ce n'est pas parce qu'elle est fausse!
     if ($ligne==FALSE)
