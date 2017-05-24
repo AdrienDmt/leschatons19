@@ -287,7 +287,7 @@ class DAO {
       elseif ($prod == FALSE)
         throw new Exception("ERREUR : Produit inexistant\n");
       else {
-        $req="INSERT INTO ligne_panier VALUES ('$lignePanier->date', $lignePanier->quantite, $lignePanier->valide, '$lignePanier->mail', $lignePanier->ref)";
+        $req="INSERT INTO ligne_panier VALUES ('$lignePanier->date', $lignePanier->mail, $lignePanier->ref, '$lignePanier->quantite', $lignePanier->valide)";
         $this->db->exec($req);
       }
     }
