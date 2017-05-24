@@ -40,8 +40,8 @@ function ajax_get_request(callback, url, async, data)
         if ((xhr.readyState==4) && (xhr.status==200))
             callback(JSON.parse(xhr.responseText));
     };
-    xhr.open("POST",url,async);
-    xhr.send("categorie="+data);
+    xhr.open("GET",url,async);
+    xhr.send();
 }
 
 function placementDiv(result){
