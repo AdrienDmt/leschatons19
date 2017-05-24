@@ -109,9 +109,9 @@
       <a href="#" id="suivant"><img src="../data/fleche2.png" alt="test"></a>
     </article>
     <aside class="panneau">
-      <h3>Panneau de configuration</h3>
-      <input type="button" name="name" value="bouton1">
-      <input type="button" name="name" value="bouton2">
+      <h3>Triez votre chaton</h3>
+      <input type="button" name="name" value="Prix">
+      <input type="button" name="name" value="Nom">
       <input type="button" name="name" value="bouton3">
     </aside>
 
