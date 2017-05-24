@@ -43,13 +43,11 @@ $dao = new DAO();
         }else{
             $data[] = $dao->getProduitsCategorie($categorie);
         }
-        return $data[0];
+        return $data;
     }
 
     if(!empty($_GET['categorie']))
     {
-        //execution du programme, appel re recupererProduits
         echo json_encode(recupererProduits($_GET['categorie']));
-        //return recupererProduits($_GET['categorie']);
     }
 ?>
