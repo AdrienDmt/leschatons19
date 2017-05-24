@@ -3,7 +3,7 @@
  */
 
 function init(){
-    console.log("test");
+    //console.log("test");
     var categ = $_GET('categorie');
     var data = encodeURIComponent(categ);
     try{
@@ -48,14 +48,14 @@ function ajax_get_request(callback, url, async)
 function placementDiv(result){
     console.log("retour result : " + result);
     var art = document.getElementsByTagName('article');
-    for($i=1;$i<=8;$i++){
+    for($i=0;$i<result.length;$i++){
         var lien = document.createElement("a");
         lien.setAttribute("href","../controleur/index?page=descriptionProd&ref=".result[$i]['ref']);
         lien.setAttribute("class","Chat");
         var div = document.createElement("div");
         var figure = document.createElement("figure");
         var img = document.createElement("img");
-        img.setAttribute("src", result[$i]['photo']);
+        img.setAttribute("src", [$i]['photo']);
         var figcapt = document.createElement("figcaption");
         figcapt.innerHTML(result[$i]['intitule']);
         var descript = document.createElement("p");

@@ -6,7 +6,6 @@
   <meta charset="utf-8">
   <title>Produit</title>
   <link rel="stylesheet" href="../vue/accueil.css" media="screen" title="no title" >
-  <script src="listeProduit.js"></script>
   <link rel="stylesheet" href="../vue/listeProduit.css">
 </head>
 
@@ -29,14 +28,14 @@
     </nav>
   </header>
   <section>
-    <article>
+    <article><!--
       <a href="#" class="lienChat">
         <div class="Chat1">
           <figure>
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
           </figure>
           <figcaption>Mignon 1</figcaption>
-          <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
+          <pre> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </pre>
         </div>
       </a>
       <a href="#" class="lienChat">
@@ -45,7 +44,7 @@
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
           </figure>
           <figcaption>Mignon 2</figcaption>
-          <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
+          <pre> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </pre>
         </div>
       </a>
       <a href="#" class="lienChat">
@@ -54,7 +53,7 @@
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
           </figure>
           <figcaption>Mignon 3</figcaption>
-          <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
+          <pre> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </pre>
         </div>
       </a>
       <a href="#" class="lienChat">
@@ -64,7 +63,7 @@
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
           </figure>
           <figcaption>Mignon 4</figcaption>
-          <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
+          <pre> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </pre>
 
         </div>
       </a>
@@ -74,7 +73,7 @@
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
           </figure>
           <figcaption>Mignon 5</figcaption>
-          <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
+          <pre> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </pre>
         </div>
       </a>
       <a href="#" class="lienChat">
@@ -83,7 +82,7 @@
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
           </figure>
           <figcaption>Mignon 6</figcaption>
-          <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
+          <pre> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </pre>
         </div>
       </a>
       <a href="#" class="lienChat">
@@ -92,7 +91,7 @@
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
           </figure>
           <figcaption>Mignon 7</figcaption>
-          <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
+          <pre> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </pre>
         </div>
       </a>
       <a href="#" class="lienChat">
@@ -101,12 +100,12 @@
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
           </figure>
           <figcaption>Mignon 8</figcaption>
-          <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
+          <pre> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </pre>
         </div>
       </a>
       <br>
       <a href="#" id="precedent"><img src="../data/fleche1.png" alt="test"></a>
-      <a href="#" id="suivant"><img src="../data/fleche2.png" alt="test"></a>
+      <a href="#" id="suivant"><img src="../data/fleche2.png" alt="test"></a>-->
     </article>
     <aside class="panneau">
       <h3>Triez votre chaton</h3>
