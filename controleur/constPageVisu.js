@@ -48,16 +48,16 @@ function placementDiv(result){
     var art = document.getElementsByTagName('article');
     for($i=0;$i<result.length;$i++){
         var lien = document.createElement("a");
-        lien.setAttribute("href","../controleur/index?page=descriptionProd&ref=".result[$i]['ref']);
+        lien.setAttribute("href","../controleur/index?page=descriptionProd&ref="+result.ref);
         lien.setAttribute("class","Chat");
         var div = document.createElement("div");
         var figure = document.createElement("figure");
         var img = document.createElement("img");
-        img.setAttribute("src", [$i]['photo']);
+        img.setAttribute("src", result.photo);
         var figcapt = document.createElement("figcaption");
-        figcapt.innerHTML(result[$i]['intitule']);
+        figcapt.innerHTML(result.intitule);
         var descript = document.createElement("p");
-        descript.innerHTML(result[$i]['prix']);
+        descript.innerHTML(result.prix);
         figure.appendChild(img);
         div.appendChild(figure);
         div.appendChild(figcapt);
