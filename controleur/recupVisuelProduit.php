@@ -43,19 +43,24 @@
         return $data;
     }
 
+
     function recupererProduits($categorie){
+        //Permet de recuperer un tableau contenant les produits d'une catégorie donnée
         include '../modele/DAO.php';
         $dao = new DAO();
         if($categorie == 'tous')
             $data[] = $dao->getProduits();
         else{
             $data[] = $dao->getProduitsCategorie($categorie);
+
         }
+        var_dump($data);
         return $data[0];
     }
 
     if(!empty($_GET['categorie']))
     {
+        //execution du programme, appel re recupererProduits
         return recupererProduits($_GET['categorie']);
     }
 ?>

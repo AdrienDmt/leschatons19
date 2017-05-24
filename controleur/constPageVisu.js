@@ -8,7 +8,7 @@ function init(){
     var data = encodeURIComponent(categ);
     try{
         console.log(data);
-        ajax_get_request(placementDiv, '../controleur/recupVisuelProduit.php?categorie='+data, false);
+        ajax_get_request(placementDiv, '../controleur/recupVisuelProduit.php?categorie='+data, true);
     }catch(err){
         alert("erreur : "+err);
     }
@@ -46,20 +46,20 @@ function ajax_get_request(callback, url, async)
 }
 
 function placementDiv(result){
-    console.log(result);
+    console.log("retour result : " + result);
     var art = document.getElementsByTagName('article');
-    for($i=1;$i<=8;$i++){
+    for($i=0;$i<8;$i++){
         var lien = document.createElement("a");
-        lien.setAttribute("href","../controleur/index?page=descriptionProd&ref=".result[$i]['ref']);
+        lien.setAttribute("href","../controleur/index?page=descriptionProd&ref=".result[0][$i]['ref']);
         lien.setAttribute("class","Chat");
         var div = document.createElement("div");
         var figure = document.createElement("figure");
         var img = document.createElement("img");
-        img.setAttribute("src", result[$i]['photo']);
+        img.setAttribute("src", [0][$i]['photo']);
         var figcapt = document.createElement("figcaption");
-        figcapt.innerHTML(result[$i]['intitule']);
+        figcapt.innerHTML(result[0][$i]['intitule']);
         var descript = document.createElement("p");
-        descript.innerHTML(result[$i]['prix']);
+        descript.innerHTML(result[0][$i]['prix']);
         figure.appendChild(img);
         div.appendChild(figure);
         div.appendChild(figcapt);
