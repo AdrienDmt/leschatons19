@@ -29,9 +29,9 @@ INSERT INTO categorie VALUES("Craquants");
 INSERT INTO categorie VALUES("Méchants");
 
 /* Ligne Panier */
-INSERT INTO ligne_panier VALUES ("aujourd'hui", "r.c@free.fr", "132456", 1, FALSE);
-INSERT INTO ligne_panier VALUES ("aujourd'hui", "r.c@free.fr", "321654", 2, TRUE);
-INSERT INTO ligne_panier VALUES ("hier", "b.h@gmail.com", "refbidon", 5, FALSE);
+INSERT INTO ligne_panier VALUES ("aujourd'hui", "r.c@free.fr", "132456", 1, "FALSE");
+INSERT INTO ligne_panier VALUES ("aujourd'hui", "r.c@free.fr", "321654", 2, "TRUE");
+INSERT INTO ligne_panier VALUES ("hier", "b.h@gmail.com", "refbidon", 5, "FALSE");
 
 
 /* AppartientA */
