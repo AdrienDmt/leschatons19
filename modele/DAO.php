@@ -84,7 +84,7 @@ class DAO {
     $req="DELETE FROM utilisateur WHERE mail='$mail'";
     $resExec=$this->db->exec($req);
     if($resExec == 0)
-    echo("L'utilisateur d'adresse mail ".$mail." n'existe pas");
+    echo("L'utilisateur d'adresse mail ".$mail." n'existe pas\n");
   }
 
   function updateUtilisateur($nom, $prenom, $mail, $mdp) {
@@ -117,7 +117,7 @@ class DAO {
       if ($prix < 0)
         throw new Exception("ERREUR : le prix est invalide (négatif)\n");
       else {
-        $req="INSERT INTO produit VALUES('$intitule', '$complement', $prix, $ref, '$photo')";
+        $req="INSERT INTO produit VALUES('$intitule', '$complement', $prix, '$ref', '$photo')";
         $this->db->exec($req);
       }
     } else
@@ -292,7 +292,7 @@ class DAO {
       elseif ($prod == FALSE)
         throw new Exception("ERREUR : Produit inexistant\n");
       else {
-        $req="INSERT INTO ligne_panier VALUES ('$lignePanier->date', $lignePanier->quantite, $lignePanier->valide, '$lignePanier->mail', $lignePanier->ref)";
+        $req="INSERT INTO ligne_panier VALUES ('$lignePanier->date', $lignePanier->mail, $lignePanier->ref, '$lignePanier->quantite', $lignePanier->valide)";
         $this->db->exec($req);
       }
     }
