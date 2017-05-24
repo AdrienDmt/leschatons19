@@ -75,7 +75,7 @@ function placementDiv(result){
 
 function maj_produits(button) {
     var art = document.getElementById('emplacementProd');
-    var liens = document.getElementsByTagName('a');
+    var liens = document.getElementsByClassName('Chat');
     for (var i=0; i<liens.length;i++){
         art.removeChild(liens[i]);
     }
