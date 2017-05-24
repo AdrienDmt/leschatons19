@@ -36,7 +36,7 @@ if(!empty($_GET['page'])) { // si le paramètre GET 'page' est non vide, on affi
 
         case 'panier':
             // si l'utilisateur n'est pas connecté, on l'envoie vers la page de connection
-            if(isset($_COOKIE['connecte']) && $_COOKIE['connecte'] != "unregistred") {
+            if(!isset($_COOKIE['connecte'])) {
                 include '../vue/connect.php';
             }
             else {
