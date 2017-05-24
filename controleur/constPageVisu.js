@@ -60,7 +60,7 @@ function placementDiv(result){
         figcapt.appendChild(intit);
        // figcapt.innerHTML(result[$i].intitule);
         var p = document.createElement("p");
-        var descrip = document.createTextNode(result[$i].prix);
+        var descrip = document.createTextNode(result[$i].prix+'€');
         p.appendChild(descrip);
        // descript.innerHTML(result[$i].prix);
         figure.appendChild(img);
