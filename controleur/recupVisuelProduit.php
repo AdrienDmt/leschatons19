@@ -42,7 +42,7 @@
             $data[] = $dao->getProduitsCategorie($categorie);
 
         }
-        return $data;
+        return $data[0];
     }
 
     if(!empty($_GET['categorie']))
