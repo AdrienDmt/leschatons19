@@ -14,10 +14,12 @@
         //echo $login.' '.$psw;
         include '../modele/DAO.php';
         $dao=new DAO();
-        if ($dao->getUtilisateur($mail, $psw)) {
+        if ($dao->getUtilisateur($mail, $psw)!==FALSE) {
+            echo "test";
             $user = $dao->getUtilisateur($mail);
             setcookie("connecte", $user.$mail,time()+(24*60*60));
         }else{
+            echo "test echec";
             echo"<script language=\"javascript\">";
             echo"alert('Vous n'êtes pas inscrit ! Remediez à cela ! ')";
             echo"</script>";
