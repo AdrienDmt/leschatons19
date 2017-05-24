@@ -15,7 +15,6 @@
 
 		</div>
 		<nav id="menu">
-			<h2>Categories</h2>
 			<a href="../controleur/index.php?page=compte"><img src="../data/utilisateur.png" alt="Image compte" id="monCompte" />Mon compte</a>
 			<a href="../controleur/index.php?page=panier"><img src="../data/panier.png" alt="Image panier" id="panier"/>Mon panier</a>
 			<ul>
