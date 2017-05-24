@@ -16,8 +16,8 @@
       <nav id="menu">
         <h2>Categories</h2>
         <a href="../controleur/index.php?page=connexion"><img src="../data/utilisateur.png" alt="Image compte" id="monCompte" />Mon compte</a>
-        <a href="#"><img src="../data/panier.png" alt="Image panier" id="panier"/>Mon panier</a>
-        <a href="#"><img src="../data/menu_logout.png" alt="Image deconnect" id="monCompte" />Deconnexion</a>
+        <a href="../controleur/index.php?page=panier"><img src="../data/panier.png" alt="Image panier" id="panier"/>Mon panier</a>
+        <a href="../controleur/index.php?page=deconnexion"><img src="../data/menu_logout.png" alt="Image deconnect" id="monCompte" />Deconnexion</a>
         <ul>
             <li><a href="../controleur/index.php?page=accueil">Accueil</a></li>
             <li><a href="../controleur/index.php?page=liste&categorie=mignon">Mignons</a></li>
