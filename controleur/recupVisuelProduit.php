@@ -52,7 +52,9 @@
             $data[] = $dao->getProduits();
         else{
             $data[] = $dao->getProduitsCategorie($categorie);
+
         }
+        var_dump($data);
         return $data[0];
     }
 
