@@ -32,6 +32,9 @@
         <label>Photo : </label>
         <input type="text" name="psw" id="photo"/>
         <br>
+        <label>Information complementaire</label>
+        <textarea name="infoComplementaire" rows="2" cols="40"></textarea>
+        <br>
         <input type="submit" value="Envoyer"/>
     </fieldset>
 </form>

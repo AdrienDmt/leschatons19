@@ -33,7 +33,6 @@
       <img src="../data/utilisateur.png" alt="photo" />
       <h2>Nom Prenom </h2>
       <p>nom.prenom@utilisateur.fr</p>
-      <p>Nombre chat : xx</p>
     </article>
 
     <aside class="modification">
