@@ -18,12 +18,12 @@
       <a href="../controleur/index.php?page=connexion"><img src="../data/utilisateur.png" alt="Image compte" id="monCompte" />Mon compte</a>
       <a href="../controleur/index.php?page=panier"><img src="../data/panier.png" alt="Image panier" id="panier"/>Mon panier</a>
       <ul>
-          <li><a href="../controleur/index.php?page=accueil">Accueil</a></li>
-          <li><a href="../controleur/index.php?page=liste&categorie=mignon">Mignons</a></li>
-          <li><a href="../controleur/index.php?page=liste&categorie=joli">Jolis</a></li>
-          <li><a href="../controleur/index.php?page=liste&categorie=beaux">Beaux</a></li>
-          <li><a href="../controleur/index.php?page=liste&categorie=craquand">Craquants</a></li>
-          <li><a href="../controleur/index.php?page=liste&categorie=tous">Tous</a></li>
+          <li><a value = "Accueil" href="../controleur/index.php?page=accueil">Accueil</a></li>
+          <li><a value = "Mignons"onclick="maj_produits(this)">Mignons</a></li>
+          <li><a value = "Jolis"onclick="maj_produits(this)">Jolis</a></li>
+          <li><a value = "Beaux"onclick="maj_produits(this)">Beaux</a></li>
+          <li><a value = "Craquants"onclick="maj_produits(this)">Craquants</a></li>
+          <li><a value = "Tous"onclick="maj_produits(this)">Tous</a></li>
       </ul>
     </nav>
   </header>

@@ -2,15 +2,6 @@
  * Created by julien on 23/05/17.
  */
 
-function init(){
-    var categ = $_GET('categorie');
-    var data = encodeURIComponent(categ);
-    try{
-        ajax_get_request(placementDiv, '../controleur/recupVisuelProduit.php?categorie='+data, true);
-    }catch(err){
-        alert("erreur : "+err);
-    }
-}
 
 //========================https://www.creativejuiz.fr/blog/javascript/recuperer-parametres-get-url-javascript==================//
 function $_GET(param) {
@@ -32,6 +23,18 @@ function $_GET(param) {
 
 
 
+function init(){
+    var categ = $_GET('categorie');
+    var data = encodeURIComponent(categ);
+    try{
+        ajax_get_request(placementDiv, '../controleur/recupVisuelProduit.php?categorie='+data, true);
+    }catch(err){
+        alert("erreur : "+err);
+    }
+}
+
+
+
 function ajax_get_request(callback, url, async)
 {
     var xhr = new XMLHttpRequest();
@@ -44,7 +47,7 @@ function ajax_get_request(callback, url, async)
 }
 
 function placementDiv(result){
-    console.log("retour result : " + result);
+    //console.log("retour result : " + result);
 
     var art = document.getElementById('emplacementProd');
     for($i=0;$i<result.length;$i++){
@@ -58,11 +61,9 @@ function placementDiv(result){
         var figcapt = document.createElement("figcaption");
         var intit = document.createTextNode(result[$i].intitule);
         figcapt.appendChild(intit);
-       // figcapt.innerHTML(result[$i].intitule);
         var p = document.createElement("p");
         var descrip = document.createTextNode(result[$i].prix+'€');
         p.appendChild(descrip);
-       // descript.innerHTML(result[$i].prix);
         figure.appendChild(img);
         div.appendChild(figure);
         div.appendChild(figcapt);
@@ -71,4 +72,11 @@ function placementDiv(result){
         art.appendChild(lien);
     }
 }
+
+function maj_produits(button) {
+    console.log(button.value);
+
+}
+
+
 
