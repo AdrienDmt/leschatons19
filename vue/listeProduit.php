@@ -19,11 +19,11 @@
       <a href="../controleur/index.php?page=panier"><img src="../data/panier.png" alt="Image panier" id="panier"/>Mon panier</a>
       <ul>
           <li><a value="Accueil" href="../controleur/index.php?page=accueil">Accueil</a></li>
-          <li onclick="maj_produits(this)"><a>Mignons</a></li>
-          <li onclick="maj_produits(this)"><a>Jolis</a></li>
-          <li onclick="maj_produits(this)"><a>Beaux</a></li>
-          <li onclick="maj_produits(this)"><a>Craquants</a></li>
-          <li onclick="maj_produits(this)"><a>Tous</a></li>
+          <li onclick="maj_produits(this)"><a href>Mignons</a></li>
+          <li onclick="maj_produits(this)"><a href="">Jolis</a></li>
+          <li onclick="maj_produits(this)"><a href="">Beaux</a></li>
+          <li onclick="maj_produits(this)"><a href="">Craquants</a></li>
+          <li onclick="maj_produits(this)"><a href="">Tous</a></li>
       </ul>
     </nav>
   </header>
