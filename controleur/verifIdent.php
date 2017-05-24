@@ -8,7 +8,7 @@
 
     if (!empty($_POST['login']) && !empty($_POST['psw'])) {
         global $mail;
-        $login = htmlentities($_POST['login']);
+        $mail = htmlentities($_POST['login']);
         global $psw;
         $psw = htmlentities($_POST['psw']);
         //echo $login.' '.$psw;
