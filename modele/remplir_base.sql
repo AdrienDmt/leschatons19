@@ -20,6 +20,9 @@ INSERT INTO Utilisateur VALUES ("Viala", "Julien", "vialaj26@gmail.com", "bla");
 INSERT INTO produit VALUES("Boule de poils", "Chaton mignon né le 12/12/12 \nTaille: ", 12, "123456", "chaton-01.jpg");
 INSERT INTO produit VALUES("Rooky", "Animal poilu qui ronronne\n Il est disponible dès maintenant", 123, "321654", "chaton-02.jpg");
 INSERT INTO produit VALUES("Felix", "Le célèbre chat des villes.\nIl est calin et aime bien dormir", 200, "refbidon", "chaton-03.jpg");
+INSERT INTO produit VALUES("truc", "Chaton mignon né le 12/12/12 \nTaille: ", 2, "12345678", "chaton-04.jpg");
+INSERT INTO produit VALUES("Rooky", "Animal poilu qui ronronne\n Il est disponible dès maintenant", 123, "132456", "chaton-05.jpg");
+INSERT INTO produit VALUES("Felix", "Le célèbre chat des villes.\nIl est calin et aime bien dormir", 200, "truc", "chaton-06.jpg");
 
 
 /* Categorie */
@@ -44,6 +47,9 @@ INSERT INTO ligne_panier VALUES ("02/05/2017", "raphael.castanier@free.fr", "ref
 INSERT INTO appartient_a VALUES ("123456", "Mignons");
 INSERT INTO appartient_a VALUES ("321654", "Jolis");
 INSERT INTO appartient_a VALUES ("refbidon", "Mignons");
+INSERT INTO appartient_a VALUES ("12345678", "Beaux");
+INSERT INTO appartient_a VALUES ("132456", "Craquants");
+INSERT INTO appartient_a VALUES ("truc", "Beaux");
 
 
 
