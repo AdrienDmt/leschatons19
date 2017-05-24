@@ -10,6 +10,7 @@ Auteurs : RC.
 
 /* Utilisateurs */
 INSERT INTO Utilisateur VALUES ("Castanier", "Raphael", "raf.c@free.fr", "bla");
+INSERT INTO Utilisateur VALUES ("Castanier", "Raphael", "raphael.castanier@free.fr", "bla");
 INSERT INTO Utilisateur VALUES ("Hoareau", "Brenda", "b.h@gmail.com", "bla");
 INSERT INTO Utilisateur VALUES ("Garenza", "Alex", "ag@gmail.com", "bla");
 INSERT INTO Utilisateur VALUES ("Viala", "Julien", "vialaj26@gmail.com", "bla");
@@ -32,6 +33,11 @@ INSERT INTO categorie VALUES("Méchants");
 INSERT INTO ligne_panier VALUES ("aujourd'hui", "r.c@free.fr", "132456", 1, "FALSE");
 INSERT INTO ligne_panier VALUES ("aujourd'hui", "r.c@free.fr", "321654", 2, "TRUE");
 INSERT INTO ligne_panier VALUES ("hier", "b.h@gmail.com", "refbidon", 5, "FALSE");
+INSERT INTO ligne_panier VALUES ("24/05/2017", "raphael.castanier@free.fr", "132456", 1, "FALSE");
+INSERT INTO ligne_panier VALUES ("24/05/2017", "raphael.castanier@free.fr", "132456", 2, "FALSE");
+INSERT INTO ligne_panier VALUES ("20/05/2017", "raphael.castanier@free.fr", "321654", 20, "FALSE");
+INSERT INTO ligne_panier VALUES ("10/05/2017", "raphael.castanier@free.fr", "321654", 3, "FALSE");
+INSERT INTO ligne_panier VALUES ("02/05/2017", "raphael.castanier@free.fr", "refbidon", 5, "FALSE");
 
 
 /* AppartientA */

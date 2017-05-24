@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../vue/accueil.css" media="screen" title="no title" >
     <link rel="stylesheet" href="../vue/commande.css">
   </head>
-  <body>
+  <body onload="init()">
     <header>
       <div id="Banderole">
         <h1><a href="../controleur/index.php?page=accueil"><img src="../data/logo-chat.png" alt="logo" id="logo"/></a> Bienvenue sur le site des chatons</h1>
@@ -29,32 +29,36 @@
     </header>
     <section>
       <table>
-        <caption>Votre panier </caption>
+        <!-- <caption>Votre panier </caption> -->
         <tr>
           <th></th>
-          <th>Nom + ref</th>
+          <th>Nom</th>
+          <th>Ref</th>
           <th>Prix</th>
           <th>Quantité</th>
         </tr>
-        <tr>
+        <!-- <tr>
           <td>image chat</td>
-          <td>Nom ref 1516516azaza</td>
-          <td>xx</td>
-          <td>xxxx</td>
-
+          <td>Nom</td>
+          <td>ref 1516516azaza</td>
+          <td>10€</td>
+          <td>3</td>
         </tr>
         <tr>
           <td>image chat</td>
-          <td>Nom ref 1516516azaza</td>
-          <td>xx</td>
-          <td>xxx</td>
-        </tr>
+          <td>Nom</td>
+          <td> ref 1516516azaza</td>
+          <td>13€</td>
+          <td>5</td>
+        </tr> -->
       </table>
-      <p>Total xxxx</p>
+      <h3>Total somme en €</h3>
       <input type="button" name="commande" value="Commander" id="commande">
     </section>
     <footer>
     	<p>Le projet web de Julien, Brenda, Alexandre et Raphael.</p>
     </footer>
+
+    <script type="text/javascript" src="../vue/commande.js"></script>
   </body>
 </html>
