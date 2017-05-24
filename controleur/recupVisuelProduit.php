@@ -48,7 +48,7 @@
     if(!empty($_GET['categorie']))
     {
         //execution du programme, appel re recupererProduits
-        var_dump("test"+recupererProduits($_GET['categorie']));
+        //var_dump("test"+recupererProduits($_GET['categorie']));
         return recupererProduits($_GET['categorie']);
     }
 ?>
