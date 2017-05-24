@@ -59,6 +59,7 @@ if(!empty($_GET['page'])) { // si le paramètre GET 'page' est non vide, on affi
 
         case 'deconnexion':
             setcookie('connecte','',time()-1);
+            unset($_COOKIE["connecte"]);
             include '../vue/accueil.php';
             break;
 
