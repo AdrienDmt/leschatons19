@@ -57,7 +57,7 @@ class DAO {
       $req="INSERT INTO utilisateur VALUES('$nom', '$prenom', '$mail', '$mdp')";
       $resExec=$this->db->exec($req);
       //var_dump($resExec);
-      if ($resExec !== FALSE) {
+      if ($resExec === FALSE) {
         throw new Exception("ERREUR : Impossible de créer l'utilisateur\n");
       }
     } else {
@@ -207,6 +207,9 @@ class DAO {
         throw new Exception("ERREUR : Produit de référence ".$ref." inexistant\n");
     }
   }
+
+
+
   // ----------------------
   // fonctions CRUD classe Categorie
   // ----------------------
@@ -268,16 +271,18 @@ class DAO {
   // ----------------------
 
   function getLignePanier($date, $mail, $ref) {
+    // Renvoie une ligne de panier pour un utilisateur donnée, pour une date et un produit
     $req="SELECT * FROM ligne_PANIER WHERE date='$date' AND mail='$mail' AND ref='$ref'";
     $ligne=$this->db->query($req);
     if ($ligne == FALSE) {
-      echo('Ligne de panier inexistante\n');
+      echo("Ligne de panier inexistante\n");
       return FALSE;
     } else
         return $ligne->fetchAll(PDO::FETCH_CLASS, "LignePanier");
   }
 
   function createLignePanier($lignePanier) {
+    // Ajoute une ligne de panier à la base si elle n'existe pas
     $ligne=$this->getLignePanier($lignePanier->date, $lignePanier->mail, $lignePanier->ref);
     if ($ligne == FALSE) {
       $util=$this->getUtilisateur($lignePanier->mail);
