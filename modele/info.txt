@@ -30,9 +30,9 @@ Pour installer la base suivre ces instructions :
 // --------------------
 
 Utilisateur($nom='', $prenom='', $mail='', $mdp='')
-Produit($reference='', $intitule='', $prix=-1, $photo='')
+Produit($intitule='', $complement='', $prix=-1, $ref='', $photo='')
 Categorie($nom='')
-LignePanier($mail='', $ref='', $date='', $quantite=1, $valide=FALSE)
+LignePanier($date='', $mail='', $ref='', $quantite=1, $valide=FALSE)
 AppartientA($nom='', $ref='')
 
 

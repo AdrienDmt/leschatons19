@@ -9,10 +9,10 @@ Auteurs : RC.
 
 
 /* Utilisateurs */
-INSERT INTO Utilisateur VALUES ("Castanier", "Raphael", "r.c@free.fr", "bla");
-INSERT INTO Utilisateur VALUES ("Hoareau", "Brenda", "h.h@gmail.com", "bla");
+INSERT INTO Utilisateur VALUES ("Castanier", "Raphael", "raf.c@free.fr", "bla");
+INSERT INTO Utilisateur VALUES ("Hoareau", "Brenda", "b.h@gmail.com", "bla");
 INSERT INTO Utilisateur VALUES ("Garenza", "Alex", "ag@gmail.com", "bla");
-INSERT INTO Utilisateur VALUES ("Viala", "Julien", "vialaj@gmail.com", "bla");
+INSERT INTO Utilisateur VALUES ("Viala", "Julien", "vialaj26@gmail.com", "bla");
 
 
 /* Produits */
@@ -29,11 +29,15 @@ INSERT INTO categorie VALUES("Craquants");
 INSERT INTO categorie VALUES("Méchants");
 
 /* Ligne Panier */
-INSERT INTO ligne_panier VALUES ('$lignePanier->date', $lignePanier->quantite, $lignePanier->valide, '$lignePanier->mail', $lignePanier->ref);
+INSERT INTO ligne_panier VALUES ("aujourd'hui", "r.c@free.fr", "132456", 1, "FALSE");
+INSERT INTO ligne_panier VALUES ("aujourd'hui", "r.c@free.fr", "321654", 2, "TRUE");
+INSERT INTO ligne_panier VALUES ("hier", "b.h@gmail.com", "refbidon", 5, "FALSE");
 
 
 /* AppartientA */
-
+INSERT INTO appartient_a VALUES ("123456", "Mignons");
+INSERT INTO appartient_a VALUES ("321654", "Jolis");
+INSERT INTO appartient_a VALUES ("refbidon", "Mignons");
 
 
 
