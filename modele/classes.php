@@ -76,12 +76,18 @@ class Produit {
   public $ref;
   public $photo;
 
+<<<<<<< HEAD
+  function __construct($intitule='', $complement='', $prix=-1, $ref=-1, $photo='') {
+    if ($intitule != '') {
+=======
   function __construct($intitule='', $complement='', $prix=-1, $ref='', $photo='') {
+>>>>>>> 6a08b16fe176d0df28d7a42921bdd98ef902f784
       $this->intitule=$intitule;
       $this->complement=$complement;
       $this->prix=$prix;
       $this->ref=$ref;
       $this->photo=$photo;
+    }
   }
 
   // Getters
@@ -124,6 +130,7 @@ class Categorie
 
     function __construct($nom='')
     {
+      if ($nom != '')
         $this->nom = $nom;
     }
 
@@ -145,11 +152,13 @@ class LignePanier
     function __construct($date='', $mail='', $ref='', $quantite=1, $valide=FALSE)
     {
         // constructeur peut être appelé vide, mais attention à la cohérence!!
-        $this->mail = $mail;
-        $this->ref = $ref;
-        $this->date = $date;
-        $this->quantite = $quantite;
-        $this->valide = $valide;
+        if ($date != '') {
+          $this->mail = $mail;
+          $this->ref = $ref;
+          $this->date = $date;
+          $this->quantite = $quantite;
+          $this->valide = $valide;
+        }
     }
 
 }
@@ -166,8 +175,10 @@ class AppartientA
     function __construct($nom='', $ref='')
     {
         // constructeur peut être appelé vide, mais attention à la cohérence!!
-        $this->nom = $nom;
-        $this->ref = $ref;
+        if ($nom != '') {
+          $this->nom = $nom;
+          $this->ref = $ref;
+      }
     }
 
 }
