@@ -118,8 +118,7 @@ try {
 } catch (Exception $e) {
     echo "1 DEBUG : ".$e->getMessage();
 }
-//assert($dao->getAllUtilisateurs()[0]==$user);
-//var_dump($dao->getAllUtilisateurs());
+assert($dao->getUtilisateur($user->mail)[0]==$user);
 try {
     $dao->createUtilisateur($user);
 } catch (Exception $e) {

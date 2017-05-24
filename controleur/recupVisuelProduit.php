@@ -49,8 +49,7 @@
         if($categorie == 'tous')
             $data[] = $dao->getProduits();
         else{
-            $cate = $dao->getCategorie($categorie);
-            $data[] = $dao->getProduitsCategorie($cate);
+            $data[] = $dao->getProduitsCategorie($categorie);
         }
         return $data[0];
     }
