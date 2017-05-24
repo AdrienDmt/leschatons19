@@ -76,7 +76,7 @@ class Produit {
   public $ref;
   public $photo;
 
-  function __construct($intitule='', $complement='', $prix=-1, $ref=-1, $photo='') {
+  function __construct($intitule='', $complement='', $prix=-1, $ref='', $photo='') {
       $this->intitule=$intitule;
       $this->complement=$complement;
       $this->prix=$prix;
