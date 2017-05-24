@@ -9,6 +9,7 @@
  *version1 : Recupere les images dans le dossier ( a renseigner au moment de l'appel). Utiliser scanImage.
  */
 
+
 /**
  * @param $groupDir : dossier où se trouve les autres dossiers (categories?) contenant les images.
  * @return mixed
