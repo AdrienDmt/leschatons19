@@ -66,7 +66,7 @@ function placementDiv(result){
         figure.appendChild(img);
         div.appendChild(figure);
         div.appendChild(figcapt);
-        div.appendChild(descript);
+        div.appendChild(p);
         lien.appendChild(div);
         art.appendChild(lien);
     }
