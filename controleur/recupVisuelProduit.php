@@ -54,13 +54,13 @@
             $data[] = $dao->getProduitsCategorie($categorie);
 
         }
-        var_dump("retour data dans recupProd : "+$data);
         return $data[0];
     }
 
     if(!empty($_GET['categorie']))
     {
         //execution du programme, appel re recupererProduits
+        var_dump("test"+recupererProduits($_GET['categorie']));
         return recupererProduits($_GET['categorie']);
     }
 ?>
