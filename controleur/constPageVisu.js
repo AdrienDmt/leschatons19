@@ -3,12 +3,12 @@
  */
 
 function init(){
-    console.log("test");
+    //console.log("test");
     var categ = $_GET('categorie');
     var data = encodeURIComponent(categ);
     try{
         console.log(data);
-        ajax_get_request(placementDiv, '../controleur/recupVisuelProduit.php?categorie='+data, true);
+        ajax_post_request(placementDiv, '../controleur/recupVisuelProduit.php', false, data);
     }catch(err){
         alert("erreur : "+err);
     }
@@ -34,32 +34,33 @@ function $_GET(param) {
 
 
 
-function ajax_get_request(callback, url, async)
+function ajax_post_request(callback, url, async, data)
 {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function(){
         if ((xhr.readyState==4) && (xhr.status==200))
-            callback(xhr.responseText);
+            callback(JSON.parse(xhr.responseText));
     };
-    xhr.open("GET",url,async);
-    xhr.send();
+    xhr.open("POST",url,async);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send("categorie="+data);
 }
 
 function placementDiv(result){
     console.log("retour result : " + result);
     var art = document.getElementsByTagName('article');
-    for($i=0;$i<8;$i++){
+    for($i=0;$i<result.length;$i++){
         var lien = document.createElement("a");
-        lien.setAttribute("href","../controleur/index?page=descriptionProd&ref=".result[0][$i]['ref']);
+        lien.setAttribute("href","../controleur/index?page=descriptionProd&ref=".result[$i]['ref']);
         lien.setAttribute("class","Chat");
         var div = document.createElement("div");
         var figure = document.createElement("figure");
         var img = document.createElement("img");
-        img.setAttribute("src", [0][$i]['photo']);
+        img.setAttribute("src", [$i]['photo']);
         var figcapt = document.createElement("figcaption");
-        figcapt.innerHTML(result[0][$i]['intitule']);
+        figcapt.innerHTML(result[$i]['intitule']);
         var descript = document.createElement("p");
-        descript.innerHTML(result[0][$i]['prix']);
+        descript.innerHTML(result[$i]['prix']);
         figure.appendChild(img);
         div.appendChild(figure);
         div.appendChild(figcapt);
