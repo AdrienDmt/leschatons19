@@ -50,6 +50,6 @@ $dao = new DAO();
     {
         //execution du programme, appel re recupererProduits
         var_dump(recupererProduits($_GET['categorie']));
-        return recupererProduits($_GET['categorie']);
+        //return recupererProduits($_GET['categorie']);
     }
 ?>
