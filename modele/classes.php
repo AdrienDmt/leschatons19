@@ -11,7 +11,7 @@ Auteurs : AG, RC.
 // Classe Utilisateur
 // ----------------------
 class Utilisateur {
-    
+
   public $nom;
   public $prenom;
   public $mail;
@@ -136,13 +136,13 @@ class Categorie
 
 class LignePanier
 {
+    public $date;
     public $mail;
     public $ref;
-    public $date;
     public $quantite;
     public $valide;
 
-    function __construct($mail='', $ref='', $date='', $quantite=1, $valide=FALSE)
+    function __construct($date='', $mail='', $ref='', $quantite=1, $valide=FALSE)
     {
         // constructeur peut être appelé vide, mais attention à la cohérence!!
         $this->mail = $mail;

@@ -163,7 +163,7 @@ class DAO {
 
   function getProduitsCategorie($categorie) {
     // Renvoie un tableau contenant les produits de la catégorie passée en paramètre
-    $req="SELECT * FROM produit WHERE categorie='$categorie'";
+    $req="SELECT * FROM produit NATURAL JOIN appartient_a WHERE nom=$categorie";
     $ligne=$this->db->query($req);
     // Attention : si une catégorie n'est associée à aucun produit, ce n'est pas parce qu'elle est fausse!
     if ($ligne==FALSE)
@@ -307,6 +307,23 @@ class DAO {
       echo("Aucune ligne de panier correspondant à la date correspondant à la date, mail et référence\n");
   }
 
-}
+  // ----------------------
+  // fonctions CRUD classe AppartientA
+  // ----------------------
 
+  function createAppartientA($nom, $ref) {
+    $cat=$this->getCategorie($nom);
+    $prod=$this->getProduit($ref);
+    if ($cat == FALSE) {
+      throw new Exception("ERREUR : Catégorie inexistante\n");
+    } elseif ($prod == FALSE)
+        throw new Exception("ERREUR : Produit inexistant\n");
+    else {
+      $req="INSERT INTO appartient_a VALUES ($ref, '$nom')";
+      $this->db->exec($req);
+    }
+  }
+
+
+}
 ?>
