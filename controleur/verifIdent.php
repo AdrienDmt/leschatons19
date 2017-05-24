@@ -21,7 +21,7 @@
             }else{
                 setcookie("connecte", $mail,time()+24*60*60);
             }
-            echo $_COOKIE["connecte"];
+            //echo $_COOKIE["connecte"];
         }else{
             echo"<script language=\"javascript\">";
             echo"alert('Vous n'êtes pas inscrit ! Remediez à cela ! ')";
