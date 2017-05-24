@@ -39,7 +39,7 @@ function ajax_get_request(callback, url, async)
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function(){
         if ((xhr.readyState==4) && (xhr.status==200))
-            callback(xhr.response);
+            callback(xhr.responseText);
     };
     xhr.open("GET",url,async);
     xhr.send();
@@ -48,7 +48,7 @@ function ajax_get_request(callback, url, async)
 function placementDiv(result){
     console.log(result);
     var art = document.getElementsByTagName('article');
-    for($i=0;$i<8;$i++){
+    for($i=1;$i<=8;$i++){
         var lien = document.createElement("a");
         lien.setAttribute("href","../controleur/index?page=descriptionProd&ref=".result[$i]['ref']);
         lien.setAttribute("class","Chat");
