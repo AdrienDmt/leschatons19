@@ -46,7 +46,7 @@ function ajax_get_request(callback, url, async)
 }
 
 function placementDiv(result){
-    console.log(result);
+    console.log("retour result : " + result);
     var art = document.getElementsByTagName('article');
     for($i=1;$i<=8;$i++){
         var lien = document.createElement("a");
