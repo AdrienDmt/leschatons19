@@ -54,7 +54,7 @@
             $data[] = $dao->getProduitsCategorie($categorie);
 
         }
-        var_dump($data);
+        var_dump("retour data dans recupProd : "$data);
         return $data[0];
     }
 
