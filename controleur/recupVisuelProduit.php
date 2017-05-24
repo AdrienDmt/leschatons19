@@ -49,7 +49,7 @@ $dao = new DAO();
     if(!empty($_GET['categorie']))
     {
         //execution du programme, appel re recupererProduits
-        echo recupererProduits($_GET['categorie']);
+        echo json_encode(recupererProduits($_GET['categorie']));
         //return recupererProduits($_GET['categorie']);
     }
 ?>
