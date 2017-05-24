@@ -28,7 +28,7 @@
     </nav>
   </header>
   <section>
-    <article><!--
+    <article id="emplacementProd"><!--
       <a href="#" class="lienChat">
         <div class="Chat1">
           <figure>
