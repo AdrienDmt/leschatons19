@@ -30,9 +30,10 @@
 
 
         }elseif ($_GET['page']=='liste') {
-            //if(empty($_GET['categorie']))
-            //    include 'index.php?page=error';
-            //else
+            if(empty($_GET['categorie']))
+                include 'index.php?page=error';
+            else
+                $_GET['cate'] = $_GET['categorie'];
                 include '../vue/listeProduit.php';
 
         }elseif ($_GET['page']=='deconnexion') {
