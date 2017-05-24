@@ -19,11 +19,11 @@
 			<a href="../controleur/index.php?page=compte"><img src="../data/utilisateur.png" alt="Image compte" id="monCompte" />Mon compte</a>
 			<a href="../controleur/index.php?page=panier"><img src="../data/panier.png" alt="Image panier" id="panier"/>Mon panier</a>
 			<ul>
-				<li><a href="#">Mignons</a></li>
-				<li><a href="#">Jolis</a></li>
-				<li><a href="#">Beaux</a></li>
-				<li><a href="#">Craquants</a></li>
-				<li><a href="#">Tous</a></li>
+                <li><a href="../controleur/index.php?page=liste&categorie=mignon">Mignons</a></li>
+                <li><a href="../controleur/index.php?page=liste&categorie=joli">Jolis</a></li>
+                <li><a href="../controleur/index.php?page=liste&categorie=beaux">Beaux</a></li>
+                <li><a href="../controleur/index.php?page=liste&categorie=craquand">Craquants</a></li>
+                <li><a href="../controleur/index.php?page=liste&categorie=tous">Tous</a></li>
 			</ul>
 		</nav>
 
