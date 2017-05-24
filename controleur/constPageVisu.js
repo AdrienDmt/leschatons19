@@ -74,7 +74,18 @@ function placementDiv(result){
 }
 
 function maj_produits(button) {
-    console.log(button.value);
+    var art = document.getElementById('emplaceProd');
+    var liens = document.getElementsByTagName('a'):
+    for (var i=0; i<liens.length;i++){
+        art.removeChild(liens[i]);
+    }
+    var categ = button.innerHTML;
+    var data = encodeURIComponent(categ);
+    try{
+        ajax_get_request(placementDiv, '../controleur/recupVisuelProduit.php?categorie='+data, true);
+    }catch(err){
+        alert("erreur : "+err);
+    }
 
 }
 
