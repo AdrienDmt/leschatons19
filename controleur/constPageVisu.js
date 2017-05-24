@@ -8,7 +8,7 @@ function init(){
     var data = encodeURIComponent(categ);
     try{
         console.log(data);
-        ajax_get_request(placementDiv, '../controleur/recupVisuelProduit.php?categorie='+data, false);
+        ajax_post_request(placementDiv, '../controleur/recupVisuelProduit.php?categorie=', false, data);
     }catch(err){
         alert("erreur : "+err);
     }
@@ -34,15 +34,16 @@ function $_GET(param) {
 
 
 
-function ajax_get_request(callback, url, async)
+function ajax_post_request(callback, url, async, data)
 {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function(){
         if ((xhr.readyState==4) && (xhr.status==200))
             callback(xhr.responseText);
     };
-    xhr.open("GET",url,async);
-    xhr.send();
+    xhr.open("POST",url,async);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send("data="+data);
 }
 
 function placementDiv(result){
