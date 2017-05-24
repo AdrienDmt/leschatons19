@@ -57,7 +57,7 @@ class DAO {
       $req="INSERT INTO utilisateur VALUES('$nom', '$prenom', '$mail', '$mdp')";
       $resExec=$this->db->exec($req);
       //var_dump($resExec);
-      if ($resExec !== FALSE) {
+      if ($resExec != FALSE) {
         throw new Exception("ERREUR : Impossible de créer l'utilisateur\n");
       }
     } else {
@@ -282,8 +282,10 @@ class DAO {
     if ($ligne == FALSE) {
       $util=$this->getUtilisateur($lignePanier->mail);
       $prod=$this->getProduitRef($lignePanier->ref);
-      if ($util == FALSE || $prod == FALSE)
-        throw new Exception("ERREUR : produit ou utilisateur inexistant\n");
+      if ($util == FALSE)
+        throw new Exception("ERREUR : Utilisateur inexistant\n");
+      elseif ($prod == FALSE)
+        throw new Exception("ERREUR : Produit inexistant\n");
       else {
         $req="INSERT INTO ligne_panier VALUES ('$lignePanier->date', $lignePanier->quantite, $lignePanier->valide, '$lignePanier->mail', $lignePanier->ref)";
         $this->db->exec($req);
