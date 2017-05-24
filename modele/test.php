@@ -173,7 +173,6 @@ try {
     echo "4 OK : ".$e->getMessage();
 }
 try {
-    // ce test ne devrait pas passer, mais aucune erreur n'est relevée!!
     $dao->createProduit($prod1);
 } catch (Exception $e) {
     echo "5 OK : ".$e->getMessage();
@@ -293,20 +292,8 @@ try {
 } catch (Exception $e) {
     echo "02 DEBUG : ".$e->getMessage();
 }
-var_dump($dao->getProduits());
+//var_dump($dao->getProduits());
 echo "Produits Utilisateur DAO OK\n";
-
-
-
-
-
-// ----------------------------
-// ligne panier DAO
-// ----------------------------
-echo "\n --- Ligne Panier ---\n";
-
-echo "Ligne Panier DAO Non Testé\n";
-
 
 
 echo "\n === FIN TESTS === \n\n";
