@@ -35,7 +35,7 @@
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
           </figure>
           <figcaption>Mignon 1</figcaption>
-          <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
+          <pre> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </pre>
         </div>
       </a>
       <a href="#" class="lienChat">
@@ -44,7 +44,7 @@
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
           </figure>
           <figcaption>Mignon 2</figcaption>
-          <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
+          <pre> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </pre>
         </div>
       </a>
       <a href="#" class="lienChat">
@@ -53,7 +53,7 @@
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
           </figure>
           <figcaption>Mignon 3</figcaption>
-          <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
+          <pre> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </pre>
         </div>
       </a>
       <a href="#" class="lienChat">
@@ -63,7 +63,7 @@
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
           </figure>
           <figcaption>Mignon 4</figcaption>
-          <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
+          <pre> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </pre>
 
         </div>
       </a>
@@ -73,7 +73,7 @@
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
           </figure>
           <figcaption>Mignon 5</figcaption>
-          <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
+          <pre> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </pre>
         </div>
       </a>
       <a href="#" class="lienChat">
@@ -82,7 +82,7 @@
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
           </figure>
           <figcaption>Mignon 6</figcaption>
-          <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
+          <pre> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </pre>
         </div>
       </a>
       <a href="#" class="lienChat">
@@ -91,7 +91,7 @@
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
           </figure>
           <figcaption>Mignon 7</figcaption>
-          <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
+          <pre> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </pre>
         </div>
       </a>
       <a href="#" class="lienChat">
@@ -100,7 +100,7 @@
             <img src="../data/chaton-01.jpg" alt="img chaton1" />
           </figure>
           <figcaption>Mignon 8</figcaption>
-          <p> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </p>
+          <pre> 1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 </pre>
         </div>
       </a>
       <br>
