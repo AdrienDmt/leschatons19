@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <title>Produit</title>
   <link rel="stylesheet" href="../vue/accueil.css" media="screen" title="no title" >
+  <script src="listeProduit.js"></script>
   <link rel="stylesheet" href="../vue/listeProduit.css">
 </head>
 

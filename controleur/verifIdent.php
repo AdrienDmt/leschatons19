@@ -8,15 +8,20 @@
 
     if (!empty($_POST['login']) && !empty($_POST['psw'])) {
         global $mail;
-        $login = htmlentities($_POST['login']);
+        $mail = htmlentities($_POST['login']);
         global $psw;
         $psw = htmlentities($_POST['psw']);
         //echo $login.' '.$psw;
         include '../modele/DAO.php';
         $dao=new DAO();
-        if ($dao->getUtilisateur($mail, $psw)) {
+        if ($dao->getUtilisateur($mail, $psw)!==FALSE) {
             $user = $dao->getUtilisateur($mail);
-            setcookie("connecte", $user.$mail,time()+(24*60*60));
+            if (isset($_COOKIE["connecte"])){
+                setcookie("connecte", $mail);
+            }else{
+                setcookie("connecte", $mail,time()+24*60*60);
+            }
+            //echo $_COOKIE["connecte"];
         }else{
             echo"<script language=\"javascript\">";
             echo"alert('Vous n'êtes pas inscrit ! Remediez à cela ! ')";
@@ -31,4 +36,4 @@
         $_GET['page'] = "connexion";
         include '../controleur/index.php';
     }
-?>
+?>x
