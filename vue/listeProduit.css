@@ -12,6 +12,10 @@ figure{
   margin: 0;
 
 }
+header{
+  height: 30vh;
+}
+
 article div{
     display: inline-block;
     background-color: white;
@@ -54,6 +58,7 @@ a{
 }
 section{
   background: none;
+  min-height: 80vh;
 }
 aside{
   background-color: white;
@@ -70,5 +75,5 @@ aside{
 }
 footer{
   position: relative;
-  margin-top: 20vh;
+  margin-top: 5vh;
 }
