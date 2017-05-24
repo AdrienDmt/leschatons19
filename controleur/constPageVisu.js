@@ -3,12 +3,12 @@
  */
 
 function init(){
-    console.log("test");
+    //console.log("test");
     var categ = $_GET('categorie');
     var data = encodeURIComponent(categ);
     try{
         console.log(data);
-        ajax_get_request(placementDiv, '../controleur/recupVisuelProduit.php?categorie='+data, true);
+        ajax_get_request(placementDiv, '../controleur/recupVisuelProduit.php?categorie='+data, false);
     }catch(err){
         alert("erreur : "+err);
     }
