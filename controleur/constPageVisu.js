@@ -50,7 +50,7 @@ function placementDiv(result){
     var art = document.getElementsByTagName('article');
     for($i=0;$i<8;$i++){
         var lien = document.createElement("a");
-        lien.setAttribute("href","../controleur/index?page=descriptionProd&ref=".result[0][$i]['ref']);
+        lien.setAttribute("href","../controleur/index?page=descriptionProd&ref=".result[$i]['ref']);
         lien.setAttribute("class","Chat");
         var div = document.createElement("div");
         var figure = document.createElement("figure");
