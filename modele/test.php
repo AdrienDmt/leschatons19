@@ -293,7 +293,7 @@ try {
 } catch (Exception $e) {
     echo "02 DEBUG : ".$e->getMessage();
 }
-var_dump($produits);
+var_dump($dao->getProduits());
 echo "Produits Utilisateur DAO OK\n";
 
 
