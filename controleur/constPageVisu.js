@@ -39,7 +39,7 @@ function ajax_post_request(callback, url, async, data)
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function(){
         if ((xhr.readyState==4) && (xhr.status==200))
-            callback(xhr.responseText);
+            callback(JSON.parse(xhr.responseText));
     };
     xhr.open("POST",url,async);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
