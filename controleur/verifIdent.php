@@ -16,7 +16,7 @@
         $dao=new DAO();
         if ($dao->getUtilisateur($mail, $psw)!==FALSE) {
             $user = $dao->getUtilisateur($mail);
-            setcookie("connecte", '$user.$mail',time()+(24*60*60));
+            setcookie("connecte", '$mail',time()+(24*60*60));
             echo $_COOKIE["connecte"];
         }else{
             echo"<script language=\"javascript\">";
