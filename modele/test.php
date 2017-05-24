@@ -61,10 +61,10 @@ echo "Categorie OK\n";
 
 
 // création, lecture, mise à jour et suppression d'une ligne de panier
-$ligne1 = new LignePanier("r.c@frfdsddf", 'redgsg', 'sdfluhsd', 2, TRUE);
+$ligne1 = new LignePanier("date coucou", "mel", "ref", 2, TRUE);
 $ligne2 = new LignePanier();
-$ligne3 = new LignePanier("r.c@free.fr", "bla", "aujourd'hui");
-assert($ligne1->mail == "r.c@frfdsddf");
+$ligne3 = new LignePanier("date", "r.c@free.fr", "bla");
+assert($ligne1->mail == "mel");
 assert($ligne3->ref=="bla");
 assert($ligne2->date=='');
 $ligne2->mail="r.c@free.fr";
@@ -276,8 +276,8 @@ $util=new Utilisateur("casta", "raf", "r.c@free.fr", "mdppourri");
 $dao->deleteUtilisateur($util->mail);
 $prod1 = new Produit("chaton1", "animal tout doux", 10, "ch4T", "chaton.jpg");
 $prod2 = new Produit("chaton2", "animal poilu", 100, "reference bidon", "chaton-01.jpg");
-$lignePanier1 = new LignePanier($util->mail, $prod1->ref, "date bidon", 2);
-$lignePanier2 = new LignePanier($util->mail, $prod2->ref, "date normale", 5);
+$lignePanier1 = new LignePanier("date normale", $util->mail, $prod1->ref, 2);
+$lignePanier2 = new LignePanier("date hier", $util->mail, $prod2->ref, 5, TRUE);
 try {
     $dao->createUtilisateur($util);
     $dao->createProduit($prod1);
@@ -303,9 +303,9 @@ echo "Produits Utilisateur DAO OK\n";
 // ----------------------------
 // ligne panier DAO
 // ----------------------------
-// echo "\n --- Ligne Panier ---\n";
+echo "\n --- Ligne Panier ---\n";
 
-// echo "Ligne Panier DAO Non Testé\n";
+echo "Ligne Panier DAO Non Testé\n";
 
 
 
