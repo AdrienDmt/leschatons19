@@ -79,7 +79,7 @@ function maj_produits(button) {
     for (var i=0; i<liens.length;i++){
         art.removeChild(liens[i]);
     }
-    var categ = button.child().innerHTML;
+    var categ = button.value;
     var data = encodeURIComponent(categ);
     try{
         ajax_get_request(placementDiv, '../controleur/recupVisuelProduit.php?categorie='+data, true);
