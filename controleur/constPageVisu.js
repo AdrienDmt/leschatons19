@@ -73,7 +73,7 @@ function placementDiv(result){
         art.appendChild(lien);
     }
     var aside = document.getElementsByTagName('aside');
-    sect.insertBefore(art,aside);
+    sect.insertBefore(art,aside[0]);
 }
 
 function maj_produits(button) {
