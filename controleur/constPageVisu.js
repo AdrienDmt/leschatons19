@@ -8,7 +8,7 @@ function init(){
     var data = encodeURIComponent(categ);
     try{
         console.log(data);
-        ajax_get_request(placementDiv, '../controleur/recupVisuelProduit.php?categorie='+data, false);
+        ajax_get_request(placementDiv, '../controleur/recupVisuelProduit.php?categorie='+data, true);
     }catch(err){
         alert("erreur : "+err);
     }
