@@ -65,8 +65,6 @@ function createCategorie($nom)
 function deleteCategorie($nom)
 function updateCategorie($nom)
 
-
-
 // Ligne Panier
 
 function getLignePanier($date, $mail, $ref)
@@ -75,5 +73,8 @@ function deleteLignePanier($date, $mail, $ref)
 
 
 // Appartient à
+<<<<<<< HEAD
+=======
 
+>>>>>>> 7a0c22ca4f3ec1219c0e75582ec779c42348d625
 function createAppartientA($nom, $ref)

@@ -26,6 +26,7 @@
   </header>
 
   <section>
+    <input type="button" name="name" value="Ajouter utilisateur">
     <table>
       <caption>Liste utilisateurs</caption>
       <tr>
@@ -38,13 +39,13 @@
         <td>Nom 1 </td>
         <td>Prenom 1 </td>
         <td>nom.prenom@utilisateur.fr</td>
-        <td><a href="#">Ajouter</a> <a href="#">Modifier</a></td>
+        <td><a href="#">Supprimer</a> <a href="#">Modifier</a></td>
       </tr>
       <tr>
         <td>Nom 2</td>
         <td>Prenom 2</td>
         <td>nom.prenom@utilisateur.fr</td>
-        <td><a href="#">Ajouter</a> <a href="#">Modifier</a></td>
+        <td><a href="#">Supprimer</a> <a href="#">Modifier</a></td>
       </tr>
     </table>
     <a href="#" id="precedent"><img src="../data/fleche1.png" alt="test"></a>
