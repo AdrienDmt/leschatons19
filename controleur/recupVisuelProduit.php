@@ -36,14 +36,12 @@ $dao = new DAO();
     function recupererProduits($categorie){
         //Permet de recuperer un tableau contenant les produits d'une catégorie donnée
         include '../modele/DAO.php';
-
+        global $dao;
         if($categorie == 'tous'){
-            global $dao;
             $data[] = $dao->getProduits();
         }
         else{
             $data[] = $dao->getProduitsCategorie($categorie);
-
         }
         return $data[0];
     }
