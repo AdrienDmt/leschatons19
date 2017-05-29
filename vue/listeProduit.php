@@ -17,8 +17,8 @@
     <nav id="menu">
       <a href="../controleur/index.php?page=connexion"><img src="../data/utilisateur.png" alt="Image compte" id="monCompte" />Mon compte</a>
       <a href="../controleur/index.php?page=panier"><img src="../data/panier.png" alt="Image panier" id="panier"/>Mon panier</a>
+      <a value="Accueil" href="../controleur/index.php?page=accueil"><img src="../data/maison.png" alt="Image accueil" id="accueil" /> Accueil</a>
       <ul>
-          <li><a value="Accueil" href="../controleur/index.php?page=accueil">Accueil</a></li>
           <li value="Mignons" onclick="maj_produits(this)"><a href>Mignons</a></li>
           <li value="Jolis" onclick="maj_produits(this)"><a href="">Jolis</a></li>
           <li value="Beaux" onclick="maj_produits(this)"><a href="">Beaux</a></li>

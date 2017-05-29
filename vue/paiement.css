@@ -24,7 +24,7 @@ fieldset{
 input{
   margin-top: 1vh;
   margin-right: 1vw;
-  margin-bottom: 1vh;
+  margin-bottom: 20px;
 }
 form a{
   text-decoration: none;

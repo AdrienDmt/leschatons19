@@ -13,7 +13,7 @@
 <form method="post" id="formulaire" action="../controleur/ajoutProduit.php">
     <fieldset>
       <div><span>Montant de la transaction </span></div>
-        <label>Numéro carte bancaire : </label>
+        <label>N° carte bancaire : </label>
         <input type="text" name="nom" id="nom"/>
         <br>
         <label>Date d'éxpiration : </label>

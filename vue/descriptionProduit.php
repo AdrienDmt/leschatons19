@@ -16,8 +16,8 @@
       <nav id="menu">
         <a href="../controleur/index.php?page=connexion"><img src="../data/utilisateur.png" alt="Image compte" id="monCompte" />Mon compte</a>
         <a href="../controleur/index.php?page=panier"><img src="../data/panier.png" alt="Image panier" id="panier"/>Mon panier</a>
+        <a value="Accueil" href="../controleur/index.php?page=accueil"><img src="../data/maison.png" alt="Image accueil" id="accueil" /> Accueil</a>
         <ul>
-          <li><a href="../controleur/index.php?page=accueil">Accueil</a></li>
           <li><a href="../controleur/index.php?page=liste&categorie=mignon">Mignons</a></li>
           <li><a href="../controleur/index.php?page=liste&categorie=joli">Jolis</a></li>
           <li><a href="../controleur/index.php?page=liste&categorie=beaux">Beaux</a></li>

@@ -12,9 +12,6 @@ figure{
   margin: 0;
 
 }
-header{
-  height: 250px;
-}
 
 article div{
     display: inline-block;
@@ -43,10 +40,6 @@ article{
   text-align: center;
 
 }
-a{
-  text-decoration: none;
-  color: black;
-}
 #precedent img {
     width: 30px;
     height: 30px;
@@ -55,6 +48,10 @@ a{
 #suivant img {
     width: 30px;
     height: 30px;
+}
+#accueil{
+  width: 40px;
+  vertical-align: bottom;
 }
 section{
   background: none;
