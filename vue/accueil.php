@@ -30,8 +30,10 @@
 
 	<section>
 		<div id="Barre_recherche">
-			<input type="search" id="Barre" placeholder="Nom, references..." name="name" value="">
-			<a href="#"><img src="../data/recherche.png" alt="img recherche" id="recherche"></a>
+			<form  action="testB.php" method="get">
+			<input type="search" id="Barre" placeholder="Nom, references..." name="recherche"  value="">
+				<input type="image" src="../data/recherche.png" id="recherche">
+			</form>
 		</div>
 	</section>
 <footer>

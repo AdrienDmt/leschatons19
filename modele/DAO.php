@@ -207,6 +207,16 @@ class DAO {
         throw new Exception("ERREUR : Produit de référence ".$ref." inexistant\n");
     }
   }
+  function getProduitRefTest($name){
+    $req= "SELECT intitule FROM produit WHERE ref LIKE '$name'||'%'";
+    $resExec=$this->db->query($req);
+    return $resExec->fetchAll();
+  }
+  function getProduitNom($name){
+    $req= "SELECT * FROM produit WHERE intitule='$name'";
+    $resExec=$this->db->query($req);
+    return $resExec->fetchAll();
+  }
 
 
 

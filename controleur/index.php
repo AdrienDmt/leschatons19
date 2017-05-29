@@ -62,6 +62,13 @@ if(!empty($_GET['page'])) { // si le paramètre GET 'page' est non vide, on affi
             unset($_COOKIE["connecte"]);
             include '../vue/accueil.php';
             break;
+            case 'administrationUtilisateur':
+              include '../vue/administrationUtilisateur.php';
+              break;
+
+            case 'administrationProduit':
+              include '../vue/administrationProduit.php';
+              break;
 
         case 'error':
             // renvoyer vers une page d'erreur

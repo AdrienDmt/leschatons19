@@ -15,12 +15,11 @@
       <h1><a href="../controleur/index.php?page=accueil"><img src="../data/logo-chat.png" alt="logo" id="logo"/></a> Bienvenue sur le site des chatons</h1>
     </div>
     <nav id="menu">
-      <h2>Admin</h2>
       <a href="../controleur/index.php?page=admin"><img src="../data/utilisateur.png" alt="Image compte" id="monCompte" />Mon compte</a>
       <a href="../controleur/index.php?page=deconnexion"><img src="../data/menu_logout.png" alt="Image deconnect" id="deconnect" />Deconnexion</a>
       <ul>
-        <li><a href="#">Utilisateurs</a></li>
-        <li><a href="#">Produits</a></li>
+        <li><a href="../controleur/index.php?page=administrationUtilisateur">Utilisateurs</a></li>
+        <li><a href="../controleur/index.php?page=administrationProduit">Produits</a></li>
       </ul>
     </nav>
   </header>
