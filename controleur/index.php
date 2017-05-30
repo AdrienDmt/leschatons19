@@ -34,6 +34,14 @@ if(!empty($_GET['page'])) { // si le paramètre GET 'page' est non vide, on affi
             }
             break;
 
+        case 'descriptionProd':
+            include '../vue/descriptionProduit.php';
+            break;
+
+        case 'ajoutProduit':
+            include '../vue/ajoutProduit.php';
+            break;
+
         case 'inscription':
             include '../vue/inscription.php';
             break;
@@ -93,9 +101,9 @@ if(!empty($_GET['page'])) { // si le paramètre GET 'page' est non vide, on affi
             include '../vue/administrationProduit.php';
             break;
 
-        case 'error':
+        case 'erreur':
             // renvoyer vers une page d'erreur
-            // à faire
+            include '../vue/erreur.php';
             break;
 
         default:

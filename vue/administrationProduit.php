@@ -25,7 +25,8 @@
   </header>
 
   <section>
-    <input type="button" name="name" value="Ajouter produit">
+    <!-- <input type="button" name="name" value="Ajouter produit"> -->
+    <a href="../controleur/index.php?page=ajoutProduit"></a>
     <table>
       <caption>Liste Produit</caption>
       <tr>
@@ -47,8 +48,9 @@
         <td><a href="#">Supprimer</a> <a href="#">Modifier</a></td>
       </tr>
     </table>
-    <a href="#" id="precedent"><img src="../data/fleche1.png" alt="test"></a>
-    <a href="#" id="suivant"><img src="../data/fleche2.png" alt="test"></a>
+    <!-- Pas utile, le reste ne marche pas encore RC -->
+    <!-- <a href="#" id="precedent"><img src="../data/fleche1.png" alt="test"></a>
+    <a href="#" id="suivant"><img src="../data/fleche2.png" alt="test"></a> -->
   </section>
 
 </body>

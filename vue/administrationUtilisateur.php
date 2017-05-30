@@ -25,7 +25,8 @@
   </header>
 
   <section>
-    <input type="button" name="name" value="Ajouter utilisateur">
+    <!-- <input type="button" name="name" value="Ajouter utilisateur"> -->
+    <a href="../controleur/index.php?page=inscription"></a>
     <table>
       <caption>Liste utilisateurs</caption>
       <tr>

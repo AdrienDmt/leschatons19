@@ -21,16 +21,16 @@
     <fieldset>
       <div class="hr"><span>Ajouter un produit</span></div>
         <label>Nom :</label>
-        <input type="text" name="nom" id="nom"/>
+        <input type="text" name="nom" id="nom" required=""/>
         <br>
         <label>Réference : </label>
-        <input type="text" name="prenom" id="reference" />
+        <input type="text" name="prenom" id="reference"  required=""/>
         <br>
         <label>Catégorie : </label>
-        <input type="text" name="mail" id="categorie" />
+        <input type="text" name="mail" id="categorie"  required=""/>
         <br>
         <label>Photo : </label>
-        <input type="text" name="psw" id="photo"/>
+        <input type="text" name="psw" id="photo" required=""/>
         <br>
         <label>Information complementaire</label>
         <textarea name="infoComplementaire" rows="2" cols="40"></textarea>

@@ -8,6 +8,7 @@
  *
  *version1 : Recupere les images dans le dossier ( a renseigner au moment de l'appel). Utiliser scanImage.
  */
+
 include '../modele/DAO.php';
 $dao = new DAO();
 
@@ -39,11 +40,11 @@ $dao = new DAO();
 
         global $dao;
         if($categorie == 'tous'){
-            $data[] = $dao->getProduits();
+            $produits = $dao->getProduits();
         }else{
-            $data[] = $dao->getProduitsCategorie($categorie);
+            $produits = $dao->getProduitsCategorie($categorie);
         }
-        return $data[0];
+        return $produits;
     }
 
     if(!empty($_GET['categorie']))
@@ -52,6 +53,6 @@ $dao = new DAO();
     }
     function recupererProduitsRech($nom){
       global $dao;
-      
+
     }
 ?>

@@ -12,6 +12,10 @@
     Auteurs : JV, RC
  */
 
+// Le cas de l'administrateur est traité?? RC
+
+
+
     if (!empty($_POST['login']) && !empty($_POST['psw'])) { // informations transmises par la page de connexion
 
         global $mail;
@@ -66,4 +70,4 @@
         $_GET['page'] = "connexion";
         include '../controleur/index.php';
     }
-?>x
+?>

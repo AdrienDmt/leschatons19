@@ -13,7 +13,7 @@ INSERT INTO Utilisateur VALUES ("Castanier", "Raphael", "raphael.castanier@free.
 INSERT INTO Utilisateur VALUES ("Hoareau", "Brenda", "b.h@gmail.com", "bla");
 INSERT INTO Utilisateur VALUES ("Garenza", "Alex", "ag@gmail.com", "bla");
 INSERT INTO Utilisateur VALUES ("Viala", "Julien", "vialaj26@gmail.com", "bla");
-
+INSERT INTO Utilisateur VALUES ("admin", "admin", "admin", "admin"); -- Administrateur
 
 /* Produits */
 INSERT INTO produit VALUES("Boule de poils", "Chaton mignon né le 12/12/12 \nTaille: ", 12, "ref123456", "chaton-01.jpg");
