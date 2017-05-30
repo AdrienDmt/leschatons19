@@ -6,26 +6,43 @@
  * Time: 11:03
  */
 
-    if (!empty($_POST['login']) && !empty($_POST['psw'])) {
+ /*
+    Scrit de vérification de l'identité de l'utilisateur lors de sa connexion
+
+    Auteurs : JV, RC
+ */
+
+    if (!empty($_POST['login']) && !empty($_POST['psw'])) { // informations transmises par la page de connexion
+
         global $mail;
         $mail = htmlentities($_POST['login']);
         global $psw;
         $psw = htmlentities($_POST['psw']);
-        //echo $login.' '.$psw;
+        // Pourquoi utiliser des variables globales?? RC
+
         include '../modele/DAO.php';
         $dao=new DAO();
-        if ($dao->getUtilisateur($mail, $psw)!==FALSE) {
-            $user = $dao->getUtilisateur($mail);
+        $user = $dao->getUtilisateur($mail, $psw);
+        if ($user!=FALSE) {
+
             if (isset($_COOKIE["connecte"])){
+                // Pourquoi ce test? RC
+
                 setcookie("connecte", $mail);
+                setcookie("nom", $user->nom);
+                setcookie("prenom", $user->prenom);
             }else{
-                setcookie("connecte", $mail,time()+24*60*60);
+                setcookie("connecte", $mail, time()+24*60*60);
+                setcookie("nom", $user->nom);
+                setcookie("prenom", $user->prenom);
             }
             //echo $_COOKIE["connecte"];
         }else{
+            // aucun utilisateur n'est associé au mail/mot de passe passé
             echo"<script language=\"javascript\">";
-            echo"alert('Vous n'êtes pas inscrit ! Remediez à cela ! ')";
+            echo"alert('Vous n'êtes pas inscrit ou votre mot de passe n'est pas bon!')";
             echo"</script>";
+            unset($_COOKIE["connecte"]);
             $_GET['page'] = "inscription";
             include '../controleur/index.php';
             exit;
@@ -33,6 +50,11 @@
         $_GET['page'] = "accueil";
         include '../controleur/index.php';
     }else{
+        // la connexion s'est mal passée, on retourne à l'accueil, sans indiquer qu'il y a eu une erreur
+        unset($_COOKIE["connecte"]);
+        echo"<script language=\"javascript\">";
+        echo"alert('Une erreur est survenue lors de votre inscription!')";
+        echo"</script>";
         $_GET['page'] = "connexion";
         include '../controleur/index.php';
     }
