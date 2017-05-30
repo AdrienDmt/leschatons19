@@ -50,4 +50,8 @@ $dao = new DAO();
     {
         echo json_encode(recupererProduits($_GET['categorie']));
     }
+    function recupererProduitsRech($nom){
+      global $dao;
+      
+    }
 ?>

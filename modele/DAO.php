@@ -208,7 +208,7 @@ class DAO {
     }
   }
   function getProduitRefTest($name){
-    $req= "SELECT intitule FROM produit WHERE ref LIKE '$name'||'%'";
+    $req= "SELECT intitule,ref FROM produit WHERE ref LIKE '$name%'";
     $resExec=$this->db->query($req);
     return $resExec->fetchAll();
   }
