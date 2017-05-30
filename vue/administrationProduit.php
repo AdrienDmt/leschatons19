@@ -25,8 +25,7 @@
   </header>
 
   <section>
-    <!-- <input type="button" name="name" value="Ajouter produit"> -->
-    <a href="../controleur/index.php?page=ajoutProduit"></a>
+    <a href="../controleur/index.php?page=ajoutProduit"><input type="submit" name="name" value="Ajouter produit"></a>
     <table>
       <caption>Liste Produit</caption>
       <tr>

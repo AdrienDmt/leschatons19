@@ -53,7 +53,7 @@
         </tr> -->
       </table>
       <h3>Total <span id="total"></span>€</h3>
-      <input type="button" name="commande" value="Commander" id="commande">
+      <a href="../controleur/index.php?page=commande"><input type="button" name="commande" value="Commander" id="commande"></a>
     </section>
     <footer>
     	<p>Le projet web de Julien, Brenda, Alexandre et Raphael.</p>
