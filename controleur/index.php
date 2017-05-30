@@ -9,6 +9,8 @@
 /*
     Point d'entrée du contrôleur
     Vérifie la présence des paramètres GET et POST pour afficher la bonne page de la vue
+
+    Auteurs : JV, RC
 */
 
 
@@ -23,10 +25,10 @@ if(!empty($_GET['page'])) { // si le paramètre GET 'page' est non vide, on affi
 
         case 'compte':
             // on vérifie que l'utilisateur est connecté
-            if (isset($_COOKIE['connecte'])){
-                include '../vue/compte.php';
-            }else{
+            if (!isset($_COOKIE['connecte'])){
                 include '../vue/connect.php';
+            }else{
+                include '../vue/compte.php';
             }
             break;
 
@@ -35,7 +37,7 @@ if(!empty($_GET['page'])) { // si le paramètre GET 'page' est non vide, on affi
             break;
 
         case 'panier':
-            // si l'utilisateur n'est pas connecté, on l'envoie vers la page de connection
+            // on vérifie que l'utilisateur est connecté
             if(!isset($_COOKIE['connecte'])) {
                 include '../vue/connect.php';
             }
@@ -45,7 +47,23 @@ if(!empty($_GET['page'])) { // si le paramètre GET 'page' est non vide, on affi
             break;
 
         case 'achat':
-            // la page arrive
+            // on vérifie que l'utilisateur est connecté
+            if(!isset($_COOKIE['connecte'])) {
+                include '../vue/connect.php';
+            }
+            else {
+                include '../vue/commande.php';
+            }
+            break;
+
+        case 'admin':
+            // on vérifie que l'utilisateur est connecté
+            if(!isset($_COOKIE['connecte'])) {
+                include '../vue/connect.php';
+            }
+            else {
+                include '../vue/admin.php';
+            }
             break;
 
         case 'liste':
@@ -62,13 +80,14 @@ if(!empty($_GET['page'])) { // si le paramètre GET 'page' est non vide, on affi
             unset($_COOKIE["connecte"]);
             include '../vue/accueil.php';
             break;
-            case 'administrationUtilisateur':
-              include '../vue/administrationUtilisateur.php';
-              break;
 
-            case 'administrationProduit':
-              include '../vue/administrationProduit.php';
-              break;
+        case 'administrationUtilisateur':
+            include '../vue/administrationUtilisateur.php';
+            break;
+
+        case 'administrationProduit':
+            include '../vue/administrationProduit.php';
+            break;
 
         case 'error':
             // renvoyer vers une page d'erreur
@@ -82,48 +101,9 @@ if(!empty($_GET['page'])) { // si le paramètre GET 'page' est non vide, on affi
 }
 
 else {
+    // aucune page n'est demandée, on renvoie à l'accueil
     include '../vue/accueil.php';
 }
 
-    // if(!empty($_GET['page'])){
-    //     if ($_GET['page']=='accueil'){
-    //         include '../vue/accueil.php';
-    //
-    //     }elseif ($_GET['page']=='compte'){
-    //         if (isset($_COOKIE['connecte'])){
-    //             include '../vue/compte.php';
-    //         }else{
-    //             include '../vue/connect.php';
-    //         }
-    //
-    //     }elseif ($_GET['page']=='inscription'){
-    //         include '../vue/inscription.php';
-    //
-    //     }elseif ($_GET['page']=='panier'){
-    //         if(isset($_COOKIE['connecte']) && $_COOKIE['connecte']!="unregistred")
-    //             include '../vue/connect.php';
-    //         else
-    //             include '../vue/commande.php';
-    //
-    //     }elseif ($_GET['page']=='achat'){
-    //
-    //
-    //     }elseif ($_GET['page']=='liste') {
-    //         if(empty($_GET['categorie']))
-    //             include 'index.php?page=error';
-    //         else
-    //             $_GET['cate'] = $_GET['categorie'];
-    //             include '../vue/listeProduit.php';
-    //
-    //     }elseif ($_GET['page']=='deconnexion') {
-    //         unset($_COOKIE['connecte']);
-    //         include '../vue/accueil.php';
-    //
-    //     }elseif ($_GET['page']=='error'){
-    //
-    //     }else{
-    //         include '../vue/accueil.php';
-    //     }
-    // }
 
 ?>
