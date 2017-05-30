@@ -27,6 +27,7 @@ function init(){
     var categ = $_GET('categorie');
     var data = encodeURIComponent(categ);
     try{
+        // Pourquoi faire ça?? RC
         ajax_get_request(placementDiv, '../controleur/recupVisuelProduit.php?categorie='+data, true);
     }catch(err){
         alert("erreur : "+err);
@@ -53,7 +54,7 @@ function placementDiv(result){
     var art = document.createElement("article");
     for($i=0;$i<result.length;$i++){
         var lien = document.createElement("a");
-        lien.setAttribute("href","../controleur/index?page=descriptionProd&ref="+result[$i].ref);
+        lien.setAttribute("href","../controleur/index.php?page=descriptionProd&ref="+result[$i].ref);
         lien.setAttribute("class","Chat");
         var div = document.createElement("div");
         var figure = document.createElement("figure");
@@ -89,6 +90,3 @@ function maj_produits(button) {
     }
 
 }
-
-
-

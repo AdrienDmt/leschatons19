@@ -21,19 +21,19 @@
     <fieldset>
       <div class="hr"><span>Inscription</span></div>
         <label>Nom :</label>
-        <input type="text" name="nom" id="name"/>
+        <input type="text" name="nom" id="name" required/>
         <br>
         <label>Prenom : </label>
-        <input type="text" name="prenom" id="firstName" />
+        <input type="text" name="prenom" id="firstName"  required/>
         <br>
         <label>Mail : </label>
-        <input type="email" name="mail" id="mail" />
+        <input type="email" name="mail" id="mail"  required/>
         <br>
         <label>Mot de Passe : </label>
-        <input type="password" name="psw" id="mdp"/>
+        <input type="password" name="psw" id="mdp" required/>
         <br>
         <label>Verif. Mot de Passe : </label>
-        <input type="password" name="pswVerif" id="mdpVerif"/>
+        <input type="password" name="pswVerif" id="mdpVerif" required/>
         <br>
         <input type="submit" value="Envoyer"/>
     </fieldset>

@@ -13,6 +13,8 @@
     Auteurs : JV, RC
 */
 
+// variable qui indique si l'utilisateur est connecté
+$est_connecte = isset($_COOKIE['connecte']);
 
 if(!empty($_GET['page'])) { // si le paramètre GET 'page' est non vide, on affiche la page demandée, sinon on renvoie à l'accueil
 
@@ -25,7 +27,7 @@ if(!empty($_GET['page'])) { // si le paramètre GET 'page' est non vide, on affi
 
         case 'compte':
             // on vérifie que l'utilisateur est connecté
-            if (!isset($_COOKIE['connecte'])){
+            if (!$est_connecte){
                 include '../vue/connect.php';
             }else{
                 include '../vue/compte.php';
@@ -38,7 +40,7 @@ if(!empty($_GET['page'])) { // si le paramètre GET 'page' est non vide, on affi
 
         case 'panier':
             // on vérifie que l'utilisateur est connecté
-            if(!isset($_COOKIE['connecte'])) {
+            if(!$est_connecte) {
                 include '../vue/connect.php';
             }
             else {
@@ -48,7 +50,7 @@ if(!empty($_GET['page'])) { // si le paramètre GET 'page' est non vide, on affi
 
         case 'achat':
             // on vérifie que l'utilisateur est connecté
-            if(!isset($_COOKIE['connecte'])) {
+            if(!$est_connecte) {
                 include '../vue/connect.php';
             }
             else {
@@ -58,7 +60,7 @@ if(!empty($_GET['page'])) { // si le paramètre GET 'page' est non vide, on affi
 
         case 'admin':
             // on vérifie que l'utilisateur est connecté
-            if(!isset($_COOKIE['connecte'])) {
+            if(!$est_connecte) {
                 include '../vue/connect.php';
             }
             else {
@@ -76,8 +78,10 @@ if(!empty($_GET['page'])) { // si le paramètre GET 'page' est non vide, on affi
             break;
 
         case 'deconnexion':
+            // cohérence des deux lignes qui suivent?? RC
             setcookie('connecte','',time()-1);
             unset($_COOKIE["connecte"]);
+
             include '../vue/accueil.php';
             break;
 
@@ -93,6 +97,7 @@ if(!empty($_GET['page'])) { // si le paramètre GET 'page' est non vide, on affi
             // renvoyer vers une page d'erreur
             // à faire
             break;
+
         default:
             include '../vue/accueil.php';
             break;

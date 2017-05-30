@@ -1,5 +1,11 @@
 /* -----------------------Create by Hoareau Brenda Marinasy----------------------- */
 
+/*
+	Page de style commune à la plupart des pages du site pour l'aspect général
+
+	Auteurs : BH, RC
+*/
+
 body {
 	margin: 0;
 	padding: 0;
@@ -85,10 +91,18 @@ section{
 p{
 	margin: 0;
 }
+
 footer{
 	background-color:#585858;
 	height: 15vh;
+	text-align: center;
 }
+
+footer p {
+	padding: 15px;
+	color: lightgrey;
+}
+
 #recherche{
 	width: 20px;
 	height: 20px;
