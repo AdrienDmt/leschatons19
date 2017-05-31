@@ -34,7 +34,6 @@
     </form>
     <br>
 
-
     <footer>
     	<p>Le projet web de Julien, Brenda, Alexandre et Raphael.</p>
     </footer>
