@@ -82,7 +82,7 @@ function maj_produits(button) {
     // Que fait cette fonction?? RC
     var sect = document.getElementById('emplacementProd'); // section HTML qui contient tous les produits
     var art = document.getElementsByTagName('article'); // articles HTML qui décrivent les produits
-    sect.removeChild(art[0]);
+    sect.removeChild(art);
     var categ = button.innerText;
     var datas = encodeURIComponent(categ);
     try{
