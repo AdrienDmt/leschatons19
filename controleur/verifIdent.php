@@ -28,7 +28,6 @@
         $dao=new DAO();
         $user = $dao->getUtilisateur($mail, $psw);
         if (!empty($user)) {
-            echo "test 1";
             setcookie("connecte", $mail, time()+24*60*60);
             $_GET['page'] = "accueil";
             include '../controleur/index.php';
