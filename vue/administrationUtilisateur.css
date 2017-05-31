@@ -13,6 +13,7 @@ section{
   background: none;
   margin: auto;
   text-align: center;
+  padding-top: 2vh;
 }
 img{
   width: 30px;
@@ -22,6 +23,5 @@ img{
   padding: 2vh;
 }
 #deconnect{
-  background-color: red;
-  width: 20vw;
+  width: 40px;
 }

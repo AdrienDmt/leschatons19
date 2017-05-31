@@ -11,7 +11,7 @@ Auteurs : AG, RC.
 // Classe Utilisateur
 // ----------------------
 class Utilisateur {
-    
+
   public $nom;
   public $prenom;
   public $mail;
@@ -76,12 +76,15 @@ class Produit {
   public $ref;
   public $photo;
 
-  function __construct($intitule='', $complement='', $prix=-1, $ref=-1, $photo='') {
-      $this->intitule=$intitule;
-      $this->complement=$complement;
-      $this->prix=$prix;
-      $this->ref=$ref;
-      $this->photo=$photo;
+
+  function __construct($intitule='', $complement='', $prix=-1, $ref='', $photo='') {
+      if ($intitule != '') {
+        $this->intitule=$intitule;
+        $this->complement=$complement;
+        $this->prix=$prix;
+        $this->ref=$ref;
+        $this->photo=$photo;
+    }
   }
 
   // Getters
@@ -124,6 +127,7 @@ class Categorie
 
     function __construct($nom='')
     {
+      if ($nom != '')
         $this->nom = $nom;
     }
 
@@ -136,20 +140,22 @@ class Categorie
 
 class LignePanier
 {
+    public $date;
     public $mail;
     public $ref;
-    public $date;
     public $quantite;
     public $valide;
 
-    function __construct($mail='', $ref='', $date='', $quantite=1, $valide=FALSE)
+    function __construct($date='', $mail='', $ref='', $quantite=1, $valide=FALSE)
     {
         // constructeur peut être appelé vide, mais attention à la cohérence!!
-        $this->mail = $mail;
-        $this->ref = $ref;
-        $this->date = $date;
-        $this->quantite = $quantite;
-        $this->valide = $valide;
+        if ($date != '') {
+          $this->mail = $mail;
+          $this->ref = $ref;
+          $this->date = $date;
+          $this->quantite = $quantite;
+          $this->valide = $valide;
+        }
     }
 
 }
@@ -166,8 +172,10 @@ class AppartientA
     function __construct($nom='', $ref='')
     {
         // constructeur peut être appelé vide, mais attention à la cohérence!!
-        $this->nom = $nom;
-        $this->ref = $ref;
+        if ($nom != '') {
+          $this->nom = $nom;
+          $this->ref = $ref;
+      }
     }
 
 }

@@ -28,14 +28,9 @@
 
 	</header>
 
-	<section>
-		<div id="Barre_recherche">
-			<form  action="../vue/testB.php" method="get">
-			<input type="search" id="Barre" placeholder="Nom, references..." name="recherche"  value="">
-				<input type="image" src="../data/recherche.png" id="recherche">
-			</form>
-		</div>
-	</section>
+	<div id="erreur" style="text-align:center;">
+		<h1>Une erreur est survenue</h1>
+	</div>
 <footer>
 	<p>Le projet web de Julien, Brenda, Alexandre et Raphael.</p>
 </footer>

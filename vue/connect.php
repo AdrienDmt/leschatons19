@@ -21,11 +21,11 @@
 
         <fieldset>
           <div class="hr"><span>Connexion</span></div>
-            <label for="zone_id">Identifiant :</label>
-            <input type="text" name="login" id="zone_id"/>
+            <label for="zone_id">E-Mail :</label>
+            <input type="text" name="login" id="zone_id" required=""/>
             <br>
             <label for="zone_mdp">Mot de passe : </label>
-            <input type="password" name="psw" id="zone_mdp" />
+            <input type="password" name="psw" id="zone_mdp" required=""/>
             <br>
             <input type="submit" value="Se Connecter"/>
             <br>

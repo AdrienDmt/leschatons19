@@ -1,8 +1,14 @@
 /* -----------------------Create by Hoareau Brenda Marinasy----------------------- */
 
+/*
+	Page de style commune à la plupart des pages du site pour l'aspect général
+
+	Auteurs : BH, RC
+*/
+
 body {
-	width: 100vw;
 	margin: 0;
+	padding: 0;
 }
 #Banderole{
 	background-color: #D8D8D8;
@@ -12,7 +18,7 @@ header{
 	margin: 0;
 	background-color: #D8D8D8;
 	overflow: hidden;
-	height: 37vh;
+	height: 250px;
 
 }
 header h1{
@@ -30,7 +36,9 @@ header h1{
 
 nav{
 	background-color: #CED8F6;
+	height: 160px;
 }
+
 nav h2 a:first-child{
 	text-decoration: none;
 	background-color: black
@@ -47,16 +55,16 @@ nav ul{
 nav ul li{
   list-style: none;
   display: inline-block;
-  height: 10vh;
-  width: 10vw;
+  height: 80px;
+  width: 110px;
   text-align: center;
   line-height: 70px;
 
 
 }
-nav ul li a {
+nav a {
 	text-decoration: none;
-
+	color: black;
 }
 nav ul li:hover{
 background-color:#EFFBEF;
@@ -76,7 +84,6 @@ color: white;
 section{
 	background-image: url("../data/chaton-01.jpg");
 	margin: 0;
-	width: 100vw;
 	height: 70vh;
 
 
@@ -84,15 +91,20 @@ section{
 p{
 	margin: 0;
 }
+
 footer{
 	background-color:#585858;
 	height: 15vh;
-
+	text-align: center;
 }
-#recherche{
 
+footer p {
+	padding: 15px;
+	color: lightgrey;
+}
+
+#recherche{
 	width: 20px;
 	height: 20px;
 	vertical-align: bottom;
-
 }

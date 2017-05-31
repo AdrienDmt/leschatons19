@@ -5,7 +5,7 @@ body{
   margin: 0;
 }
 header{
-  height: 20vh !important;
+  height: 150px!important;
 }
 form{
   margin: auto;
@@ -26,7 +26,7 @@ fieldset{
 input{
   margin-top: 1vh;
   margin-right: 1vw;
-  margin-bottom: 1vh;
+  margin-bottom: 20px;
 }
 form a{
   text-decoration: none;

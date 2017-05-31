@@ -14,26 +14,35 @@
         <h1><a href="../controleur/index.php?page=accueil"><img src="../data/logo-chat.png" alt="logo" id="logo"/></a> Bienvenue sur le site des chatons</h1>
       </div>
       <nav id="menu">
-        <h2>Categories</h2>
         <a href="../controleur/index.php?page=connexion"><img src="../data/utilisateur.png" alt="Image compte" id="monCompte" />Mon compte</a>
-        <a href="#"><img src="../data/panier.png" alt="Image panier" id="panier"/>Mon panier</a>
+        <a href="../controleur/index.php?page=panier"><img src="../data/panier.png" alt="Image panier" id="panier"/>Mon panier</a>
+        <a value="Accueil" href="../controleur/index.php?page=accueil"><img src="../data/maison.png" alt="Image accueil" id="accueil" /> Accueil</a>
         <ul>
-          <li><a href="#">Accueil</a></li>
-          <li><a href="#">Mignons</a></li>
-          <li><a href="#">Jolis</a></li>
-          <li><a href="#">Beaux</a></li>
-          <li><a href="#">Craquants</a></li>
-          <li><a href="#">Tous</a></li>
+          <li><a href="../controleur/index.php?page=liste&categorie=mignon">Mignons</a></li>
+          <li><a href="../controleur/index.php?page=liste&categorie=joli">Jolis</a></li>
+          <li><a href="../controleur/index.php?page=liste&categorie=beaux">Beaux</a></li>
+          <li><a href="../controleur/index.php?page=liste&categorie=craquand">Craquants</a></li>
+          <li><a href="../controleur/index.php?page=liste&categorie=tous">Tous</a></li>
         </ul>
       </nav>
     </header>
     <section>
       <img src="../data/chaton-03.jpg" alt="img produit" />
       <div class="description">
-        <h2>Mignon 1 reference 767624</h2>
+        <?php require_once( '../modele/DAO.php');
+        require_once( '../modele/classes.php');
+        $test=new DAO();
+        $ref= $_GET['ref'];
+
+        $chat = $test->getProduitRef($ref);
+
+      ?>
+        <h2><?php echo "Felix ".$chat[0]->getRef();?></h2>
           <p>
+
             1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 <br>
-            Prix : xxx euros .... blabla
+            <?php echo $chat[0]->getComplement(); ?>
+            <?php echo $chat[0]->getPrix()." euros"; ?>
           </p>
       </div>
       <div class="achat">

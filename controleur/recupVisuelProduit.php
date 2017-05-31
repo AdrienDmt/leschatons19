@@ -9,23 +9,14 @@
  *version1 : Recupere les images dans le dossier ( a renseigner au moment de l'appel). Utiliser scanImage.
  */
 
+include '../modele/DAO.php';
+$dao = new DAO();
+
 /**
  * @param $groupDir : dossier où se trouve les autres dossiers (categories?) contenant les images.
  * @return mixed
  *
  */
-    function recupererImages($groupDir){
-        if($dh = opendir($groupDir)){
-            while(($file = readdir($dh))!= false){
-                if($file[0]!='.'){
-                    if(pathinfo($file, PATHINFO_EXTENSION)=="jpg"){
-                        $jpg[] = pathinfo($file,PATHINFO_FILENAME);
-                    }
-                }
-            }
-        }
-        return $jpg[0];
-    }
 
 /**
  * @param $dataDir : Dossier contenant toutes les photos.
@@ -43,20 +34,25 @@
         return $data;
     }
 
+
     function recupererProduits($categorie){
-        include '../modele/DAO.php';
-        $dao = new DAO();
-        if($categorie == 'tous')
-            $data[] = $dao->getProduits();
-        else{
-            $cate = $dao->getCategorie($categorie);
-            $data[] = $dao->getProduitsCategorie($cate);
+        //Permet de recuperer un tableau contenant les produits d'une catégorie donnée
+
+        global $dao;
+        if($categorie == 'tous'){
+            $produits = $dao->getProduits();
+        }else{
+            $produits = $dao->getProduitsCategorie($categorie);
         }
-        return $data[0];
+        return $produits;
     }
 
     if(!empty($_GET['categorie']))
     {
-        return recupererProduits($_GET['categorie']);
+        echo json_encode(recupererProduits($_GET['categorie']));
+    }
+    function recupererProduitsRech($nom){
+      global $dao;
+
     }
 ?>

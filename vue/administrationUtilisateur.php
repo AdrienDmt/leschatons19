@@ -15,17 +15,18 @@
       <h1><a href="../controleur/index.php?page=accueil"><img src="../data/logo-chat.png" alt="logo" id="logo"/></a> Bienvenue sur le site des chatons</h1>
     </div>
     <nav id="menu">
-      <h2>Admin</h2>
-      <a href="../controleur/index.php?page=connexion"><img src="../data/utilisateur.png" alt="Image compte" id="monCompte" />Mon compte</a>
-      <a href="#"><img src="../data/menu_logout.png" alt="Image deconnect" id="monCompte" />Deconnexion</a>
+      <a href="../controleur/index.php?page=admin"><img src="../data/utilisateur.png" alt="Image compte" id="monCompte" />Mon compte</a>
+      <a href="../controleur/index.php?page=deconnexion"><img src="../data/menu_logout.png" alt="Image deconnect" id="deconnect" />Deconnexion</a>
       <ul>
-        <li><a href="#">Utilisateurs</a></li>
-        <li><a href="#">Produits</a></li>
+        <li><a href="../controleur/index.php?page=administrationUtilisateur">Utilisateurs</a></li>
+        <li><a href="../controleur/index.php?page=administrationProduit">Produits</a></li>
       </ul>
     </nav>
   </header>
 
   <section>
+    <!-- <input type="button" name="name" value="Ajouter utilisateur"> -->
+    <a href="../controleur/index.php?page=inscription">Ajouter utilisateur</a>
     <table>
       <caption>Liste utilisateurs</caption>
       <tr>
@@ -38,13 +39,13 @@
         <td>Nom 1 </td>
         <td>Prenom 1 </td>
         <td>nom.prenom@utilisateur.fr</td>
-        <td><a href="#">Ajouter</a> <a href="#">Modifier</a></td>
+        <td><a href="#">Supprimer</a> <a href="#">Modifier</a></td>
       </tr>
       <tr>
         <td>Nom 2</td>
         <td>Prenom 2</td>
         <td>nom.prenom@utilisateur.fr</td>
-        <td><a href="#">Ajouter</a> <a href="#">Modifier</a></td>
+        <td><a href="#">Supprimer</a> <a href="#">Modifier</a></td>
       </tr>
     </table>
     <a href="#" id="precedent"><img src="../data/fleche1.png" alt="test"></a>

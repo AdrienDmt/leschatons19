@@ -31,3 +31,9 @@ section img{
   padding: 1vh;
   margin-top: 10vh;
 }
+header{
+  height: 250px;
+}
+#accueil{
+  width: 40px;
+}

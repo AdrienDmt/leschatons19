@@ -61,10 +61,10 @@ echo "Categorie OK\n";
 
 
 // création, lecture, mise à jour et suppression d'une ligne de panier
-$ligne1 = new LignePanier("r.c@frfdsddf", 'redgsg', 'sdfluhsd', 2, TRUE);
+$ligne1 = new LignePanier("date coucou", "mel", "ref", 2, TRUE);
 $ligne2 = new LignePanier();
-$ligne3 = new LignePanier("r.c@free.fr", "bla", "aujourd'hui");
-assert($ligne1->mail == "r.c@frfdsddf");
+$ligne3 = new LignePanier("date", "r.c@free.fr", "bla");
+assert($ligne1->mail == "mel");
 assert($ligne3->ref=="bla");
 assert($ligne2->date=='');
 $ligne2->mail="r.c@free.fr";
@@ -99,7 +99,7 @@ try {
     $dao=new DAO();
 } catch (Exception $e) {
     echo "DEBUG : ".$e->getMessage();
-}   
+}
 echo "DAO OK\n";
 
 
@@ -118,7 +118,7 @@ try {
 } catch (Exception $e) {
     echo "1 DEBUG : ".$e->getMessage();
 }
-assert($dao->getAllUtilisateurs()[0]==$user);
+assert($dao->getUtilisateur($user->mail)[0]==$user);
 try {
     $dao->createUtilisateur($user);
 } catch (Exception $e) {
@@ -135,7 +135,7 @@ try {
 } catch (Exception $e) {
     echo "4 DEBUG : ".$e->getMessage();
 }
-assert($dao->getAllUtilisateurs()[0]->prenom == "brenda");
+//assert($dao->getAllUtilisateurs()[0]->prenom == "brenda");
 // On préfèrera ne pas supprimer tous les utilisateurs à chaque test, cela peut agir sur les utilisateurs ajoutés par d'autres programmeurs
 // foreach ($utilisateurs as $key => $util) {
 //     $dao->deleteUtilisateur($util->mail);
@@ -172,7 +172,6 @@ try {
     echo "4 OK : ".$e->getMessage();
 }
 try {
-    // ce test ne devrait pas passer, mais aucune erreur n'est relevée!!
     $dao->createProduit($prod1);
 } catch (Exception $e) {
     echo "5 OK : ".$e->getMessage();
@@ -204,10 +203,6 @@ echo "Get Produits OK\n";
 // ----------------------------
 echo "\n --- Get Produit Ref ---\n";
 
-/*
-    Ici deux erreurs : PHP Warning et PHP Notice...
-    Elles ne sont pas attrapées et n'interrompent pas l'exécution du script
-*/
 // echo "Debut 6\n";
 // try {
 //     $dao->getProduitRef();
@@ -267,22 +262,37 @@ try {
 } catch (Exception $e) {
     echo "8 DEBUG : ".$e->getMessage();
 }
-assert($mignons == []);
+//assert($mignons == []);
 echo "Get Produit Cat OK\n";
 
 
-
-
-
-
-
 // ----------------------------
-// ligne panier DAO
+// produit par utilisateur
 // ----------------------------
-// echo "\n --- Ligne Panier ---\n";
-
-// echo "Ligne Panier DAO Non Testé\n";
-
+echo "\n --- Produits Utilisateur ---\n";
+$util=new Utilisateur("casta", "raf", "r.c@free.fr", "mdppourri");
+$dao->deleteUtilisateur($util->mail);
+$prod1 = new Produit("chaton1", "animal tout doux", 10, "ch4T", "chaton.jpg");
+$prod2 = new Produit("chaton2", "animal poilu", 100, "reference bidon", "chaton-01.jpg");
+$lignePanier1 = new LignePanier("date normale", $util->mail, $prod1->ref, 2);
+$lignePanier2 = new LignePanier("date hier", $util->mail, $prod2->ref, 5, TRUE);
+try {
+    $dao->createUtilisateur($util);
+    $dao->createProduit($prod1);
+    $dao->createProduit($prod2);
+    $dao->createLignePanier($lignePanier1);
+    $dao->createLignePanier($lignePanier2);
+} catch (Exception $e) {
+    echo "01 DEBUG : ".$e->getMessage();
+}
+echo "Création util, prod et ligne OK\n";
+try {
+    $produits = $dao->getProduitsUtilisateur($util->mail);
+} catch (Exception $e) {
+    echo "02 DEBUG : ".$e->getMessage();
+}
+//var_dump($dao->getProduits());
+echo "Produits Utilisateur DAO OK\n";
 
 
 echo "\n === FIN TESTS === \n\n";

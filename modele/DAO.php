@@ -56,7 +56,7 @@ class DAO {
     if($existant == FALSE) {
       $req="INSERT INTO utilisateur VALUES('$nom', '$prenom', '$mail', '$mdp')";
       $resExec=$this->db->exec($req);
-      var_dump($resExec);
+      //var_dump($resExec);
       if ($resExec === FALSE) {
         throw new Exception("ERREUR : Impossible de créer l'utilisateur\n");
       }
@@ -84,7 +84,7 @@ class DAO {
     $req="DELETE FROM utilisateur WHERE mail='$mail'";
     $resExec=$this->db->exec($req);
     if($resExec == 0)
-    echo("L'utilisateur d'adresse mail ".$mail." n'existe pas");
+    echo("L'utilisateur d'adresse mail ".$mail." n'existe pas\n");
   }
 
   function updateUtilisateur($nom, $prenom, $mail, $mdp) {
@@ -117,7 +117,7 @@ class DAO {
       if ($prix < 0)
         throw new Exception("ERREUR : le prix est invalide (négatif)\n");
       else {
-        $req="INSERT INTO produit VALUES('$intitule', '$complement', $prix, $ref, '$photo')";
+        $req="INSERT INTO produit VALUES('$intitule', '$complement', $prix, '$ref', '$photo')";
         $this->db->exec($req);
       }
     } else
@@ -161,9 +161,9 @@ class DAO {
       return($ligne->fetchAll(PDO::FETCH_CLASS, "Produit"));
   }
 
-  function getProduitsCategorie($categorie) {
+  function getProduitsCategorie($nom) {
     // Renvoie un tableau contenant les produits de la catégorie passée en paramètre
-    $req="SELECT * FROM produit WHERE categorie='$categorie'";
+    $req="SELECT * FROM produit NATURAL JOIN appartient_a WHERE nom='$nom'";
     $ligne=$this->db->query($req);
     // Attention : si une catégorie n'est associée à aucun produit, ce n'est pas parce qu'elle est fausse!
     if ($ligne==FALSE)
@@ -207,6 +207,19 @@ class DAO {
         throw new Exception("ERREUR : Produit de référence ".$ref." inexistant\n");
     }
   }
+  function getProduitRefTest($name){
+    $req= "SELECT intitule,ref FROM produit WHERE ref LIKE '$name%'";
+    $resExec=$this->db->query($req);
+    return $resExec->fetchAll();
+  }
+  function getProduitNom($name){
+    $req= "SELECT * FROM produit WHERE intitule='$name'";
+    $resExec=$this->db->query($req);
+    return $resExec->fetchAll();
+  }
+
+
+
   // ----------------------
   // fonctions CRUD classe Categorie
   // ----------------------
@@ -268,24 +281,28 @@ class DAO {
   // ----------------------
 
   function getLignePanier($date, $mail, $ref) {
+    // Renvoie une ligne de panier pour un utilisateur donnée, pour une date et un produit
     $req="SELECT * FROM ligne_PANIER WHERE date='$date' AND mail='$mail' AND ref='$ref'";
     $ligne=$this->db->query($req);
     if ($ligne == FALSE) {
-      echo('Ligne de panier inexistante\n');
+      echo("Ligne de panier inexistante\n");
       return FALSE;
     } else
         return $ligne->fetchAll(PDO::FETCH_CLASS, "LignePanier");
   }
 
   function createLignePanier($lignePanier) {
+    // Ajoute une ligne de panier à la base si elle n'existe pas
     $ligne=$this->getLignePanier($lignePanier->date, $lignePanier->mail, $lignePanier->ref);
     if ($ligne == FALSE) {
       $util=$this->getUtilisateur($lignePanier->mail);
       $prod=$this->getProduitRef($lignePanier->ref);
-      if ($util == FALSE || $prod == FALSE)
-        throw new Exception("ERREUR : produit ou utilisateur inexistant\n");
+      if ($util == FALSE)
+        throw new Exception("ERREUR : Utilisateur inexistant\n");
+      elseif ($prod == FALSE)
+        throw new Exception("ERREUR : Produit inexistant\n");
       else {
-        $req="INSERT INTO ligne_panier VALUES ('$lignePanier->date', $lignePanier->quantite, $lignePanier->valide, '$lignePanier->mail', $lignePanier->ref)";
+        $req="INSERT INTO ligne_panier VALUES ('$lignePanier->date', $lignePanier->mail, $lignePanier->ref, '$lignePanier->quantite', $lignePanier->valide)";
         $this->db->exec($req);
       }
     }
@@ -293,6 +310,30 @@ class DAO {
       throw new Exception("ERREUR : La ligne de panier existe déjà\n");
   }
 
-}
+  function deleteLignePanier($date, $mail, $ref) {
+    $req="DELETE FROM ligne_panier WHERE date='$date' AND mail='$mail' AND ref='$ref'";
+    $resExec=$this->db->exec($req);
+    if ($resExec == 0)
+      echo("Aucune ligne de panier correspondant à la date correspondant à la date, mail et référence\n");
+  }
 
+  // ----------------------
+  // fonctions CRUD classe AppartientA
+  // ----------------------
+
+  function createAppartientA($nom, $ref) {
+    $cat=$this->getCategorie($nom);
+    $prod=$this->getProduit($ref);
+    if ($cat == FALSE) {
+      throw new Exception("ERREUR : Catégorie inexistante\n");
+    } elseif ($prod == FALSE)
+        throw new Exception("ERREUR : Produit inexistant\n");
+    else {
+      $req="INSERT INTO appartient_a VALUES ($ref, '$nom')";
+      $this->db->exec($req);
+    }
+  }
+
+
+}
 ?>

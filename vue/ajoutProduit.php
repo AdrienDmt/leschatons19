@@ -4,7 +4,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Inscription</title>
+    <title>Ajouter un produit</title>
     <link rel="stylesheet" href="../vue/accueil.css">
     <link rel="stylesheet" href="../vue/connect.css">
     <link rel="stylesheet" href="../vue/inscription.css">
@@ -17,23 +17,23 @@
 			<h1><a href="../controleur/index.php?page=accueil"><img src="../data/logo-chat.png" alt="logo" id="logo"/></a> Bienvenue sur le site des chatons</h1>
 		</div>
   </header>
-<form method="post" id="formulaire" action="../controleur/inscription.php">
+<form method="post" id="formulaire" action="../controleur/ajoutProduit.php">
     <fieldset>
-      <div class="hr"><span>Inscription</span></div>
+      <div class="hr"><span>Ajouter un produit</span></div>
         <label>Nom :</label>
-        <input type="text" name="nom" id="name" required/>
+        <input type="text" name="nom" id="nom" required=""/>
         <br>
-        <label>Prenom : </label>
-        <input type="text" name="prenom" id="firstName"  required/>
+        <label>Réference : </label>
+        <input type="text" name="prenom" id="reference"  required=""/>
         <br>
-        <label>Mail : </label>
-        <input type="email" name="mail" id="mail"  required/>
+        <label>Catégorie : </label>
+        <input type="text" name="mail" id="categorie"  required=""/>
         <br>
-        <label>Mot de Passe : </label>
-        <input type="password" name="psw" id="mdp" required/>
+        <label>Photo : </label>
+        <input type="file" name="psw" id="photo" required=""/>
         <br>
-        <label>Verif. Mot de Passe : </label>
-        <input type="password" name="pswVerif" id="mdpVerif" required/>
+        <label>Information complementaire</label>
+        <textarea name="infoComplementaire" rows="2" cols="40"></textarea>
         <br>
         <input type="submit" value="Envoyer"/>
     </fieldset>
