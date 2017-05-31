@@ -52,6 +52,7 @@ function placementDiv(result){
 
     var sect= document.getElementById('emplacementProd')
     var art = document.createElement("article");
+    art.setAttribute("class", "artic");
     for($i=0;$i<result.length;$i++){
         var lien = document.createElement("a");
         lien.setAttribute("href","../controleur/index.php?page=descriptionProd&ref="+result[$i].ref);

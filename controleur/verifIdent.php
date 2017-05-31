@@ -28,7 +28,7 @@
         $dao=new DAO();
         $user = $dao->getUtilisateur($mail, $psw);
         if ($user!==FALSE) {
-
+            echo "test VerifIdent $user!==FALSE";
             if (isset($_COOKIE["connecte"])){
                 // Pourquoi ce test? RC
 
