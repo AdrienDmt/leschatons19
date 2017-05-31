@@ -21,7 +21,7 @@
 
         <fieldset>
           <div class="hr"><span>Connexion</span></div>
-            <label for="zone_id">Identifiant :</label>
+            <label for="zone_id">E-Mail :</label>
             <input type="text" name="login" id="zone_id" required=""/>
             <br>
             <label for="zone_mdp">Mot de passe : </label>

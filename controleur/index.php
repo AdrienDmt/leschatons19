@@ -101,6 +101,14 @@ if(!empty($_GET['page'])) { // si le paramètre GET 'page' est non vide, on affi
             include '../vue/administrationProduit.php';
             break;
 
+        case 'ajoutProduit':
+          include '../vue/ajoutProduit.php';
+          break;
+
+        case 'commande':
+          include '../vue/paiement.php';
+          break;
+
         case 'erreur':
             // renvoyer vers une page d'erreur
             include '../vue/erreur.php';

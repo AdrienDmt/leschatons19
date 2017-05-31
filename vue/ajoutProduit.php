@@ -30,7 +30,7 @@
         <input type="text" name="mail" id="categorie"  required=""/>
         <br>
         <label>Photo : </label>
-        <input type="text" name="psw" id="photo" required=""/>
+        <input type="file" name="psw" id="photo" required=""/>
         <br>
         <label>Information complementaire</label>
         <textarea name="infoComplementaire" rows="2" cols="40"></textarea>
