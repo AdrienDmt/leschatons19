@@ -29,10 +29,20 @@
     <section>
       <img src="../data/chaton-03.jpg" alt="img produit" />
       <div class="description">
-        <h2>Mignon 1 reference 767624</h2>
+        <?php require_once( '../modele/DAO.php');
+        require_once( '../modele/classes.php');
+        $test=new DAO();
+        $ref= $_GET['ref'];
+
+        $chat = $test->getProduitRef($ref);
+
+      ?>
+        <h2><?php echo "Felix ".$chat[0]->getRef();?></h2>
           <p>
+
             1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 <br>
-            Prix : xxx euros .... blabla
+            <?php echo $chat[0]->getComplement(); ?>
+            <?php echo $chat[0]->getPrix()." euros"; ?>
           </p>
       </div>
       <div class="achat">
