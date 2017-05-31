@@ -29,22 +29,47 @@
     <a href="../controleur/index.php?page=inscription"></a>
     <table>
       <caption>Liste utilisateurs</caption>
+      <?php require_once( '../modele/DAO.php');
+      require_once( '../modele/classes.php');
+      $dao=new DAO();
+
+      $utilisateur = $dao->getAllUtilisateurs();
+
+
+    ?>
       <tr>
+        <?php $i=0;
+          for($i; $i<(count($utilisateur)-1);$i++)
+         ?>
         <th>Nom</th>
         <th>Prenom</th>
         <th>Mail</th>
         <th>Action</th>
       </tr>
       <tr>
-        <td>Nom 1 </td>
-        <td>Prenom 1 </td>
-        <td>nom.prenom@utilisateur.fr</td>
+        <?php echo "<tr><td>".$utilisateur[$i]->getNom()."</td>
+        <td>".$utilisateur[$i]->getPrenom()."</td></td>
+        <td>".$utilisateur[$i]->getMail()."</td>
+        <td><a href=''>Supprimer</a> <a href=''>Modifier</a>"."</tr>";?>
+
+
+
+      <tr>
+        <td><?php echo $utilisateur[1]->getNom(); ?></td>
+        <td><?php echo $utilisateur[1]->getPrenom(); ?></td>
+        <td><?php echo $utilisateur[1]->getMail(); ?></td>
         <td><a href="#">Supprimer</a> <a href="#">Modifier</a></td>
       </tr>
       <tr>
-        <td>Nom 2</td>
-        <td>Prenom 2</td>
-        <td>nom.prenom@utilisateur.fr</td>
+        <td><?php echo $utilisateur[2]->getNom(); ?></td>
+        <td><?php echo $utilisateur[2]->getPrenom(); ?></td>
+        <td><?php echo $utilisateur[2]->getMail(); ?></td>
+        <td><a href="#">Supprimer</a> <a href="#">Modifier</a></td>
+      </tr>
+      <tr>
+        <td><?php echo $utilisateur[3]->getNom(); ?></td>
+        <td><?php echo $utilisateur[3]->getPrenom(); ?></td>
+        <td><?php echo $utilisateur[3]->getMail(); ?></td>
         <td><a href="#">Supprimer</a> <a href="#">Modifier</a></td>
       </tr>
     </table>

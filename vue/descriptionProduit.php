@@ -37,7 +37,7 @@
         $chat = $test->getProduitRef($ref);
 
       ?>
-        <h2><?php echo "Felix ".$chat[0]->getRef();?></h2>
+        <h2><?php echo "Felix".$chat[0]->getRef();?></h2>
           <p>
 
             1 mâle <br> Nés : 24 avril 2017 <br> Disponibles : 24 juin 2017 <br>
