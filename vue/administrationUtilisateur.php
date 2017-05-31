@@ -38,19 +38,20 @@
 
     ?>
       <tr>
-        <?php $i=0;
-          for($i; $i<(count($utilisateur)-1);$i++)
-         ?>
+
         <th>Nom</th>
         <th>Prenom</th>
         <th>Mail</th>
         <th>Action</th>
       </tr>
       <tr>
+        <?php $i=0;
+          for($i; $i<(count($utilisateur)-1);$i++){
+         ?>
         <?php echo "<tr><td>".$utilisateur[$i]->getNom()."</td>
         <td>".$utilisateur[$i]->getPrenom()."</td></td>
         <td>".$utilisateur[$i]->getMail()."</td>
-        <td><a href=''>Supprimer</a> <a href=''>Modifier</a>"."</tr>";?>
+        <td><a href=''>Supprimer</a> <a href=''>Modifier</a>"."</tr>";}?>
 
 
 
