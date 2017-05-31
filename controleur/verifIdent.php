@@ -27,7 +27,7 @@
         include '../modele/DAO.php';
         $dao=new DAO();
         $user = $dao->getUtilisateur($mail, $psw);
-        if ($user!==FALSE) {
+        if (!empty($user)) {
             var_dump($user);
             if (isset($_COOKIE["connecte"])){
                 // Pourquoi ce test? RC
