@@ -28,14 +28,6 @@
         $dao=new DAO();
         $user = $dao->getUtilisateur($mail, $psw);
         if (!empty($user)) {
-            var_dump($user);
-            if (isset($_COOKIE["connecte"])){
-                // Pourquoi ce test? RC
-
-                setcookie("connecte", $mail);
-                // setcookie("nom", $user->nom);
-                // setcookie("prenom", $user->prenom);
-            }else{
                 setcookie("connecte", $mail, time()+24*60*60);
                 // setcookie("nom", $user->nom);
                 // setcookie("prenom", $user->prenom);
@@ -48,6 +40,9 @@
             // echo"<script language=\"javascript\">";
             // echo"alert('Vous n'êtes pas inscrit ou votre mot de passe n'est pas bon!')";
             // echo"</script>";
+            setcookie("connect", '', time()-1);
+            setcookie("nom", '', time()-1);
+            setcookie("prenom", '', time()-1);
             unset($_COOKIE["connecte"]);
             unset($_COOKIE["nom"]);
             unset($_COOKIE["prenom"]);
