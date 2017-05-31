@@ -4,7 +4,7 @@
 Projet d'application web pour un site transactionnel de vente en ligne (projet tuteuré IUT)
 
 
-## Installation
+## Installation (pour les administrateurs)
 
 Cette partie s'adresse aux administrateurs Web qui souhaitent istaller le site des Chatons sur leur serveur.
 
@@ -56,26 +56,46 @@ Le ** Contrôleur ** est composé de fichiers PHP :
 + d'autres scripts PHP permettent le dynamisme du site
 
 
-## Documentation
+### Administration
+
+Les administrateurs peuvent librement adapter le site grâce aux indications présentes dans le code et grâce aux pages d'accès aux informations utiles :
+
++ L'administrateur `admin`/`admin` peut se connecter comme tout utilisateur
++ Il peut modifier les utilisateurs avec la page adéquate ou en inscrire des nouveaux (tout bêtement par la page d'inscription)
++ Il peut modifier des produits et en ajouter avec un frmulaire adapté
+
+
+### Documentation
 
 Voir le dossier Google Drive partagé pour trouver les infos d'aide pour SQLite.
 
 Contacter les auteurs pour plus de détails.
 
-## Manuel d'utilisation pour les usagers du site
+## Manuel d'utilisation (pour les usagers du site)
 
 Le site les chatons vous permet de consulter les chatons disponibles à l'achat sur notre site.
+
+Vous pouvez regarder la liste des chatons par catégories en cliquant sur une catégorie `Mignons`, `Jolis` ...
 
 Vous pouvez vous inscrire/connecter via le bouton `Mon compte`.
 
 Consultez votre panier avec le bouton `Panier`.
 
+Commandez le contenu de votre panier en cliquant sur `Commander`.
 
-## Auteurs
+Déconnectez vous en cliquant sur le bouton `Déconnexion` en haut à droite de chaque page du site quand vous êtes connecté.
+
+
+
+## Auteurs du site
 
 + Brenda Hoareau
 + Alexandre Garenza
 + Julien Viala
 + Raphaël Castanier
 
-***
+
+## Remerciements
+
+Le groupe de travail souhaite remercier les tuteurs Christophe Brouard et Jean-Pierre Chevallet.
+
