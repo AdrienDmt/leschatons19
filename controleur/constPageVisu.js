@@ -52,6 +52,7 @@ function placementDiv(result){
 
     var sect= document.getElementById('emplacementProd')
     var art = document.createElement("article");
+    art.setAttribute("class", "artic");
     for($i=0;$i<result.length;$i++){
         var lien = document.createElement("a");
         lien.setAttribute("href","../controleur/index.php?page=descriptionProd&ref="+result[$i].ref);
@@ -80,8 +81,8 @@ function placementDiv(result){
 function maj_produits(button) {
     // Que fait cette fonction?? RC
     var sect = document.getElementById('emplacementProd'); // section HTML qui contient tous les produits
-    var art = document.getElementsByTagName('article'); // articles HTML qui décrivent les produits
-    sect.removeChild(art[0]);
+    //var art = document.getElementsByTagName('article'); // articles HTML qui décrivent les produits
+    sect.removeChild(sect.firstElementChild);
     var categ = button.innerText;
     var datas = encodeURIComponent(categ);
     try{

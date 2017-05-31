@@ -26,7 +26,7 @@
 
   <section>
     <!-- <input type="button" name="name" value="Ajouter utilisateur"> -->
-    <a href="../controleur/index.php?page=inscription"></a>
+    <a href="../controleur/index.php?page=inscription">Ajouter utilisateur</a>
     <table>
       <caption>Liste utilisateurs</caption>
       <?php require_once( '../modele/DAO.php');

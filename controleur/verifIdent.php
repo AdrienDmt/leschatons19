@@ -27,38 +27,32 @@
         include '../modele/DAO.php';
         $dao=new DAO();
         $user = $dao->getUtilisateur($mail, $psw);
-        if ($user!==FALSE) {
-
-            if (isset($_COOKIE["connecte"])){
-                // Pourquoi ce test? RC
-
-                setcookie("connecte", $mail);
-                // setcookie("nom", $user->nom);
-                // setcookie("prenom", $user->prenom);
-            }else{
+        if (!empty($user)) {
                 setcookie("connecte", $mail, time()+24*60*60);
                 // setcookie("nom", $user->nom);
                 // setcookie("prenom", $user->prenom);
             }
-            //echo $_COOKIE["connecte"];
-        }else{
+            else{
             // aucun utilisateur n'est associé au mail/mot de passe passé
 
             // NE FONCTIONNE PAS
             // echo"<script language=\"javascript\">";
             // echo"alert('Vous n'êtes pas inscrit ou votre mot de passe n'est pas bon!')";
             // echo"</script>";
+            setcookie("connect", "", time()-1);
+            setcookie("nom", "", time()-1);
+            setcookie("prenom", "", time()-1);
             unset($_COOKIE["connecte"]);
             unset($_COOKIE["nom"]);
             unset($_COOKIE["prenom"]);
             $_GET['page'] = "inscription";
             include '../controleur/index.php';
-            exit;
         }
-        $_GET['page'] = "accueil";
-        include '../controleur/index.php';
     }else{
         // la connexion s'est mal passée, on retourne à l'accueil, sans indiquer qu'il y a eu une erreur
+        setcookie("connect", '', time()-1);
+        setcookie("nom", '', time()-1);
+        setcookie("prenom", '', time()-1);
         unset($_COOKIE["connecte"]);
         unset($_COOKIE["nom"]);
         unset($_COOKIE["prenom"]);
@@ -70,4 +64,5 @@
         $_GET['page'] = "connexion";
         include '../controleur/index.php';
     }
+
 ?>
